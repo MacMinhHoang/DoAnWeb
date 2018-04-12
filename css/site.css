@@ -1,0 +1,60 @@
+body {
+	font-family: "Segoe UI";
+}
+
+#header {
+	float: right;
+	background-color: #A9133D;
+	color: #E5E5E5;
+	font-size: 15px;
+	padding-right: 30px;
+	width: 100%;
+}
+
+#header .material-icons {
+	font-size: 20px;
+	vertical-align: middle;
+}
+
+#header a {
+	color: #E5E5E5;
+}
+
+#row2 .dropdown {
+	float: left;
+}
+
+#row2 .dropdown button {
+	width: 150px;
+	height: 50px;
+	border: none;
+	/*margin-right: 40px;*/
+	font-size: 20px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+ }
+
+.row .input-group {
+ 	height: 50px;
+ }
+
+ #search {
+	height: 50px;
+ }
+
+ #btnSearch {
+	height: 50px;
+ }
+
+ #right-list {
+ 	list-style: none;
+ }
+
+#right-list li {
+	float: left;
+	display: flex;
+	padding: 5px;
+}

@@ -4,10 +4,118 @@
 	<meta charset="UTF-8">
 	<title>Quản lý bán hàng</title>
 	<link rel="stylesheet" type="text/css" href="assets/bootstrap-3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/site.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+	<div class="container-fluid">
+		<nav class="navbar navbar-default">
+			<div class="row" id="header">
+			    <ul class="nav navbar-nav navbar-right">
+			    	<li>
+						<a href="#">
+							<i class="material-icons">shopping_cart</i>
+							My Bag
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<i class="material-icons">person</i>
+							Sign In / Sign Up
+						</a>
+					</li>
+			    </ul>
+		  	</div>
+		</nav>
 	
+		<div class="row" id="row2">
+			<div class="dropdown">
+			    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Type
+			    <span class="caret"></span></button>
+			    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+			    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+			    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+			    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+			    	<li role="presentation" class="divider"></li>
+			    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+			    </ul>
+		  	</div>
+		  	<div class="dropdown">
+			    <button class="btn btn-default dropdown-toggle" type="button" id="menu2" data-toggle="dropdown">Brand
+			    <span class="caret"></span></button>
+			    <ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
+			    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+			    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+			    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+			    	<li role="presentation" class="divider"></li>
+			    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+			    </ul>
+		  	</div>
+		  	<div class="input-group">
+		  		<div class="dropdown">
+				    <button class="btn btn-default dropdown-toggle" type="button" id="menu3" data-toggle="dropdown">Search by
+				    <span class="caret"></span></button>
+				    <ul class="dropdown-menu" role="menu" aria-labelledby="menu3">
+				    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Name</a></li>
+				    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Price</a></li>
+				    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Type</a></li>
+				    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Brand</a></li>
+				    </ul>
+			  	</div>
+			    	<input id="search" type="text" class="form-control" name="search" placeholder="Search by name, price, type, brand, ...">
+			    <div class="input-group-btn">
+			    	<button id="btnSearch" class="btn btn-default" type="submit">
+			        	<i class="glyphicon glyphicon-search"></i>
+			      	</button>
+			    </div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<h3><strong>Type</strong></h3>
+				<div class="checkbox">
+					<label><input type="checkbox" value="">Option 1</label>
+				</div>
+				<div class="checkbox">
+					<label><input type="checkbox" value="">Option 2</label>
+				</div>
+				<div class="checkbox">
+					<label><input type="checkbox" value="" disabled>Option 3</label>
+				</div>
+				<br><hr>
+				<h3><strong>Brand</strong></h3>
+				<div class="checkbox">
+					<label><input type="checkbox" value="">Option 1</label>
+				</div>
+				<div class="checkbox">
+					<label><input type="checkbox" value="">Option 2</label>
+				</div>
+				<div class="checkbox">
+					<label><input type="checkbox" value="" disabled>Option 3</label>
+				</div>
+			</div>
+
+			<div class="col-md-8">
+				<div class="row text-right">
+					<!-- <label>Sort:</label>   -->
+					<ul id="right-list">
+						<li>Sort:</li>
+						<li>
+							<a href="#">New</a>&nbsp;&nbsp;&nbsp;|
+						</li>
+						<li>
+							<a href="#">Best Sellers</a>&nbsp;&nbsp;&nbsp;|
+						</li>
+						<li>
+							<a href="#">Most Views</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</div>
 
 	<script src="assets/jquery-3.3.1.min.js"></script>
 	<script src="assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
