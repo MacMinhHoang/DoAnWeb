@@ -2,13 +2,22 @@ body {
 	font-family: "Segoe UI";
 }
 
+* {
+    box-sizing: border-box;
+}
+
+.container-fluid {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
 #header {
-	float: right;
 	background-color: #A9133D;
 	color: #E5E5E5;
 	font-size: 15px;
+	margin-left: 0;
+	margin-right: 0;
 	padding-right: 30px;
-	width: 100%;
 }
 
 #header .material-icons {
@@ -20,38 +29,93 @@ body {
 	color: #E5E5E5;
 }
 
-#row2 .dropdown {
-	float: left;
+#row_menu {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 0;
+	margin-right: 0;
 }
 
-#row2 .dropdown button {
-	width: 150px;
+	#row_menu div {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+#row_menu .dropdown {
+	float: left;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+#row_menu button {
 	height: 50px;
-	border: none;
-	/*margin-right: 40px;*/
 	font-size: 20px;
+    background-color: #FFFFFF;
 }
 
 .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0;
- }
+}
 
-.row .input-group {
- 	height: 50px;
- }
+#row_menu_col1 {
+	width: 50%;
+}
 
- #search {
-	height: 50px;
- }
+	#row_menu_col1 button {
+		width: 100%;
+		border: none;
+		text-align: left;
+	}
 
- #btnSearch {
-	height: 50px;
- }
+#row_menu_col2 {
+	width: 50%;
+}
 
- #right-list {
- 	list-style: none;
- }
+	#row_menu_col2 button {
+		width: 100%;
+		border: none;
+		text-align: left;
+	}
+
+#row_menu_col3 {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+	#row_menu_col3 input[type=text] {
+		float: left;
+		width: 70%;
+		height: 50px;
+		border: 1px solid grey;
+	}
+
+	#row_menu_col3 button {
+		float: left;
+		border: 1px solid grey;
+		border-radius: 0;
+		height: 50px;
+		cursor: pointer;
+	}
+
+		#row_menu_col3 button[type=button] {
+			width: 20%;
+			border-right: none;
+		}
+
+		#row_menu_col3 button[type=submit] {
+			border-left: none;
+		}
+
+	#row_menu_col3 ::after {
+	    content: "";
+	    clear: both;
+	    display: table;
+	}
+
+#right-list {
+	list-style: none;
+}
 
 #right-list li {
 	float: left;
