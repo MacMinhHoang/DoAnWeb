@@ -9,30 +9,32 @@
 	<link rel="stylesheet" type="text/css" href="material-design-icons-master/css/material-icons.css">
 </head>
 <body>
-	<div class="container-fluid">
-		<nav class="navbar navbar-default">
-			<div class="row" id="header">
-			    <ul class="nav navbar-nav navbar-right">
-			    	<li>
-						<a href="#">
-							<i class="material-icons">&#xE854;</i>
-							My Bag
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="material-icons">&#xE7FD;</i>
-							Sign In / Sign Up
-						</a>
-					</li>
-			    </ul>
-		  	</div>
-		</nav>
+	<div id="master_div">
+		<div class="row" id="div_Header">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+				    <ul class="nav navbar-nav navbar-right">
+				    	<li>
+							<a href="#">
+								<i class="material-icons">&#xE854;</i>
+								My Bag
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="material-icons">&#xE7FD;</i>
+								Sign In / Sign Up
+							</a>
+						</li>
+				    </ul>
+			  	</div>
+			</nav>
+		</div>
 	
-		<div class="row" id="row_menu" style="border: solid;">
-			<div class="row col-md-4">
+		<div class="row" id="div_SearchBy">
+			<div class="col-md-4" id="div_SearchBy_col1">
 				<!-- Menu Type -->
-				<div class="dropdown" id="row_menu_col1">
+				<div class="dropdown" id="dd1">
 				    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Type
 				    <span class="caret"></span></button>
 				    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
@@ -44,7 +46,7 @@
 				    </ul>
 			  	</div>
 			  	<!-- Menu Brand -->
-			  	<div class="dropdown" id="row_menu_col2">
+			  	<div class="dropdown" id="dd2">
 				    <button class="btn btn-default dropdown-toggle" type="button" id="menu2" data-toggle="dropdown">Brand
 				    <span class="caret"></span></button>
 				    <ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
@@ -56,30 +58,51 @@
 				    </ul>
 			  	</div>
 			</div>
-		  	<!-- Search -->
-		  	<div class="input-group col-md-8" id="row_menu_col3">
-		  		<!-- Menu Search By -->
-		  		<div class="dropdown">
-				    <button class="btn btn-default dropdown-toggle" type="button" id="menu3" data-toggle="dropdown">Search by
-				    <span class="caret"></span></button>
-				    <ul class="dropdown-menu" role="menu" aria-labelledby="menu3">
-				    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Name</a></li>
-				    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Price</a></li>
-				    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Type</a></li>
-				    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Brand</a></li>
-				    </ul>
-			  	</div>
-			  	<!-- Search Textbox -->
-			  	<input id="search" type="text" class="form-control" name="search" placeholder="Search by name, price, type, brand, ...">
-			  	<!-- Search Button -->
-		    	<button id="btnSearch" class="btn btn-default" type="submit">
-		        	<i class="material-icons">&#xE8B6;</i>
-		      	</button>
+			<!-- Search -->
+			<div class="col-md-8" id="div_SearchBy_col2">
+			  	<div class="input-group">
+			  		<!-- Menu Search By -->
+			  		<div class="dropdown">
+					    <button class="btn btn-default dropdown-toggle" type="button" id="btnDropdownSearchBy" data-toggle="dropdown">Search by
+					    <span class="caret"></span></button>
+					    <ul class="dropdown-menu" role="menu" aria-labelledby="btnDropdownSearchBy">
+					    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Name</a></li>
+					    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Price</a></li>
+					    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Type</a></li>
+					    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Brand</a></li>
+					    </ul>
+				  	</div>
+				  	<!-- Search Textbox -->
+				  	<input id="txtSearch" type="text" class="form-control" name="search" placeholder="Search by name, price, type, brand, ...">
+				  	<!-- Search Button -->
+			    	<button id="btnSearch" class="btn btn-default" type="submit">
+			        	<i class="material-icons">&#xE8B6;</i>
+			      	</button>
+				</div>
 			</div>
-			<!-- <div class="col-md-2"></div> -->
+		</div>
+		<hr>
+
+		<div class="row" id="div_Sort">
+			<div class="col-md-10">
+				<label>Sort:</label>
+			</div>
+			<div class="col-md-2">
+				<ul>
+					<li id="sortByNew">
+						<a href="#">New</a>
+					</li>
+					<li id="sortByBestSellers">
+						<a href="#">Best Sellers</a>
+					</li>
+					<li id="sortByMostViews">
+						<a href="#">Most Views</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 
-		<div class="row">
+		<div class="row" id="div_main">
 			<div class="col-md-4">
 				<h3><strong>Type</strong></h3>
 				<div class="checkbox">
@@ -104,27 +127,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-8">
-				<div class="row">
-					<div class="col-md-8" style="padding-right: 0; padding-top: 5px;">
-						<label style="float: right; text-align: right;">Sort:</label>
-					</div>
-					<div class="col-md-4" style="padding-left: 0;">
-						<ul id="right-list" style="float: left; padding-left: 0;">
-							<!-- <li>Sort:</li> -->
-							<li>
-								<a href="#">New</a>&nbsp;&nbsp;&nbsp;|
-							</li>
-							<li>
-								<a href="#">Best Sellers</a>&nbsp;&nbsp;&nbsp;|
-							</li>
-							<li>
-								<a href="#">Most Views</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			<div class="col-md-8"></div>
 		</div>
 
 	</div>
