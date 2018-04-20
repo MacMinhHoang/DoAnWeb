@@ -1,13 +1,13 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from htmlfamous.justthemevalley.com/register_page.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Apr 2018 02:30:36 GMT -->
+<!-- Mirrored from htmlfamous.justthemevalley.com/orders_list.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Apr 2018 02:30:33 GMT -->
 <head>
 <!-- Basic page needs -->
 <meta charset="utf-8">
 <!--[if IE]>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<![endif]-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <![endif]-->
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>Famous Electronics eCommerce Website Template</title>
 <meta name="Have a look at the live preview for the top notch Famous Electronics Website Template to get a better idea of what this theme is prior to buying it. Browse through the pages, examine the images, press the buttons, explore the features.">
@@ -20,14 +20,15 @@
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
 <!-- CSS Style -->
+
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="register_page">
+<body class="orders_list_page">
 
 <!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]--> 
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]--> 
 
 <div id="page"> 
   
@@ -302,7 +303,7 @@
         </div>
       </div>
     </div>
-  </nav> 
+  </nav>
   
   <!-- Breadcrumbs -->
   
@@ -312,82 +313,136 @@
         <div class="col-xs-12">
           <ul>
             <li class="home"> <a title="Go to Home Page" href="index.html">Home</a><span>&raquo;</span></li>
-            <li><strong>Register</strong></li>
+            <li><strong>Account Information</strong></li>
           </ul>
         </div>
       </div>
     </div>
   </div>
   <!-- Breadcrumbs End --> 
-  
   <!-- Main Container -->
-  <section class="main-container col1-layout">
+  <section class="main-container col2-right-layout">
     <div class="main container">
-      <div class="page-content">
-        <div class="account-login">
-          <div class="col-md-3 col-sm-2"></div>
-          <div class="col-md-6 col-sm-8">
+      <div class="row">
+        <div class="col-main col-sm-9 col-xs-12">
+          <div class="my-account">
+            <div id="myMessage" style="display: none;" class="alert alert-success"></div>
+            <div class="page-title">
+              <h2>Account Information</h2>
+            </div>
+            <br><br>
             <div class="single-input p-bottom50 clearfix">
               <form action="" method="post">
                 <div class="row">
-                  <div class="col-xs-12">
-                    <div class="check-title">
-                      <h4>New Customer</h4>
-                    </div>
+                  <div class="col-sm-2">
+                    <label for="name">First Name:</label>
                   </div>
                   <div class="col-sm-6">
-                    <label>First Name:</label>
                     <div class="input-text">
-                      <input type="text" name="name" class="form-control">
+                      <input type="text" name="name" class="form-control" value="John Cena">
                     </div>
+                  </div>
+                </div>
+                <br><br>
+                <div class="row">
+                  <div class="col-sm-2">
+                    <label for="gender">Gender:</label>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="input-text">
+                      <input type="radio" name="gender" value="male" checked> Male<br>
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="input-text">
+                      <input type="radio" name="gender" value="female"> Female<br>
+                    </div>
+                  </div>
+                </div>
+                <br><br>    
+                <div class="row">
+                  <div class="col-sm-2">
+                    <label>Birthday:</label>
+                  </div>
+                  <div class="col-sm-3">
+                    <select id="days"></select>
+                  </div>
+                  <div class="col-sm-3">
+                    <select id="months"></select>
+                  </div>
+                  <div class="col-sm-4">
+                    <select id="years"></select>
+                  </div>
+                </div>
+                <br><br>    
+                <div class="row">
+                  <div class="col-sm-2">
+                    <label for="phone">Phone Number:</label>
                   </div>
                   <div class="col-sm-6">
-                    <label>Last Name:</label>
                     <div class="input-text">
-                      <input type="text" name="name" class="form-control">
+                      <input type="tel" name="phone" class="form-control" value="0123456789">
                     </div>
                   </div>
-                  <div class="col-xs-12">
-                    <label>Address:</label>
-                    <div class="input-text">
-                      <input type="text" name="address" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-xs-12">
-                    <label>City/Town:</label>
-                    <div class="input-text">
-                      <input type="text" name="city" class="form-control">
-                    </div>
+                </div>
+                <br><br>  
+                <div class="row">
+                  <div class="col-sm-2">
+                    <label for="email">Email:</label>
                   </div>
                   <div class="col-sm-6">
-                    <label>Email:</label>
                     <div class="input-text">
-                      <input type="text" name="email" class="form-control">
+                      <input type="email" name="email" disabled class="form-control" value="cena4ever@yahoo.com">
                     </div>
+                  </div>
+                </div>
+                <br><br>  
+                <div class="row">
+                  <div class="col-sm-2">
+                    <label for="address">Address:</label>
                   </div>
                   <div class="col-sm-6">
-                    <label>Phone:</label>
                     <div class="input-text">
-                      <input type="text" name="phone" class="form-control">
+                      <input type="text" name="address" class="form-control" value="wwe.com">
                     </div>
                   </div>
-                  <div class="col-xs-12">
-                    <div class="billing-checkbox">
-                      <input type="checkbox" value="forever" id="rememberme" name="rememberme">
-                      Sign up for our newsletter! </div>
-                    <div class="submit-text">
-                      <button class="button"><i class="fa fa-user"></i>&nbsp; <span>Register</span></button>
-                    </div>
+                </div>
+                <br><br>
+                <div class="row">
+                  <div class="col-sm-2"></div>
+                  <div class="col-sm-4">
+                    <button id="btnUpdate" type="button" class="btn btn-success">Update</button>
                   </div>
                 </div>
               </form>
             </div>
           </div>
         </div>
+        <aside class="right sidebar col-sm-3 col-xs-12">
+          <div class="sidebar-account block">
+            <div class="sidebar-bar-title">
+              <h3>My Account</h3>
+            </div>
+            <div class="block-content">
+              <ul>
+                <li><a>Account Dashboard</a></li>
+                <li class="current"><a href="#">Account Information</a></li>
+                <li><a href="#">Address Book</a></li>
+                <li><a href="#">My Orders</a></li>
+                <li><a href="#">Billing Agreements</a></li>
+                <li><a href="#">Recurring Profiles</a></li>
+                <li><a href="#">My Product Reviews</a></li>
+                <li><a href="#">My Tags</a></li>
+                <li><a href="#">My Wishlist</a></li>
+                <li><a href="#">My Downloadable</a></li>
+                <li class="last"><a href="#">Newsletter Subscriptions</a></li>
+              </ul>
+            </div>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
-  <!-- Main Container End --> 
   <!-- service section -->
   <div class="jtv-service-area">
     <div class="container">
@@ -538,7 +593,7 @@
       </div>
     </div>
   </footer>
-  <a href="#" class="totop"> </a> </div>
+  <a href="#" id="back-to-top" title="Back to top"><i class="fa fa-angle-up"></i></a> </div>
 
 <!-- End Footer --> 
 <!-- JS --> 
@@ -563,7 +618,53 @@
 
 <!-- main js --> 
 <script type="text/javascript" src="js/main.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+
+    //populate our years select box
+    for (i = new Date().getFullYear(); i > 1900; i--){
+        $('#years').append($('<option />').val(i).html(i));
+    }
+    //populate our months select box
+    for (i = 1; i < 13; i++){
+        $('#months').append($('<option />').val(i).html(i));
+    }
+    //populate our Days select box
+    updateNumberOfDays(); 
+
+    //"listen" for change events
+    $('#years, #months').change(function(){
+        updateNumberOfDays(); 
+    });
+
+});
+
+//function to update the days based on the current values of month and year
+function updateNumberOfDays(){
+    $('#days').html('');
+    month = $('#months').val();
+    year = $('#years').val();
+    days = daysInMonth(month, year);
+
+    for(i=1; i < days+1 ; i++){
+            $('#days').append($('<option />').val(i).html(i));
+    }
+}
+
+//helper function
+function daysInMonth(month, year) {
+    return new Date(year, month, 0).getDate();
+}
+
+//button Update click function
+$('#btnUpdate').on('click', function() {
+  $('#myMessage').show();
+  $('#myMessage').empty();
+  $('#myMessage').append('Update Successfully');
+});
+</script>
 </body>
 
-<!-- Mirrored from htmlfamous.justthemevalley.com/register_page.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Apr 2018 02:30:36 GMT -->
+<!-- Mirrored from htmlfamous.justthemevalley.com/orders_list.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Apr 2018 02:30:33 GMT -->
 </html>
