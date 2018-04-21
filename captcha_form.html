@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from htmlfamous.justthemevalley.com/account_page.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Apr 2018 02:30:36 GMT -->
+<!-- Mirrored from htmlfamous.justthemevalley.com/quick_view.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Apr 2018 02:30:34 GMT -->
 <head>
 <!-- Basic page needs -->
 <meta charset="utf-8">
 <!--[if IE]>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <![endif]-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <![endif]-->
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>Famous Electronics eCommerce Website Template</title>
 <meta name="Have a look at the live preview for the top notch Famous Electronics Website Template to get a better idea of what this theme is prior to buying it. Browse through the pages, examine the images, press the buttons, explore the features.">
@@ -20,15 +20,16 @@
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
 <!-- CSS Style -->
-
 <link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="MotionCAPTCHA/jquery.motionCaptcha.0.2.css"/>
 </head>
 
-<body class="myaccount_page">
+<body class="cms-index-index">
+
 <!--[if lt IE 8]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]--> 
-
+  <![endif]-->
 
 <div id="page"> 
   <!-- Header -->
@@ -346,7 +347,7 @@
             <label for="password_register">Password<span class="required">*</span></label>
             <input id="password_register" type="password" class="form-control">
             <br><br>
-            <button class="button" id="btnRegister"><i class="icon-user icons"></i>&nbsp; <span>Register</span></button>
+            <button class="button" ><a href="captcha_form.html"><i class="icon-user icons"></i>&nbsp; <span>Register</span></a></button>
           </div>
         </div>
       </div>
@@ -507,6 +508,30 @@
 <!-- End Footer -->
 </div>
 
+<div id="quick_view_popup-overlay"></div>
+<div style="display: block;" id="quick_view_popup-wrap">
+  <div id="quick_view_popup-outer">
+    <div id="quick_view_popup-content">
+      <div style="width:auto;height:auto;overflow: auto;position:relative;">
+        <div class="product-view-area">
+          <form action="#" method="post" id="mc-form">
+            <div id="mc">
+              <p style="text-align: center;">Please draw the shape in the box to submit the form: (<a onClick="window.location.reload()" href="#" title="Click for a new shape">new shape</a>)</p>
+              <canvas id="mc-canvas">
+                Your browser doesn't support the canvas element - please visit in a modern browser.
+              </canvas>
+              <input type="hidden" id="mc-action" value="account_info.html" />
+            </div>
+            <p style="text-align: center;"><button class="button" id="btnSubmitCaptcha">Submit</button></p>
+          </form>
+        </div>
+        <!--product-view--> 
+        
+      </div>
+    </div>
+    <a style="display: inline;" id="quick_view_popup-close" href="account_page.html"><i class="icon pe-7s-close"></i></a> </div>
+</div>
+<!-- JS --> 
 
 <!-- JS --> 
 
@@ -515,12 +540,11 @@
 
 <!-- bootstrap js --> 
 <script type="text/javascript" src="js/bootstrap.min.js"></script> 
-
+<!-- Slider Js --> 
+<script type="text/javascript" src="js/revolution-slider.js"></script> 
+<script type="text/javascript" src="js/revolution-extension.js"></script> 
 <!-- owl.carousel.min js --> 
 <script type="text/javascript" src="js/owl.carousel.min.js"></script> 
-
-<!-- bxslider js --> 
-<script type="text/javascript" src="js/jquery.bxslider.js"></script> 
 
 <!-- jquery.mobile-menu js --> 
 <script type="text/javascript" src="js/mobile-menu.js"></script> 
@@ -529,18 +553,110 @@
 <script type="text/javascript" src="js/jquery-ui.js"></script> 
 
 <!-- main js --> 
-<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/main.js"></script> 
 
-<!-- Open Captcha -->
+<!-- countdown js --> 
+<script type="text/javascript" src="js/countdown.js"></script> 
+<!-- jquery.flexslider js --> 
+<script type="text/javascript" src="js/jquery.flexslider.js"></script> 
+<!-- Slider Js --> 
+<script type="text/javascript" src="js/revolution-slider.js"></script> 
+<script type='text/javascript'>
+        jQuery(document).ready(function(){
+            jQuery('#rev_slider_4').show().revolution({
+                dottedOverlay: 'none',
+                delay: 5000,
+                startwidth: 865,
+	            startheight: 450,
+
+                hideThumbs: 200,
+                thumbWidth: 200,
+                thumbHeight: 50,
+                thumbAmount: 2,
+
+                navigationType: 'thumb',
+                navigationArrows: 'solo',
+                navigationStyle: 'round',
+
+                touchenabled: 'on',
+                onHoverStop: 'on',
+                
+                swipe_velocity: 0.7,
+                swipe_min_touches: 1,
+                swipe_max_touches: 1,
+                drag_block_vertical: false,
+            
+                spinner: 'spinner0',
+                keyboardNavigation: 'off',
+
+                navigationHAlign: 'center',
+                navigationVAlign: 'bottom',
+                navigationHOffset: 0,
+                navigationVOffset: 20,
+
+                soloArrowLeftHalign: 'left',
+                soloArrowLeftValign: 'center',
+                soloArrowLeftHOffset: 20,
+                soloArrowLeftVOffset: 0,
+
+                soloArrowRightHalign: 'right',
+                soloArrowRightValign: 'center',
+                soloArrowRightHOffset: 20,
+                soloArrowRightVOffset: 0,
+
+                shadow: 0,
+                fullWidth: 'on',
+                fullScreen: 'off',
+
+                stopLoop: 'off',
+                stopAfterLoops: -1,
+                stopAtSlide: -1,
+
+                shuffle: 'off',
+
+                autoHeight: 'off',
+                forceFullWidth: 'on',
+                fullScreenAlignForce: 'off',
+                minFullScreenHeight: 0,
+                hideNavDelayOnMobile: 1500,
+            
+                hideThumbsOnMobile: 'off',
+                hideBulletsOnMobile: 'off',
+                hideArrowsOnMobile: 'off',
+                hideThumbsUnderResolution: 0,
+					
+
+                hideSliderAtLimit: 0,
+                hideCaptionAtLimit: 0,
+                hideAllCaptionAtLilmit: 0,
+                startWithSlide: 0,
+                fullScreenOffsetContainer: ''
+            });
+        });
+        </script>
+<!--cloud-zoom js --> 
+<script type="text/javascript" src="js/cloud-zoom.js"></script>
+
+<!-- MotionCAPTCHA: -->
+<script src="MotionCAPTCHA/jquery.motionCaptcha.0.2.js" type="text/javascript"></script>
 <script type="text/javascript">
   jQuery(document).ready(function($) {
-    $('#btnRegister').click(function(){
-      document.location.href='captcha_form.html';
+    
+    // Do the biznizz:
+    $('#mc-form').motionCaptcha({
+      shapes: ['triangle', 'x', 'rectangle', 'circle', 'check', 'zigzag', 'arrow', 'delete', 'pigtail', 'star']
     });
+    
+    // Yep:
+    $("input.placeholder").placeholder();
+
+    // $('#btnSubmitCaptcha').click(function(){
+    //   alert('Congratulation! Your account was created successfully.');
+    //   // document.location.href='account_info.html';
+    // });
   });
 </script>
-
 </body>
 
-<!-- Mirrored from htmlfamous.justthemevalley.com/account_page.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Apr 2018 02:30:36 GMT -->
+<!-- Mirrored from htmlfamous.justthemevalley.com/quick_view.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Apr 2018 02:30:34 GMT -->
 </html>
