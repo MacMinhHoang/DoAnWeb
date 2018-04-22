@@ -335,54 +335,67 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td class="cart_product"><a href="#"><img src="images/products/product-1.jpg" alt="Product"></a></td>
-                      <td class="cart_description"><p class="product-name"><a href="#">Ipsums Dolors Untra </a></p>
-                        <small><a href="#">Color : Red</a></small>
-                        <small><a href="#">Size : M</a></small></td>
+                    <tr id="row-1">
+                      <td class="cart_product">
+                        <a href="#"><img src="images/products/Nikon/NIKON_COOLPIX-B700.jpg" alt="Product"></a>
+                      </td>
+                      <td class="cart_description">
+                        <p class="product-name"><a href="single_product.html">NIKON COOLPIX B700 </a></p>
+                      </td>
                       <td class="availability in-stock"><span class="label">In stock</span></td>
-                      <td class="price"><span>$49.88</span></td>
-                      <td class="qty"><input class="form-control input-sm" type="text" value="1"></td>
-                      <td class="price"><span>$49.88</span></td>
-                      <td class="action"><a href="#"><i class="icon-close"></i></a></td>
+                      <td class="price"><span>8,490,000 VND</span></td>
+                      <td class="qty">
+                        <input class="form-control input-sm" type="number" id="quantity-1" min="1" max="10" value="1">
+                      </td>
+                      <td class="price" id="total-1"><span>8,490,000 VND</span></td>
+                      <td class="action" id="del-1"><i class="icon-close"></i></td>
                     </tr>
-                    <tr>
-                      <td class="cart_product"><a href="#"><img src="images/products/product-2.jpg" alt="Product"></a></td>
-                      <td class="cart_description"><p class="product-name"><a href="#">Ipsums Dolors Untra </a></p>
-                        <small><a href="#">Color : Green</a></small>
-                        <small><a href="#">Size : XL</a></small></td>
+                    <tr id="row-2">
+                      <td class="cart_product">
+                        <a href="#"><img src="images/products/Sony/SONY_ALPHA-A6000.jpg" alt="Product"></a>
+                      </td>
+                      <td class="cart_description">
+                        <p class="product-name"><a href="single_product.html">SONY ALPHA A6000 </a></p>
+                      </td>
                       <td class="availability out-of-stock"><span class="label">No stock</span></td>
-                      <td class="price"><span>$00.00</span></td>
-                      <td class="qty"><input class="form-control input-sm" type="text" value="0"></td>
-                      <td class="price"><span>00.00</span></td>
-                      <td class="action"><a href="#"><i class="icon-close"></i></a></td>
+                      <td class="price"><span>13,490,000 VND</span></td>
+                      <td class="qty"><input class="form-control input-sm" type="number" value="0" disabled></td>
+                      <td class="price"><span>0 VND</span></td>
+                      <td class="action" id="del-2"><i class="icon-close"></i></td>
                     </tr>
-                    <tr>
-                      <td class="cart_product"><a href="#"><img src="images/products/product-3.jpg" alt="Product"></a></td>
-                      <td class="cart_description"><p class="product-name"><a href="#">Ipsums Dolors Untra </a></p>
-                        <small><a href="#">Color : Blue</a></small>
-                        <small><a href="#">Size : S</a></small></td>
+                    <tr id="row-3">
+                      <td class="cart_product">
+                        <a href="#"><img src="images/products/Canon/canon-1.jpg"></a>
+                      </td>
+                      <td class="cart_description">
+                        <p class="product-name"><a href="single_product.html">CANON POWERSHOT SX430 IS </a></p>
+                      </td>
                       <td class="availability in-stock"><span class="label">In stock</span></td>
-                      <td class="price"><span>$99.00</span></td>
-                      <td class="qty"><input class="form-control input-sm" type="text" value="2"></td>
-                      <td class="price"><span>$188.00</span></td>
-                      <td class="action"><a href="#"><i class="icon-close"></i></a></td>
+                      <td class="price"><span>5,350,000 VND</span></td>
+                      <td class="qty">
+                        <input class="form-control input-sm" type="number" id="quantity-3" min="1" max="10" value="1">
+                      </td>
+                      <td class="price" id="total-3"><span>5,350,000 VND</span></td>
+                      <td class="action" id="del-3"><i class="icon-close"></i></td>
                     </tr>
                   </tbody>
                   <tfoot>
                     <tr>
                       <td colspan="2" rowspan="2"></td>
                       <td colspan="3">Total products (tax incl.)</td>
-                      <td colspan="2">$237.88 </td>
+                      <td colspan="2" id="total-4">13,840,000 VND </td>
                     </tr>
                     <tr>
                       <td colspan="3"><strong>Total</strong></td>
-                      <td colspan="2"><strong>$237.88 </strong></td>
+                      <td colspan="2" id="total-5"><strong>13,840,000 VND </strong></td>
                     </tr>
                   </tfoot>
                 </table>
               </div>
-              <div class="cart_navigation"> <a class="continue-btn" href="#"><i class="fa fa-arrow-left"> </i>&nbsp; Continue shopping</a> <a class="checkout-btn" href="#"><i class="fa fa-check"></i> Proceed to checkout</a> </div>
+              <div class="cart_navigation"> 
+                <a class="continue-btn" href="index.html"><i class="fa fa-arrow-left"> </i>&nbsp; Continue shopping</a> 
+                <a class="checkout-btn" href="checkout.html"><i class="fa fa-check"></i> Proceed to checkout</a> 
+              </div>
             </div>
           </div>
         </div>
@@ -570,7 +583,58 @@
 <!-- main js --> 
 <script type="text/javascript" src="js/main.js"></script> 
 
- 
+
+<script type="text/javascript">
+
+  var qunt1 = $('#quantity-1').val();
+  var qunt3 = $('#quantity-3').val();
+
+  function addCommas(x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+  }
+
+  function updatePrices(num1, num3){
+    var price1 = num1 * 8490;
+    var price3 = num3 * 5350;
+    $('#total-1').empty();
+    $('#total-1').append('<span>' + addCommas(price1) + ',000 VND</span>');
+    $('#total-3').empty();
+    $('#total-3').append('<span>' + addCommas(price3) + ',000 VND</span>');
+    $('#total-4').empty();
+    $('#total-4').append('<span>' + addCommas(price1 + price3) + ',000 VND</span>');
+    $('#total-5').empty();
+    $('#total-5').append('<span><strong>' + addCommas(price1 + price3) + ',000 VND</strong></span>');
+  }
+
+  $('#quantity-1').on('input', function(event) {
+    qunt1 = $('#quantity-1').val();
+    updatePrices(qunt1, qunt3);
+  });
+
+  $('#quantity-3').on('input', function(event) {
+    qunt3 = $('#quantity-3').val();
+    updatePrices(qunt1, qunt3);
+  });
+
+  $('#del-1').click(function(event) {
+    $('#row-1').remove();
+    qunt1 = 0;
+    updatePrices(qunt1, qunt3);
+  });
+
+  $('#del-2').click(function(event) {
+    $('#row-2').remove();
+  });
+
+  $('#del-3').click(function(event) {
+    $('#row-3').remove();
+    qunt3 = 0;
+    updatePrices(qunt1, qunt3);
+  });
+
+</script> 
 </body>
 
 <!-- Mirrored from htmlfamous.justthemevalley.com/shopping_cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Apr 2018 02:30:28 GMT -->
