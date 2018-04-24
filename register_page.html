@@ -325,8 +325,6 @@
     <div class="main container">
       <div class="page-content">
         <div class="account-login">
-          <div class="col-md-3 col-sm-2"></div>
-          <div class="col-md-6 col-sm-8">
             <div class="single-input p-bottom50 clearfix">
               <form action="" method="post">
                 <div class="row">
@@ -335,54 +333,77 @@
                       <h4>New Customer</h4>
                     </div>
                   </div>
-                  <div class="col-sm-6">
-                    <label>First Name:</label>
-                    <div class="input-text">
-                      <input type="text" name="name" class="form-control">
+                  <div class="col-md-6 col-sm-8">
+                    <div class="col-xs-12">
+                      <label>First Name:</label>
+                      <div class="input-text">
+                        <input type="text" name="name" class="form-control">
+                        <br>
+                      </div>
+                    </div>
+                    <div class="col-xs-12">
+                      <label>Last Name:</label>
+                      <div class="input-text">
+                        <input type="text" name="name" class="form-control">
+                        <br>
+                      </div>
+                    </div>
+                    <div class="col-xs-12">
+                      <label>Address:</label>
+                      <div class="input-text">
+                        <input type="text" name="address" class="form-control">
+                        <br>
+                      </div>
+                    </div>
+                    <div class="col-xs-12">
+                      <label>City/Town:</label>
+                      <div class="input-text">
+                        <input type="text" name="city" class="form-control">
+                        <br>
+                      </div>
+                    </div>
+                    <div class="col-xs-12">
+                      <div class="billing-checkbox">
+                        <input type="checkbox" value="forever" id="rememberme" name="rememberme">
+                        Sign up for our newsletter! </div>
+                        <br>
+                      <div class="submit-text">
+                        <button class="button" type="button" id="btnRegister"><i class="fa fa-user"></i>&nbsp; <span>Register</span></button>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-sm-6">
-                    <label>Last Name:</label>
-                    <div class="input-text">
-                      <input type="text" name="name" class="form-control">
+                  <div class="col-md-6 col-sm-8">
+                    <div class="col-xs-12">
+                      <label>Email:</label>
+                      <div class="input-text">
+                        <input type="text" name="email" class="form-control">
+                        <br>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-xs-12">
-                    <label>Address:</label>
-                    <div class="input-text">
-                      <input type="text" name="address" class="form-control">
+                    <div class="col-xs-12">
+                      <label>Phone:</label>
+                      <div class="input-text">
+                        <input type="text" name="phone" class="form-control">
+                        <br>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-xs-12">
-                    <label>City/Town:</label>
-                    <div class="input-text">
-                      <input type="text" name="city" class="form-control">
+                    <div class="col-xs-12">
+                      <label for="username">username<span class="required">*</span></label>
+                      <div class="input-text">
+                        <input type="text" name="username" class="form-control">
+                      <br>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <label>Email:</label>
-                    <div class="input-text">
-                      <input type="text" name="email" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <label>Phone:</label>
-                    <div class="input-text">
-                      <input type="text" name="phone" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-xs-12">
-                    <div class="billing-checkbox">
-                      <input type="checkbox" value="forever" id="rememberme" name="rememberme">
-                      Sign up for our newsletter! </div>
-                    <div class="submit-text">
-                      <button class="button"><i class="fa fa-user"></i>&nbsp; <span>Register</span></button>
+                    <div class="col-xs-12">
+                      <label for="password_login">Password<span class="required">*</span></label>
+                      <div class="input-text">
+                        <input type="password" name="password" class="form-control">
+                      </div>
                     </div>
                   </div>
                 </div>
               </form>
-            </div>
-          </div>
+          </div> 
         </div>
       </div>
     </div>
@@ -563,6 +584,16 @@
 
 <!-- main js --> 
 <script type="text/javascript" src="js/main.js"></script>
+
+<!-- Open Captcha -->
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+    $('#btnRegister').click(function(){
+      document.location.href='captcha_form.html';
+    });
+  });
+</script>
+
 </body>
 
 <!-- Mirrored from htmlfamous.justthemevalley.com/register_page.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Apr 2018 02:30:36 GMT -->
