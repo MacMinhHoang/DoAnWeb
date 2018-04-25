@@ -1,0 +1,1357 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from admin-clip.niagawebster.com/css-color.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Apr 2018 03:28:41 GMT -->
+<head>
+
+
+<!-- 
+
+ * Bootstrap v1.0.0 (https://niagawebster*com)
+ * Copyright 2018 The Indra Rani Dwi Putra Authors
+ * Copyright 2018 Niagawebster, Inc.
+
+ --> 
+
+
+<!-- ============================================================== -->
+<!-- Meta & TItle -->
+<!-- ============================================================== -->
+
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+	<title>Admin-Clip - Bootstrap Navbar & Component Materials </title>
+
+
+
+<!-- ============================================================== -->
+<!-- Close Meta -->
+<!-- ============================================================== -->
+
+	
+
+<!-- ============================================================== -->
+<!-- Style -->
+<!-- ============================================================== -->
+	
+	<link href="assets/paper-dashboard.css" rel="stylesheet"/>
+	<link href="style/icons.css" rel="stylesheet">
+	<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="bootstrap/dist/jquery/jquery.min.js"></script>
+	<link rel="stylesheet" href="bootstrap/highlight/styles/default.css">
+	<script src="bootstrap/highlight/highlight.pack.js"></script>
+	<link href="style/style.css" rel="stylesheet">
+	
+
+<!-- ============================================================== -->
+<!-- Close Style-->
+<!-- ============================================================== -->
+
+	
+</head>
+
+
+
+
+<body class="fix-header">
+
+
+<!-- ============================================================== -->
+<!-- Preloader -->
+<!-- ============================================================== -->
+
+
+	<div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+        </svg>
+		
+		<div class="wave"></div>
+		<div class="wave"></div>
+		<div class="wave"></div>
+		
+		<div class="wave"></div>
+		<div class="wave"></div>
+		<div class="wave"></div>
+	</div>
+
+
+<!-- ============================================================== -->
+<!-- Close Preloader -->
+<!-- ============================================================== -->
+
+
+<!-- ============================================================== -->
+<!-- Top Bar-->
+<!-- ============================================================== -->
+
+
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<a class="navbar-brand">
+<b>
+<img src="images/admin-logo.png" alt="home" class="dark-logo" />
+</b>
+<span class="hidden-xs">
+<img src="images/admin-text.png" alt="home" class="dark-logo" />
+</span> 
+</a>
+
+<ul class="nav navbar-top-links navbar-left">
+<li><a href="javascript:void(0)" class="open-close waves-effect waves-light"><i class="mdi mdi-menu"></i></a></li>
+</ul>
+
+<div class="collapse navbar-collapse" id="navbarsExample02">
+<ul class="navbar-nav mr-auto">
+  
+	<li class="nav-item dropdown">
+	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Menu 
+	</a>
+	<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	
+	
+	
+	<a class="dropdown-item" href="#"> Sub Menu </a>
+	<a class="dropdown-item" href="#"> Sub Menu </a>
+	<a class="dropdown-item" href="#"> Sub Menu </a>
+	
+	</div>
+	</li>
+	 
+	
+</ul>
+<ul class="form-inline my-2 my-md-0">
+	<li class="dropdown ">
+		<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="images/users/7.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Steave</b><span class="caret"></span> </a>
+		<ul class="dropdown-menu dropdown-user animated flipInY">
+			<li>
+				<div class="dw-user-box">
+					<div class="u-img"><img src="images/users/7.jpg" alt="user" /></div>
+					<div class="u-text"><h4>Steave Jobs</h4><p class="text-muted">Example@gmail*com</p><a href="pages-profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+				</div>
+			</li>
+			<li role="separator" class="divider"></li>
+			<li><a href="#"><i class="ti-user"></i> My Profile</a></li>
+			<li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
+			<li><a href="#"><i class="ti-email"></i> Inbox</a></li>
+			<li role="separator" class="divider"></li>
+			<li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
+			<li role="separator" class="divider"></li>
+			<li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+		</ul>
+		<!-- /.dropdown-user -->
+	</li>
+</ul>
+
+</div> 
+</nav>
+
+
+
+<!-- ============================================================== -->
+<!-- Close Topbar -->
+<!-- ============================================================== -->
+
+
+<div id="wrapper">
+
+<!-- ============================================================== -->
+<!-- Left Sidebar -->
+<!-- ============================================================== -->
+
+
+<div class="navbar-default sidebar" role="navigation">
+<div class="sidebar-nav slimscrollsidebar">
+	<div class="sidebar-head">
+		<h3><span class="fa-fw open-close"><i class="mdi mdi-arrow-left"></i></span> <span class="hide-menu"> Navigation</span></h3> </div>
+		<div class="user-profile">
+			<div class="dropdown user-pro-body">
+			  <div><img src="images/users/7.jpg" alt="user-img" class="img-circle"></div>
+			  
+			  <a  class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Indra Rani<span class="caret"></span></a>
+				  <ul class="dropdown-menu animated flipInY">
+					<li><a ><i class="ti-user"></i> My Profile</a></li>
+					<li><a ><i class="ti-wallet"></i> My Balance</a></li>
+					<li><a ><i class="ti-email"></i> Inbox</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a ><i class="ti-settings"></i> Account Setting</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a><i class="fa fa-power-off"></i> Logout</a></li>
+				  </ul>
+			</div>
+		</div>
+		
+		
+		
+	<ul class="nav" id="side-menu">
+
+	
+					 
+		 
+	 <li>
+	  <a class="waves-effect " href="javascript:void(0)">
+		<i class="nc-icon nc-dashboard-level fa-fw red-text" data-icon="v"></i> 
+		<span class="hide-menu"> Dashboard <span class="mdi mdi-menu-down pull-right"></span></span>
+	   </a>
+	  <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+		  <li>
+			<a href="home1.html">
+			  <i class="fa-fw"> D1 </i><span class="hide-menu"> Dashboard-1</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="home2.html">
+			  <i class="fa-fw"> D2 </i><span class="hide-menu"> Dashboard-2</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="home3.html">
+			  <i class="fa-fw"> D2 </i><span class="hide-menu"> Dashboard-3</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="home4.html">
+			  <i class="fa-fw"> D2 </i><span class="hide-menu"> Dashboard-4</span>
+			</a>
+		  </li>
+		  
+		</ul>
+	  
+	</li>
+	
+<!-- ================================================================  --> 
+	
+	
+
+	<li>
+	  <a class="waves-effect" href="cards.html">
+		<i class="nc-icon nc-widget fa-fw purple-text" data-icon="v"></i> 
+		<span class="hide-menu">Full Cards</span>
+	   </a>
+	</li>
+
+	
+	 
+<!-- ================================================================  --> 
+	
+	
+	
+
+
+	<li>
+	  <a class="waves-effect" href="javascript:void(0)">
+	  <i class="nc-icon nc-cloud-26 fa-fw orange-text" data-icon="v"></i> 
+	  <span class="hide-menu"> Basic UI<span class="mdi mdi-menu-down pull-right"></span></span>
+	   </a>
+	  <ul class="nav nav-second-level">
+		 
+		  <li>
+			<a href="ui-button.html">
+			  <i class="fa-fw"> Bu </i><span class="hide-menu"> Button</span>
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="ui-alerts.html">
+			  <i class="fa-fw"> Al </i><span class="hide-menu"> Alerts</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="ui-badges.html">
+			  <i class="fa-fw"> Ba </i><span class="hide-menu"> Badges</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="ui-breadcrumbs.html">
+			  <i class="fa-fw"> Br </i><span class="hide-menu"> Breadcrumbs</span>
+			</a>
+		  </li> 
+		  <li>
+			<a href="ui-collections.html">
+			  <i class="fa-fw"> Co </i><span class="hide-menu"> Collections</span>
+			</a>
+		  </li> 
+		  <li>
+			<a href="ui-pagination.html">
+			  <i class="fa-fw"> Pa </i><span class="hide-menu"> Pagination</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="ui-preloader.html">
+			  <i class="fa-fw"> Pr </i><span class="hide-menu"> Preloader</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="ui-panel.html">
+			  <i class="fa-fw"> Pr </i><span class="hide-menu"> Panel</span>
+			</a>
+		  </li>
+		</ul>
+	  
+	</li>
+	
+	
+	<!-- ================================================================  --> 
+	
+	
+	
+	
+	
+	<li>
+	  <a class="waves-effect" href="javascript:void(0)">
+		<i class="nc-icon nc-email-84 fa-fw blue-text" data-icon="v"></i> 
+		<span class="hide-menu"> Email-Templates <span class="mdi mdi-menu-down pull-right"></span></span>
+	   </a>
+	  <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+		  <li>
+			<a href="email-basic.html">
+			  <i class="fa-fw"> Bc </i><span class="hide-menu"> Basic</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="email-alert.html">
+			  <i class="fa-fw"> At </i><span class="hide-menu"> Alert</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="email-billing.html">
+			  <i class="fa-fw"> Bg </i><span class="hide-menu"> Billing</span>
+			</a>
+		  </li> 
+		  <li>
+			<a href="email-reset.html">
+			  <i class="fa-fw"> Rp </i><span class="hide-menu"> Reset Password</span>
+			</a>
+		  </li>
+		</ul>
+	</li>	
+
+<!-- ================================================================  --> 
+
+	<li>
+	  <a class="waves-effect" href="javascript:void(0)">
+		<i class="nc-icon nc-diamond fa-fw purple-text" data-icon="v"></i> 
+		<span class="hide-menu"> Foundation <span class="mdi mdi-menu-down pull-right"></span></span>
+	   </a>
+	  <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+		  <li>
+			<a href="component-carousel.html">
+			  <i class="fa-fw"> Ca </i><span class="hide-menu"> Carousel</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="component-collapsibles.html">
+			  <i class="fa-fw"> Co </i><span class="hide-menu"> Collapsible</span>
+			</a>
+		  </li> 
+		  <li>
+			<a href="component-contact.html">
+			  <i class="fa-fw"> C1 </i><span class="hide-menu"> Contact V1</span>
+			</a>
+			</li>
+		  <li> 
+			<a href="component-contact2.html">
+			  <i class="fa-fw"> C2 </i><span class="hide-menu"> Contact V2</span>
+			</a>
+		  </li> 
+		  <li>
+			<a href="component-tooltip.html">
+			  <i class="fa-fw"> Tt </i><span class="hide-menu"> Tooltip</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="component-dropdown.html">
+			  <i class="fa-fw"> Dr </i><span class="hide-menu"> Dropdown</span>
+			</a>
+		  </li> 
+		  <li>
+			<a href="component-media.html">
+			  <i class="fa-fw"> Md </i><span class="hide-menu"> Media</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="component-modals.html">
+			  <i class="fa-fw"> Mo </i><span class="hide-menu"> Modals</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="component-scrollspy.html">
+			  <i class="fa-fw"> Ss </i><span class="hide-menu"> Scrollspy</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="component-tabs.html">
+			  <i class="fa-fw"> Ts </i><span class="hide-menu"> Tabs</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="component-transitions.html">
+			  <i class="fa-fw"> Tr </i><span class="hide-menu"> Transitions</span>
+			</a>
+		  </li>
+		  
+		  
+		  <li>
+			<a href="component-treeview.html">
+			  <i class="fa-fw"> Tv </i><span class="hide-menu"> Treeview</span>
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="component-search.html">
+			  <i class="fa-fw"> Tr </i><span class="hide-menu"> Search Result</span>
+			</a>
+		  </li>
+		  
+		  
+		  <li>
+			<a href="component-waves.html">
+			  <i class="fa-fw"> Ws </i><span class="hide-menu"> Waves</span>
+			</a>
+		  </li>
+		</ul>
+	</li>
+
+<!-- ================================================================  --> 
+	
+	<li>
+	  <a class="waves-effect" href="javascript:void(0)">
+		<i class="nc-icon nc-notes fa-fw green-text" data-icon="v"></i> 
+		<span class="hide-menu"> Forms<span class="mdi mdi-menu-down pull-right"></span></span>
+	   </a>
+	  <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+		  <li>
+			<a href="form-elements.html">
+			  <i class="fa-fw"> Fe </i><span class="hide-menu"> Form Elements</span>
+			</a>
+		  </li>
+		   
+		  <li>
+			<a href="form-elements2.html">
+			  <i class="fa-fw"> Fe </i><span class="hide-menu"> Form Elements V2</span>
+			</a>
+		  </li>
+		   
+		  <li>
+			<a href="form-validation.html">
+			  <i class="fa-fw"> Fv </i><span class="hide-menu"> Form Validations</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="form-masks.html">
+			  <i class="fa-fw"> Fm </i><span class="hide-menu"> Form Masks</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="form-file-uploads.html">
+			  <i class="fa-fw"> Fu </i><span class="hide-menu"> File Uploads</span>
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="form-image-crop.html">
+			  <i class="fa-fw"> Ic </i><span class="hide-menu"> Image Cropping</span>
+			</a>
+		  </li>
+		   
+		  <li>
+			<a href="form-xeditable.html">
+			  <i class="fa-fw"> Xe </i><span class="hide-menu"> XEditable</span>
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="form-summer.html">
+			  <i class="fa-fw"> Sn </i><span class="hide-menu"> Summer Note</span>
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="form-bootstrap-wys.html">
+			  <i class="fa-fw"> Bw </i><span class="hide-menu"> Bootstrap wysihtml5</span>
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="form-tiny.html">
+			  <i class="fa-fw"> Tw </i><span class="hide-menu"> Tinymce wysihtml5</span>
+			</a>
+		  </li>
+		  
+		  
+		</ul>
+	  </li>
+	
+<!-- ================================================================  --> 
+
+	
+	<li>
+	  <a class="waves-effect" href="javascript:void(0)">
+		<i class="nc-icon nc-notes fa-fw green-text" data-icon="v"></i> 
+		<span class="hide-menu"> Forms Foundation<span class="mdi mdi-menu-down pull-right"></span></span>
+	   </a>
+	  <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+		 
+
+		<li> <a class="waves-effect" href="javascript:void(0)">
+		<i class="fa-fw" data-icon="v"> Bs </i> <span class="hide-menu"> Business<span class="mdi mdi-menu-down pull-right"></span></span> </a>
+		<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+		
+			<li> <a href="temp-bug-tracker.html"><i class="fa-fw"> Bt </i><span class="hide-menu"> Bug Tracker</span></a> </li>
+			<li> <a href="temp-client-details.html"><i class="fa-fw"> Cd </i><span class="hide-menu"> Client Details</span></a> </li>
+			<li> <a href="temp-complaints.html"><i class="fa-fw"> Cs </i><span class="hide-menu"> Complaints</span></a> </li>
+			<li> <a href="temp-contact.html"><i class="fa-fw"> Cu </i><span class="hide-menu"> Contact US</span></a> </li>
+			<li> <a href="temp-email.html"><i class="fa-fw"> Es </i><span class="hide-menu"> Email Subscription</span></a> </li>
+			<li> <a href="temp-software.html"><i class="fa-fw"> Se </i><span class="hide-menu"> Software Evaluation</span></a> </li>
+		</ul>
+		</li>
+		
+
+		<li> <a class="waves-effect" href="javascript:void(0)">
+		<i class="fa-fw" data-icon="v"> Hr </i> <span class="hide-menu"> Human Resources  <span class="mdi mdi-menu-down pull-right"></span></span> </a>
+		<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+		
+			<li> <a href="temp2-emergency.html"><i class="fa-fw" data-icon="v"> Ey </i><span class="hide-menu">Employe Emergency</span></a> </li>
+			<li> <a href="temp2-evaluation.html"><i class="fa-fw" data-icon="v"> En </i><span class="hide-menu">Employe Evaluation</span></a> </li>
+			<li> <a href="temp2-satisfaction.html"><i class="fa-fw" data-icon="v"> En </i><span class="hide-menu">Employe Satisfaction</span></a> </li>
+			<li> <a href="temp2-application.html"><i class="fa-fw" data-icon="v"> Ja </i><span class="hide-menu">Job Application</span></a> </li>
+			<li> <a href="temp2-resignation.html"><i class="fa-fw" data-icon="v"> Rf </i><span class="hide-menu">Resignation Form</span></a> </li>
+
+		</ul>
+		</li>
+		
+		
+
+		<li>
+		<a class="waves-effect" href="javascript:void(0)">
+		<i class="fa-fw" data-icon="v"> Rs </i> 
+		<span class="hide-menu"> Requests<span class="mdi mdi-menu-down pull-right"></span></span>
+		</a>
+		<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+		
+			<li> <a href="temp3-leave.html"><i class="fa-fw" data-icon="v"> La </i><span class="hide-menu"> Leave Application</span></a> </li>
+			<li> <a href="temp3-product.html"><i class="fa-fw" data-icon="v"> Pr </i> <span class="hide-menu">Product Review</span></a> </li>
+			<li> <a href="temp3-software.html"><i class="fa-fw" data-icon="v"> Sr </i><span class="hide-menu"> Software Request</span></a> </li>
+			<li> <a href="temp3-testimonial.html"><i class="fa-fw" data-icon="v"> Tl </i><span class="hide-menu"> Testimonial</span></a> </li>
+
+		</ul>
+		</li>
+		
+		
+		
+		<li>
+		<a class="waves-effect" href="javascript:void(0)">
+		<i class="fa-fw" data-icon="v"> Cn </i> 
+		<span class="hide-menu"> Construction <span class="mdi mdi-menu-down pull-right"></span></span>
+		</a>
+		<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+					
+			<li> <a href="temp4-client.html"><i class="fa-fw" data-icon="v"> Cr </i> <span class="hide-menu">Cliet Review</span></a> </li>
+			<li> <a href="temp4-location.html"><i class="fa-fw" data-icon="v"> Lu </i><span class="hide-menu"> Location Update</span></a> </li>
+			<li> <a href="temp4-onsite.html"><i class="fa-fw" data-icon="v"> Os </i><span class="hide-menu"> On Site Inquiries</span></a> </li>
+			<li> <a href="temp4-status.html"><i class="fa-fw" data-icon="v"> Su </i><span class="hide-menu"> Status Updates</span></a> </li>
+			
+		</ul>
+		</li>
+		
+		
+		
+		
+		<li>
+		<a class="waves-effect" href="javascript:void(0)">
+		<i class="fa-fw" data-icon="v"> Np </i> 
+		<span class="hide-menu"> Non-Profit <span class="mdi mdi-menu-down pull-right"></span></span>
+		</a>
+		<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+			<li> <a href="temp5-donation.html"><i class="fa-fw" data-icon="v"> Df </i><span class="hide-menu">  Donation Form</span></a> </li>
+			<li> <a href="temp5-feed.html"><i class="fa-fw" data-icon="v"> Nf </i><span class="hide-menu">  New Feed</span></a> </li>
+			<li> <a href="page-contact.html"><i class="fa-fw"> Cp </i><span class="hide-menu"> Contact Page</span> </a></li> 
+		</ul>
+		</li>
+		
+		
+
+		
+		  
+		</ul>
+	</li>
+	
+	
+	
+	
+	<!-- ================================================================  --> 
+	
+	
+	
+	
+	
+	<li>
+	  <a class="waves-effect" href="javascript:void(0)">
+		<i class="nc-icon nc-flash-21 fa-fw blue-text" data-icon="v"></i> 
+		<span class="hide-menu"> Extra Components<span class="mdi mdi-menu-down pull-right"></span></span>
+	   </a>
+	  <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+		  <li>
+			<a href="extra-range.html">
+			  <i class="fa-fw"> Rs </i><span class="hide-menu"> Range Slider</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="extra-sweetalert.html">
+			  <i class="fa-fw"> Sa </i><span class="hide-menu"> SweetAlert</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="extra-nestable.html">
+			  <i class="fa-fw"> Sn </i><span class="hide-menu"> Shortable &amp; Nestable</span>
+			</a>
+		  </li> 
+		  <li>
+			<a href="extra-highlight.html">
+			  <i class="fa-fw"> Ht </i><span class="hide-menu"> Highlight</span>
+			</a>
+		  </li>
+		</ul>
+	</li>
+	
+	
+<!-- ================================================================  --> 
+
+
+	<li>
+	  <a class="waves-effect" href="javascript:void(0)">
+		<i class="nc-icon nc-grid-45 fa-fw red-text" data-icon="v"></i> 
+		<span class="hide-menu"> Tables<span class="mdi mdi-menu-down pull-right"></span></span>
+	   </a>
+	  <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+		  <li>
+			<a href="table-basic.html">
+			  <i class="fa-fw"> Bt </i><span class="hide-menu"> Basic Tables</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="table-data.html">
+			  <i class="fa-fw"> Dt </i><span class="hide-menu"> Data Tables</span>
+			</a>
+		  </li> 
+		  <li>
+			<a href="table-editable.html">
+			  <i class="fa-fw"> Et </i><span class="hide-menu"> Editable Table</span>
+			</a>
+		  </li> 
+		</ul>
+	  
+	</li>
+
+	
+	
+<!-- ================================================================  --> 
+
+
+	
+	
+	<li>
+	  <a class="waves-effect" href="javascript:void(0)">
+		<i class="nc-icon nc-favourite-31 fa-fw green-text" data-icon="v"></i> 
+		<span class="hide-menu"> CSS <span class="mdi mdi-menu-down pull-right"></span></span>
+	   </a>
+	  <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+		  <li>
+			<a href="css-color.html">
+			  <i class="fa-fw"> Co </i><span class="hide-menu"> Color</span>
+			</a>
+		  </li> 
+		  <li>
+			<a href="css-helpers.html">
+			  <i class="fa-fw"> He </i><span class="hide-menu"> Helpers</span>
+			</a>
+		  </li> 
+		  <li>
+			<a href="css-shadow.html">
+			  <i class="fa-fw"> Sh </i><span class="hide-menu"> Shadow</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="css-animations.html">
+			  <i class="fa-fw"> An </i><span class="hide-menu"> Animations</span>
+			</a>
+		  </li> 
+		  <li>
+			<a href="css-potrait.html">
+			  <i class="fa-fw"> Po </i><span class="hide-menu"> Potrait & Responsive</span>
+			</a>
+		  </li> 
+		</ul>
+	  
+	</li>
+	
+	
+	
+<!-- ================================================================  --> 
+
+
+	
+	
+	<li>
+	  <a class="waves-effect" href="javascript:void(0)">
+		<i class="nc-icon nc-handout bold fa-fw green-text" data-icon="v"></i> 
+		<span class="hide-menu"> Icons <span class="mdi mdi-menu-down pull-right"></span></span>
+	   </a>
+	  <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+		  <li>
+			<a href="icons-awesome.html">
+			  <i class="fa-fw"> Fa </i><span class="hide-menu"> Font Awesome</span>
+			</a>
+		  </li> 
+		  <li>
+			<a href="icons-themify.html">
+			  <i class="fa-fw"> Ti </i><span class="hide-menu"> Themify Icons</span>
+			</a>
+		  </li> 
+		  <li>
+			<a href="icons-simple.html">
+			  <i class="fa-fw"> Sl </i><span class="hide-menu"> Simple Line Icons</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="icons-materials.html">
+			  <i class="fa-fw"> Mi </i><span class="hide-menu"> Material-Icons</span>
+			</a>
+		  </li> 
+		  <li>
+			<a href="icons-linea.html">
+			  <i class="fa-fw"> Li </i><span class="hide-menu"> Linea-Icons</span>
+			</a>
+		  </li> 
+		  <li>
+			<a href="icons-weather.html">
+			  <i class="fa-fw"> Wi </i><span class="hide-menu"> Weather-Icons</span>
+			</a>
+		  </li> 
+		</ul>
+	  
+	</li>
+	
+	
+	
+	
+<!-- ================================================================  --> 
+
+
+	
+	
+
+	<li>
+	  <a class="waves-effect" href="javascript:void(0)">
+		<i class="nc-icon nc-single-folded-content fa-fw purple-text" data-icon="v"></i> 
+		<span class="hide-menu"> Error & Blank<span class="mdi mdi-menu-down pull-right"></span></span>
+	   </a>
+	  <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+		  
+		  <li>
+			<a target="_blank" href="page-400.html">
+			  <i class="fa-fw"> E1 </i><span class="hide-menu"> 400</span>
+			</a>
+		  </li>
+		  <li>
+			<a target="_blank" href="page-403.html">
+			  <i class="fa-fw"> E2 </i><span class="hide-menu"> 403</span>
+			</a>
+		  </li>
+		  <li>
+			<a target="_blank" href="page-404.html">
+			  <i class="fa-fw"> E3 </i><span class="hide-menu"> 404</span>
+			</a>
+		  </li>
+		  <li>
+			<a target="_blank" href="page-500.html">
+			  <i class="fa-fw"> E4 </i><span class="hide-menu"> 500</span>
+			</a>
+		  </li>
+		  <li>
+			<a target="_blank" href="page-503.html">
+			  <i class="fa-fw"> E5 </i><span class="hide-menu"> 503</span>
+			</a>
+		  </li>
+		  <li>
+			<a  href="page-blank.html">
+			  <i class="fa-fw"> Bl </i><span class="hide-menu"> Blank</span>
+			</a>
+		  </li>
+		</ul>
+	</li>
+	
+	
+<!-- ================================================================  --> 
+
+
+
+	<li>
+	  <a class="waves-effect" href="javascript:void(0)">
+		<i class="nc-icon nc-cart-simple fa-fw blue-text" data-icon="v"></i> 
+		<span class="hide-menu"> E-Commerce<span class="mdi mdi-menu-down pull-right"></span></span>
+	   </a>
+	  <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+		  <li>
+			<a href="e-page.html">
+			  <i class="fa-fw"> Pp </i><span class="hide-menu"> Products Page</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="e-pricing.html">
+			  <i class="fa-fw"> Pt </i><span class="hide-menu"> Pricing Table</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="e-invoice.html">
+			  <i class="fa-fw"> In </i><span class="hide-menu"> Invoice</span>
+			</a>
+		  </li>
+		</ul>
+	  
+	</li>
+	
+	
+<!-- ================================================================  --> 
+
+
+
+	<li>
+	  <a class="waves-effect" href="javascript:void(0)">
+		<i class="nc-icon nc-camera-20 fa-fw orange-text" data-icon="v"></i> 
+		<span class="hide-menu"> Medias<span class="mdi mdi-menu-down pull-right"></span></span>
+	   </a>
+	  <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+		  <li>
+			<a href="media-gallary.html">
+			  <i class="fa-fw"> Gp </i><span class="hide-menu"> Gallery Page</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="media-hover.html">
+			  <i class="fa-fw"> Ih </i><span class="hide-menu"> Image Hover Effects</span>
+			</a>
+		  </li>
+		</ul>
+	  
+	</li>
+	
+	
+<!-- ================================================================  --> 
+
+
+
+	<li>
+	  <a class="waves-effect" href="javascript:void(0)">
+		<i class="nc-icon nc-image fa-fw green-text" data-icon="v"></i> 
+		<span class="hide-menu"> User<span class="mdi mdi-menu-down pull-right"></span></span>
+	   </a>
+	  <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+		 <li>
+			<a   href="user-profile.html">
+			  <i class="fa-fw"> Up </i><span class="hide-menu"> User Profile</span>
+			</a>
+		  </li>
+		  <li>
+			<a   href="user-login.html">
+			  <i class="fa-fw"> Ln </i><span class="hide-menu"> Login</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="user-register.html">
+			  <i class="fa-fw"> Re </i><span class="hide-menu"> Register</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="user-forgot.html">
+			  <i class="fa-fw"> Fp </i><span class="hide-menu"> Forgot Password</span>
+			</a>
+		  </li>
+		  <li>
+			<a  href="user-lock.html">
+			  <i class="fa-fw"> Ls </i><span class="hide-menu"> Lock Screen</span>
+			</a>
+		  </li>
+		</ul>
+
+	</li>
+	
+	
+<!-- ================================================================  --> 
+
+
+
+	<li>
+	  <a class="waves-effect" href="javascript:void(0)">
+		<i class="nc-icon nc-vector fa-fw red-text" data-icon="v"></i> 
+		<span class="hide-menu"> Charts<span class="mdi mdi-menu-down pull-right"></span></span>
+	   </a> 
+	  <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+	  
+		  <li>
+			<a href="chart-chartjs.html">
+			  <i class="fa-fw"> Cj </i><span class="hide-menu"> Chart JS</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="chart-chartist.html">
+			  <i class="fa-fw"> Ct </i><span class="hide-menu"> Chartist</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="chart-morris.html">
+			  <i class="fa-fw"> Mc </i><span class="hide-menu"> Morris Charts</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="chart-xcharts.html">
+			  <i class="fa-fw"> Xc </i><span class="hide-menu"> xCharts</span>
+			</a>
+		  </li> 
+		  <li>
+			<a href="chart-sparklines.html">
+			  <i class="fa-fw"> Sc </i><span class="hide-menu"> Sparkline Charts</span>
+			</a>
+		  </li>
+		</ul> 
+		
+	</li>
+
+
+
+
+	<li>
+	  <a class="waves-effect" href="javascript:void(0)">
+		<i class="nc-icon nc-world fa-fw red-text" data-icon="v"></i> 
+		<span class="hide-menu"> Maps<span class="mdi mdi-menu-down pull-right"></span></span>
+	   </a> 
+	  <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+	  
+		  <li>
+			<a href="map-vector.html">
+			  <i class="fa-fw"> Gm </i><span class="hide-menu"> Google Map</span>
+			</a>
+		  </li>
+	
+		  <li>
+			<a href="map-google.html">
+			  <i class="fa-fw"> Vr </i><span class="hide-menu"> Vector</span>
+			</a>
+		  </li>
+		</ul> 
+	</li>
+
+	
+		
+	</ul>
+</div>
+</div>
+
+
+
+
+
+
+<!-- ============================================================== -->
+<!-- End Left Sidebar -->
+<!-- ============================================================== -->	
+	
+
+<div id="page-wrapper">
+<div class="container-fluid">
+
+<!-- ============================================================== -->
+<!-- Content -->
+<!-- ============================================================== -->
+
+	
+				
+
+
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 p10">
+		<div class="card flat">
+		<div class="card-header">
+			<h3 class="card-title"> CSS-Color		 </h3> 
+			<span> Here is a color palette based on the material design base colors. Each of these colors is defined with a base color class and an optional lighten or darken class. </span> 
+		</div>
+			<div class="card-content">
+			
+			
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 p10">
+		<h4 class="header">Color Gradient</h4>
+	</div>
+
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 p10 all-p10 ">
+	<div class="gradient-primary">Gradient Primary</div>
+	<div class="gradient-success">Gradient Success</div>
+	<div class="gradient-danger">Gradient Danger</div>
+	<div class="gradient-warning">Gradient Warning</div>
+	<div class="gradient-info">Gradient Info</div>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 p10">
+	<h4 class="header">Color Palette</h4>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10 all-p10 ">
+	<div class="red lighten-5">#ffebee red lighten-5</div>
+	<div class="red lighten-4">#ffcdd2 red lighten-4</div>
+	<div class="red lighten-3">#ef9a9a red lighten-3</div>
+	<div class="red lighten-2">#e57373 red lighten-2</div>
+	<div class="red lighten-1">#ef5350 red lighten-1</div>
+	<div class="red">#f44336 red</div>
+	<div class="red darken-1" style="color: rgba(255, 255, 255, 0.901961);">#e53935 red darken-1</div>
+	<div class="red darken-2" style="color: rgba(255, 255, 255, 0.901961);">#d32f2f red darken-2</div>
+	<div class="red darken-3" style="color: rgba(255, 255, 255, 0.901961);">#c62828 red darken-3</div>
+	<div class="red darken-4" style="color: rgba(255, 255, 255, 0.901961);">#b71c1c red darken-4</div>
+	<div class="red accent-1">#ff8a80 red accent-1</div>
+	<div class="red accent-2">#ff5252 red accent-2</div>
+	<div class="red accent-3">#ff1744 red accent-3</div>
+	<div class="red accent-4">#d50000 red accent-4</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10 all-p10 ">
+	<div class="pink lighten-5">#fce4ec pink lighten-5</div>
+	<div class="pink lighten-4">#f8bbd0 pink lighten-4</div>
+	<div class="pink lighten-3">#f48fb1 pink lighten-3</div>
+	<div class="pink lighten-2">#f06292 pink lighten-2</div>
+	<div class="pink lighten-1">#ec407a pink lighten-1</div>
+	<div class="pink">#e91e63 pink</div>
+	<div class="pink darken-1" style="color: rgba(255, 255, 255, 0.901961);">#d81b60 pink darken-1</div>
+	<div class="pink darken-2" style="color: rgba(255, 255, 255, 0.901961);">#c2185b pink darken-2</div>
+	<div class="pink darken-3" style="color: rgba(255, 255, 255, 0.901961);">#ad1457 pink darken-3</div>
+	<div class="pink darken-4" style="color: rgba(255, 255, 255, 0.901961);">#880e4f pink darken-4</div>
+	<div class="pink accent-1">#ff80ab pink accent-1</div>
+	<div class="pink accent-2">#ff4081 pink accent-2</div>
+	<div class="pink accent-3">#f50057 pink accent-3</div>
+	<div class="pink accent-4">#c51162 pink accent-4</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10 all-p10 ">
+	<div class="purple lighten-5">#f3e5f5 purple lighten-5</div>
+	<div class="purple lighten-4">#e1bee7 purple lighten-4</div>
+	<div class="purple lighten-3">#ce93d8 purple lighten-3</div>
+	<div class="purple lighten-2">#ba68c8 purple lighten-2</div>
+	<div class="purple lighten-1">#ab47bc purple lighten-1</div>
+	<div class="purple">#9c27b0 purple</div>
+	<div class="purple darken-1" style="color: rgba(255, 255, 255, 0.901961);">#8e24aa purple darken-1</div>
+	<div class="purple darken-2" style="color: rgba(255, 255, 255, 0.901961);">#7b1fa2 purple darken-2</div>
+	<div class="purple darken-3" style="color: rgba(255, 255, 255, 0.901961);">#6a1b9a purple darken-3</div>
+	<div class="purple darken-4" style="color: rgba(255, 255, 255, 0.901961);">#4a148c purple darken-4</div>
+	<div class="purple accent-1">#ea80fc purple accent-1</div>
+	<div class="purple accent-2">#e040fb purple accent-2</div>
+	<div class="purple accent-3">#d500f9 purple accent-3</div>
+	<div class="purple accent-4">#aa00ff purple accent-4</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10 all-p10 ">
+	<div class="deep-purple lighten-5">#ede7f6 deep-purple lighten-5</div>
+	<div class="deep-purple lighten-4">#d1c4e9 deep-purple lighten-4</div>
+	<div class="deep-purple lighten-3">#b39ddb deep-purple lighten-3</div>
+	<div class="deep-purple lighten-2">#9575cd deep-purple lighten-2</div>
+	<div class="deep-purple lighten-1">#7e57c2 deep-purple lighten-1</div>
+	<div class="deep-purple">#673ab7 deep-purple</div>
+	<div class="deep-purple darken-1" style="color: rgba(255, 255, 255, 0.901961);">#5e35b1 deep-purple darken-1</div>
+	<div class="deep-purple darken-2" style="color: rgba(255, 255, 255, 0.901961);">#512da8 deep-purple darken-2</div>
+	<div class="deep-purple darken-3" style="color: rgba(255, 255, 255, 0.901961);">#4527a0 deep-purple darken-3</div>
+	<div class="deep-purple darken-4" style="color: rgba(255, 255, 255, 0.901961);">#311b92 deep-purple darken-4</div>
+	<div class="deep-purple accent-1">#b388ff deep-purple accent-1</div>
+	<div class="deep-purple accent-2">#7c4dff deep-purple accent-2</div>
+	<div class="deep-purple accent-3">#651fff deep-purple accent-3</div>
+	<div class="deep-purple accent-4">#6200ea deep-purple accent-4</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10 all-p10 ">
+	<div class="indigo lighten-5">#e8eaf6 indigo lighten-5</div>
+	<div class="indigo lighten-4">#c5cae9 indigo lighten-4</div>
+	<div class="indigo lighten-3">#9fa8da indigo lighten-3</div>
+	<div class="indigo lighten-2">#7986cb indigo lighten-2</div>
+	<div class="indigo lighten-1">#5c6bc0 indigo lighten-1</div>
+	<div class="indigo">#3f51b5 indigo</div>
+	<div class="indigo darken-1" style="color: rgba(255, 255, 255, 0.901961);">#3949ab indigo darken-1</div>
+	<div class="indigo darken-2" style="color: rgba(255, 255, 255, 0.901961);">#303f9f indigo darken-2</div>
+	<div class="indigo darken-3" style="color: rgba(255, 255, 255, 0.901961);">#283593 indigo darken-3</div>
+	<div class="indigo darken-4" style="color: rgba(255, 255, 255, 0.901961);">#1a237e indigo darken-4</div>
+	<div class="indigo accent-1">#8c9eff indigo accent-1</div>
+	<div class="indigo accent-2">#536dfe indigo accent-2</div>
+	<div class="indigo accent-3">#3d5afe indigo accent-3</div>
+	<div class="indigo accent-4">#304ffe indigo accent-4</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10 all-p10 ">
+	<div class="blue lighten-5">#e3f2fd blue lighten-5</div>
+	<div class="blue lighten-4">#bbdefb blue lighten-4</div>
+	<div class="blue lighten-3">#90caf9 blue lighten-3</div>
+	<div class="blue lighten-2">#64b5f6 blue lighten-2</div>
+	<div class="blue lighten-1">#42a5f5 blue lighten-1</div>
+	<div class="blue">#2196f3 blue</div>
+	<div class="blue darken-1" style="color: rgba(255, 255, 255, 0.901961);">#1e88e5 blue darken-1</div>
+	<div class="blue darken-2" style="color: rgba(255, 255, 255, 0.901961);">#1976d2 blue darken-2</div>
+	<div class="blue darken-3" style="color: rgba(255, 255, 255, 0.901961);">#1565c0 blue darken-3</div>
+	<div class="blue darken-4" style="color: rgba(255, 255, 255, 0.901961);">#0d47a1 blue darken-4</div>
+	<div class="blue accent-1">#82b1ff blue accent-1</div>
+	<div class="blue accent-2">#448aff blue accent-2</div>
+	<div class="blue accent-3">#2979ff blue accent-3</div>
+	<div class="blue accent-4">#2962ff blue accent-4</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10 all-p10 ">
+	<div class="light-blue lighten-5">#e1f5fe light-blue lighten-5</div>
+	<div class="light-blue lighten-4">#b3e5fc light-blue lighten-4</div>
+	<div class="light-blue lighten-3">#81d4fa light-blue lighten-3</div>
+	<div class="light-blue lighten-2">#4fc3f7 light-blue lighten-2</div>
+	<div class="light-blue lighten-1">#29b6f6 light-blue lighten-1</div>
+	<div class="light-blue">#03a9f4 light-blue</div>
+	<div class="light-blue darken-1" style="color: rgba(255, 255, 255, 0.901961);">#039be5 light-blue darken-1</div>
+	<div class="light-blue darken-2" style="color: rgba(255, 255, 255, 0.901961);">#0288d1 light-blue darken-2</div>
+	<div class="light-blue darken-3" style="color: rgba(255, 255, 255, 0.901961);">#0277bd light-blue darken-3</div>
+	<div class="light-blue darken-4" style="color: rgba(255, 255, 255, 0.901961);">#01579b light-blue darken-4</div>
+	<div class="light-blue accent-1">#80d8ff light-blue accent-1</div>
+	<div class="light-blue accent-2">#40c4ff light-blue accent-2</div>
+	<div class="light-blue accent-3">#00b0ff light-blue accent-3</div>
+	<div class="light-blue accent-4">#0091ea light-blue accent-4</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10 all-p10 ">
+	<div class="cyan lighten-5">#e0f7fa cyan lighten-5</div>
+	<div class="cyan lighten-4">#b2ebf2 cyan lighten-4</div>
+	<div class="cyan lighten-3">#80deea cyan lighten-3</div>
+	<div class="cyan lighten-2">#4dd0e1 cyan lighten-2</div>
+	<div class="cyan lighten-1">#26c6da cyan lighten-1</div>
+	<div class="cyan">#00bcd4 cyan</div>
+	<div class="cyan darken-1" style="color: rgba(255, 255, 255, 0.901961);">#00acc1 cyan darken-1</div>
+	<div class="cyan darken-2" style="color: rgba(255, 255, 255, 0.901961);">#0097a7 cyan darken-2</div>
+	<div class="cyan darken-3" style="color: rgba(255, 255, 255, 0.901961);">#00838f cyan darken-3</div>
+	<div class="cyan darken-4" style="color: rgba(255, 255, 255, 0.901961);">#006064 cyan darken-4</div>
+	<div class="cyan accent-1">#84ffff cyan accent-1</div>
+	<div class="cyan accent-2">#18ffff cyan accent-2</div>
+	<div class="cyan accent-3">#00e5ff cyan accent-3</div>
+	<div class="cyan accent-4">#00b8d4 cyan accent-4</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10 all-p10 ">
+	<div class="teal lighten-5">#e0f2f1 teal lighten-5</div>
+	<div class="teal lighten-4">#b2dfdb teal lighten-4</div>
+	<div class="teal lighten-3">#80cbc4 teal lighten-3</div>
+	<div class="teal lighten-2">#4db6ac teal lighten-2</div>
+	<div class="teal lighten-1">#26a69a teal lighten-1</div>
+	<div class="teal">#009688 teal</div>
+	<div class="teal darken-1" style="color: rgba(255, 255, 255, 0.901961);">#00897b teal darken-1</div>
+	<div class="teal darken-2" style="color: rgba(255, 255, 255, 0.901961);">#00796b teal darken-2</div>
+	<div class="teal darken-3" style="color: rgba(255, 255, 255, 0.901961);">#00695c teal darken-3</div>
+	<div class="teal darken-4" style="color: rgba(255, 255, 255, 0.901961);">#004d40 teal darken-4</div>
+	<div class="teal accent-1">#a7ffeb teal accent-1</div>
+	<div class="teal accent-2">#64ffda teal accent-2</div>
+	<div class="teal accent-3">#1de9b6 teal accent-3</div>
+	<div class="teal accent-4">#00bfa5 teal accent-4</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10 all-p10 ">
+	<div class="green lighten-5">#e8f5e9 green lighten-5</div>
+	<div class="green lighten-4">#c8e6c9 green lighten-4</div>
+	<div class="green lighten-3">#a5d6a7 green lighten-3</div>
+	<div class="green lighten-2">#81c784 green lighten-2</div>
+	<div class="green lighten-1">#66bb6a green lighten-1</div>
+	<div class="green">#4caf50 green</div>
+	<div class="green darken-1" style="color: rgba(255, 255, 255, 0.901961);">#43a047 green darken-1</div>
+	<div class="green darken-2" style="color: rgba(255, 255, 255, 0.901961);">#388e3c green darken-2</div>
+	<div class="green darken-3" style="color: rgba(255, 255, 255, 0.901961);">#2e7d32 green darken-3</div>
+	<div class="green darken-4" style="color: rgba(255, 255, 255, 0.901961);">#1b5e20 green darken-4</div>
+	<div class="green accent-1">#b9f6ca green accent-1</div>
+	<div class="green accent-2">#69f0ae green accent-2</div>
+	<div class="green accent-3">#00e676 green accent-3</div>
+	<div class="green accent-4">#00c853 green accent-4</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10 all-p10 ">
+	<div class="light-green lighten-5">#f1f8e9 light-green lighten-5</div>
+	<div class="light-green lighten-4">#dcedc8 light-green lighten-4</div>
+	<div class="light-green lighten-3">#c5e1a5 light-green lighten-3</div>
+	<div class="light-green lighten-2">#aed581 light-green lighten-2</div>
+	<div class="light-green lighten-1">#9ccc65 light-green lighten-1</div>
+	<div class="light-green">#8bc34a light-green</div>
+	<div class="light-green darken-1" style="color: rgba(255, 255, 255, 0.901961);">#7cb342 light-green darken-1</div>
+	<div class="light-green darken-2" style="color: rgba(255, 255, 255, 0.901961);">#689f38 light-green darken-2</div>
+	<div class="light-green darken-3" style="color: rgba(255, 255, 255, 0.901961);">#558b2f light-green darken-3</div>
+	<div class="light-green darken-4" style="color: rgba(255, 255, 255, 0.901961);">#33691e light-green darken-4</div>
+	<div class="light-green accent-1">#ccff90 light-green accent-1</div>
+	<div class="light-green accent-2">#b2ff59 light-green accent-2</div>
+	<div class="light-green accent-3">#76ff03 light-green accent-3</div>
+	<div class="light-green accent-4">#64dd17 light-green accent-4</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10 all-p10 ">
+	<div class="lime lighten-5">#f9fbe7 lime lighten-5</div>
+	<div class="lime lighten-4">#f0f4c3 lime lighten-4</div>
+	<div class="lime lighten-3">#e6ee9c lime lighten-3</div>
+	<div class="lime lighten-2">#dce775 lime lighten-2</div>
+	<div class="lime lighten-1">#d4e157 lime lighten-1</div>
+	<div class="lime">#cddc39 lime</div>
+	<div class="lime darken-1" style="color: rgba(255, 255, 255, 0.901961);">#c0ca33 lime darken-1</div>
+	<div class="lime darken-2" style="color: rgba(255, 255, 255, 0.901961);">#afb42b lime darken-2</div>
+	<div class="lime darken-3" style="color: rgba(255, 255, 255, 0.901961);">#9e9d24 lime darken-3</div>
+	<div class="lime darken-4" style="color: rgba(255, 255, 255, 0.901961);">#827717 lime darken-4</div>
+	<div class="lime accent-1">#f4ff81 lime accent-1</div>
+	<div class="lime accent-2">#eeff41 lime accent-2</div>
+	<div class="lime accent-3">#c6ff00 lime accent-3</div>
+	<div class="lime accent-4">#aeea00 lime accent-4</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10 all-p10 ">
+	<div class="yellow lighten-5">#fffde7 yellow lighten-5</div>
+	<div class="yellow lighten-4">#fff9c4 yellow lighten-4</div>
+	<div class="yellow lighten-3">#fff59d yellow lighten-3</div>
+	<div class="yellow lighten-2">#fff176 yellow lighten-2</div>
+	<div class="yellow lighten-1">#ffee58 yellow lighten-1</div>
+	<div class="yellow">#ffeb3b yellow</div>
+	<div class="yellow darken-1" style="color: rgba(255, 255, 255, 0.901961);">#fdd835 yellow darken-1</div>
+	<div class="yellow darken-2" style="color: rgba(255, 255, 255, 0.901961);">#fbc02d yellow darken-2</div>
+	<div class="yellow darken-3" style="color: rgba(255, 255, 255, 0.901961);">#f9a825 yellow darken-3</div>
+	<div class="yellow darken-4" style="color: rgba(255, 255, 255, 0.901961);">#f57f17 yellow darken-4</div>
+	<div class="yellow accent-1">#ffff8d yellow accent-1</div>
+	<div class="yellow accent-2">#ffff00 yellow accent-2</div>
+	<div class="yellow accent-3">#ffea00 yellow accent-3</div>
+	<div class="yellow accent-4">#ffd600 yellow accent-4</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10 all-p10 ">
+	<div class="amber lighten-5">#fff8e1 amber lighten-5</div>
+	<div class="amber lighten-4">#ffecb3 amber lighten-4</div>
+	<div class="amber lighten-3">#ffe082 amber lighten-3</div>
+	<div class="amber lighten-2">#ffd54f amber lighten-2</div>
+	<div class="amber lighten-1">#ffca28 amber lighten-1</div>
+	<div class="amber">#ffc107 amber</div>
+	<div class="amber darken-1" style="color: rgba(255, 255, 255, 0.901961);">#ffb300 amber darken-1</div>
+	<div class="amber darken-2" style="color: rgba(255, 255, 255, 0.901961);">#ffa000 amber darken-2</div>
+	<div class="amber darken-3" style="color: rgba(255, 255, 255, 0.901961);">#ff8f00 amber darken-3</div>
+	<div class="amber darken-4" style="color: rgba(255, 255, 255, 0.901961);">#ff6f00 amber darken-4</div>
+	<div class="amber accent-1">#ffe57f amber accent-1</div>
+	<div class="amber accent-2">#ffd740 amber accent-2</div>
+	<div class="amber accent-3">#ffc400 amber accent-3</div>
+	<div class="amber accent-4">#ffab00 amber accent-4</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10 all-p10 ">
+	<div class="orange lighten-5">#fff3e0 orange lighten-5</div>
+	<div class="orange lighten-4">#ffe0b2 orange lighten-4</div>
+	<div class="orange lighten-3">#ffcc80 orange lighten-3</div>
+	<div class="orange lighten-2">#ffb74d orange lighten-2</div>
+	<div class="orange lighten-1">#ffa726 orange lighten-1</div>
+	<div class="orange">#ff9800 orange</div>
+	<div class="orange darken-1" style="color: rgba(255, 255, 255, 0.901961);">#fb8c00 orange darken-1</div>
+	<div class="orange darken-2" style="color: rgba(255, 255, 255, 0.901961);">#f57c00 orange darken-2</div>
+	<div class="orange darken-3" style="color: rgba(255, 255, 255, 0.901961);">#ef6c00 orange darken-3</div>
+	<div class="orange darken-4" style="color: rgba(255, 255, 255, 0.901961);">#e65100 orange darken-4</div>
+	<div class="orange accent-1">#ffd180 orange accent-1</div>
+	<div class="orange accent-2">#ffab40 orange accent-2</div>
+	<div class="orange accent-3">#ff9100 orange accent-3</div>
+	<div class="orange accent-4">#ff6d00 orange accent-4</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10 all-p10 ">
+	<div class="deep-orange lighten-5">#fbe9e7 deep-orange lighten-5</div>
+	<div class="deep-orange lighten-4">#ffccbc deep-orange lighten-4</div>
+	<div class="deep-orange lighten-3">#ffab91 deep-orange lighten-3</div>
+	<div class="deep-orange lighten-2">#ff8a65 deep-orange lighten-2</div>
+	<div class="deep-orange lighten-1">#ff7043 deep-orange lighten-1</div>
+	<div class="deep-orange">#ff5722 deep-orange</div>
+	<div class="deep-orange darken-1" style="color: rgba(255, 255, 255, 0.901961);">#f4511e deep-orange darken-1</div>
+	<div class="deep-orange darken-2" style="color: rgba(255, 255, 255, 0.901961);">#e64a19 deep-orange darken-2</div>
+	<div class="deep-orange darken-3" style="color: rgba(255, 255, 255, 0.901961);">#d84315 deep-orange darken-3</div>
+	<div class="deep-orange darken-4" style="color: rgba(255, 255, 255, 0.901961);">#bf360c deep-orange darken-4</div>
+	<div class="deep-orange accent-1">#ff9e80 deep-orange accent-1</div>
+	<div class="deep-orange accent-2">#ff6e40 deep-orange accent-2</div>
+	<div class="deep-orange accent-3">#ff3d00 deep-orange accent-3</div>
+	<div class="deep-orange accent-4">#dd2c00 deep-orange accent-4</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10 all-p10 ">
+	<div class="brown lighten-5">#efebe9 brown lighten-5</div>
+	<div class="brown lighten-4">#d7ccc8 brown lighten-4</div>
+	<div class="brown lighten-3">#bcaaa4 brown lighten-3</div>
+	<div class="brown lighten-2">#a1887f brown lighten-2</div>
+	<div class="brown lighten-1">#8d6e63 brown lighten-1</div>
+	<div class="brown">#795548 brown</div>
+	<div class="brown darken-1" style="color: rgba(255, 255, 255, 0.901961);">#6d4c41 brown darken-1</div>
+	<div class="brown darken-2" style="color: rgba(255, 255, 255, 0.901961);">#5d4037 brown darken-2</div>
+	<div class="brown darken-3" style="color: rgba(255, 255, 255, 0.901961);">#4e342e brown darken-3</div>
+	<div class="brown darken-4" style="color: rgba(255, 255, 255, 0.901961);">#3e2723 brown darken-4</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10 all-p10 ">
+	<div class="grey lighten-5">#fafafa grey lighten-5</div>
+	<div class="grey lighten-4">#f5f5f5 grey lighten-4</div>
+	<div class="grey lighten-3">#eeeeee grey lighten-3</div>
+	<div class="grey lighten-2">#e0e0e0 grey lighten-2</div>
+	<div class="grey lighten-1">#bdbdbd grey lighten-1</div>
+	<div class="grey">#9e9e9e grey</div>
+	<div class="grey darken-1" style="color: rgba(255, 255, 255, 0.901961);">#757575 grey darken-1</div>
+	<div class="grey darken-2" style="color: rgba(255, 255, 255, 0.901961);">#616161 grey darken-2</div>
+	<div class="grey darken-3" style="color: rgba(255, 255, 255, 0.901961);">#424242 grey darken-3</div>
+	<div class="grey darken-4" style="color: rgba(255, 255, 255, 0.901961);">#212121 grey darken-4</div>
+	</div>
+</div>
+
+
+
+			</div>
+		
+		</div>
+	
+	</div>
+
+</div>
+ 	
+				
+
+<!-- ============================================================== -->
+<!-- Close Content -->
+<!-- ============================================================== -->
+		
+				
+				
+</div> 
+<br />
+<br />
+  
+  
+
+<!-- ============================================================== -->
+<!-- Footer -->
+<!-- ============================================================== -->
+
+<footer class="footer text-center" > 2018 &copy; <b>Niagawebster </b></footer>
+
+<!-- ============================================================== -->
+<!-- Close Footer-->
+<!-- ============================================================== -->
+</div>
+</div>
+</body>
+
+
+
+
+
+<!-- ============================================================== -->
+<!-- Javascript -->
+<!-- ============================================================== -->
+
+<script src="assets/plugin/sidebar-nav/dist/sidebar-nav.min.js"></script>
+<script src="assets/js/jquery.slimscroll.js"></script>
+<script src="assets/js/custom.min.js"></script>
+<script src="bootstrap/assets/js/vendor/popper.min.js"></script>
+<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bootstrap/dist/js/plus.js"></script>
+
+
+<!-- ============================================================== -->
+<!-- Close Javascript -->
+<!-- ============================================================== -->
+
+
+
+<!-- 
+
+ * Bootstrap v1.0.0 (https://niagawebster*com)
+ * Copyright 2018 The Indra Rani Dwi Putra Authors
+ * Copyright 2018 Niagawebster, Inc.
+ 
+--> 
+
+
+<!-- Mirrored from admin-clip.niagawebster.com/css-color.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Apr 2018 03:28:41 GMT -->
+</html>

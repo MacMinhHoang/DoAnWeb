@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+	<title>Dashboard </title>
+
+
+
+<!-- ============================================================== -->
+<!-- Close Meta -->
+<!-- ============================================================== -->
+
+	
+
+<!-- ============================================================== -->
+<!-- Style -->
+<!-- ============================================================== -->
+	
+	<link href="assets/paper-dashboard.css" rel="stylesheet"/>
+	<link href="style/icons.css" rel="stylesheet">
+	<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="bootstrap/dist/jquery/jquery.min.js"></script>
+	<link rel="stylesheet" href="bootstrap/highlight/styles/default.css">
+	<script src="bootstrap/highlight/highlight.pack.js"></script>
+	<link href="style/style.css" rel="stylesheet">
+	
+
+<!-- ============================================================== -->
+<!-- Close Style-->
+<!-- ============================================================== -->
+
+	
+</head>
+
+
+
+
+<body class="fix-header">
+
+
+<!-- ============================================================== -->
+<!-- Preloader -->
+<!-- ============================================================== -->
+
+
+	<div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+        </svg>
+		
+		<div class="wave"></div>
+		<div class="wave"></div>
+		<div class="wave"></div>
+		
+		<div class="wave"></div>
+		<div class="wave"></div>
+		<div class="wave"></div>
+	</div>
+
+
+<!-- ============================================================== -->
+<!-- Close Preloader -->
+<!-- ============================================================== -->
+
+
+<!-- ============================================================== -->
+<!-- Top Bar-->
+<!-- ============================================================== -->
+
+
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+	<a class="navbar-brand">
+		<b><img src="images/admin-logo.png" alt="home" class="dark-logo"/></b>
+		<span class="hidden-xs">&nbsp;&nbsp;A D M I N</span> 
+		<!-- <img src="images/admin-text.png" alt="home" class="dark-logo" /> -->
+	</a>
+
+	<ul class="nav navbar-top-links navbar-left">
+		<li><a href="javascript:void(0)" class="open-close waves-effect waves-light"><i class="mdi mdi-menu"></i></a></li>
+	</ul>
+
+	<div class="collapse navbar-collapse" id="navbarsExample02">
+		<ul class="navbar-nav mr-auto"></ul>
+		<ul class="form-inline my-2 my-md-0">
+			<li class="dropdown ">
+				<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="images/admin_avatar.png" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Anonymous</b><span class="caret"></span> </a>
+				<ul class="dropdown-menu dropdown-user animated flipInY">
+					<li>
+						<div class="dw-user-box">
+							<div class="u-img"><img src="images/admin_avatar.png" alt="user" /></div>
+							<div class="u-text"><h4>Anonymous</h4><p class="text-muted">AnimeNeverDie@gmail.com</p></div>
+						</div>
+					</li>
+					<li role="separator" class="divider"></li>
+					<li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+				</ul>
+				<!-- /.dropdown-user -->
+			</li>
+		</ul>
+	</div> 
+</nav>
+
+
+
+<!-- ============================================================== -->
+<!-- Close Topbar -->
+<!-- ============================================================== -->
+
+
+<div id="wrapper">
+
+<!-- ============================================================== -->
+<!-- Left Sidebar -->
+<!-- ============================================================== -->
+
+
+<div class="navbar-default sidebar" role="navigation">
+<div class="sidebar-nav slimscrollsidebar">
+	<div class="sidebar-head">
+		<h3><span class="fa-fw open-close"><i class="mdi mdi-arrow-left"></i></span> <span class="hide-menu"> Navigation</span></h3> </div>
+		<div class="user-profile">
+			<div class="dropdown user-pro-body">
+			  <div><img src="images/admin_avatar.png" alt="user-img" class="img-circle"></div>
+			  <a  class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Anonymous<span class="caret"></span></a>
+			  <ul class="dropdown-menu animated flipInY">
+				<li><a><i class="fa fa-power-off"></i> Logout</a></li>
+			  </ul>
+		</div>
+	</div>
+		
+		
+	<ul class="nav" id="side-menu">			 
+		 
+	<li>
+		<a class="waves-effect " href="javascript:void(0)">
+			<i class="nc-icon nc-dashboard-level fa-fw red-text" data-icon="v"></i> 
+			<span> Dashboard </span>
+		</a>	  
+	</li>
+	
+<!-- ================================================================  --> 
+	
+	
+
+	<li>
+	  <a class="waves-effect" href="javascript:void(0)">
+		<i class="nc-icon nc-camera-20 fa-fw orange-text" data-icon="v"></i> 
+		<span class="hide-menu">Products</span>
+	   </a>
+	</li>
+
+	
+	 
+<!-- ================================================================  --> 
+	
+
+	<li>
+	  <a class="waves-effect" href="javascript:void(0)">
+		<i class="nc-icon nc-grid-45 fa-fw red-text" data-icon="v"></i> 
+		<span class="hide-menu">Categories</span>
+	   </a>
+	</li>
+
+
+<!-- ================================================================  --> 
+
+
+	<li>
+	  <a class="waves-effect" href="javascript:void(0)">
+		<i class="nc-icon nc-handout bold fa-fw green-text" data-icon="v"></i> 
+		<span class="hide-menu">Suppliers</span>
+	   </a>
+	</li>
+
+
+<!-- ================================================================  --> 
+
+
+
+	<li>
+	  <a class="waves-effect" href="javascript:void(0)">
+		<i class="nc-icon nc-cart-simple fa-fw blue-text" data-icon="v"></i> 
+		<span class="hide-menu">Orders</span>
+	   </a>
+	</li>
+
+
+<!-- ================================================================  --> 
+
+
+	</ul>
+</div>
+</div>
+
+
+
+
+
+
+<!-- ============================================================== -->
+<!-- End Left Sidebar -->
+<!-- ============================================================== -->	
+	
+
+<div id="page-wrapper">
+<div class="container-fluid">
+
+<!-- ============================================================== -->
+<!-- Content -->
+<!-- ============================================================== -->
+
+	
+<div class="my-header-font center-align">
+	DASHBOARD
+</div>
+<br><br><br><br>
+<div class="row">
+
+	<div class="col-lg-2 col-md-7 p10"></div>
+	
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10">
+		<a href="">
+			<div class="card gradient-danger">
+				<div class="row card-content p10">
+					<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-5 p10 " align="center">
+						<div class="card-icon-small"><i class="material-icons">photo_camera</i></div>
+						<p class="card-text  pl-0"><strong>Products</strong></p>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+	
+
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10">
+		<a href="">
+			<div class="card gradient-primary">
+				<div class="row card-content p10">
+					<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-5  p10" align="center">
+						<div class="card-icon-small"><i class="material-icons">perm_identity</i></div>
+						<p class="card-text pl-0"><strong>Suppliers</strong></p>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+
+</div>
+<br><br>
+<div class="row">
+
+	<div class="col-lg-2 col-md-7 col-sm-12 col-xs-12 col-12 p10"></div>
+
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10">
+		<a href="">
+			<div class="card gradient-success">
+				<div class="row card-content p10">
+					<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-5 p10 " align="center">
+						<div class="card-icon-small"><i class="material-icons">view_list</i></div>
+						<p class="card-text pl-0"><strong>Categories</strong> </p>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10">
+		<a href="">
+			<div class="card gradient-warning">
+				<div class="row card-content p10">
+					<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-5 p10 " align="center">
+						<div class="card-icon-small"><i class="material-icons">shopping_cart</i></div>
+						<p class="card-text pl-0"><strong>Orders</strong></p>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+
+</div>
+
+<script type="text/javascript" src="vendors/chartjs/chart.min.js"></script>
+<script>  
+
+/*
+ * Dashboard - eCommerce
+ */
+
+//Line chart with color shadow: Revenue for 2017 Chart
+var chart1 = document.getElementById("thisYearRevenue").getContext("2d");
+var chart2 = document.getElementById("lastYearRevenue").getContext("2d");
+
+Chart.types.Line.extend({
+  name: "LineAlt",
+  initialize: function() {
+    Chart.types.Line.prototype.initialize.apply(this, arguments);
+
+    var ctx = this.chart.ctx;
+    var originalStroke = ctx.stroke;
+    ctx.stroke = function() {
+      ctx.save();
+      ctx.shadowColor = 'rgba(0, 0, 0,0.1)';
+      ctx.shadowBlur = 20;
+      ctx.shadowOffsetX = 2;
+      ctx.shadowOffsetY = 20;
+      originalStroke.apply(this, arguments)
+      ctx.restore();
+    }
+  }
+});
+
+Chart.types.Line.extend({
+  name: "LineAlt2",
+  initialize: function() {
+    Chart.types.Line.prototype.initialize.apply(this, arguments);
+    var ctx = this.chart.ctx;
+    var originalStroke = ctx.stroke;
+    ctx.stroke = function() {
+      ctx.save();
+      originalStroke.apply(this, arguments)
+      ctx.restore();
+    }
+  }
+});
+
+var data1 = {
+  labels: ["January", "February", "March", "April", "May", "June","July","August","September","October","November","December"],
+  datasets: [{
+    label: "This year dataset",
+    fillColor: "#28a745",
+    strokeColor: "#28a745",
+    pointColor: "transparent",
+    pointStrokeColor: "transparent",
+    pointHighlightFill: "#fff",
+    pointHighlightStroke: "#9C2E9D",
+    data: [0,0,0,0,0,35, 22, 15, 78, 58, 98,50]
+  }]
+};
+
+var data2 = {
+  labels: ["January", "February", "March", "April", "May", "June","July","August","September","October","November","December"],
+  datasets: [{
+    label: "Last year dataset",
+    fillColor: "#E4E4E4",
+    strokeColor: "#E4E4E4",
+    pointColor: "transparent",
+    pointStrokeColor: "transparent",
+    pointHighlightFill: "#fff",
+    pointHighlightStroke: "#E4E4E4",
+    data: [0,0,0,0,0,12, 6, 35, 58, 38, 68,38]
+  }]
+};
+
+var c1 = new Chart(chart1).LineAlt(data1, {
+  datasetFill: false,
+  scaleShowGridLines: false,
+
+  datasetStrokeWidth: 5,
+  scaleFontColor: '#9e9e9e',
+  scaleGridLineColor: '#e4e4e4',
+  scaleLineColor: 'transparent',
+  scaleOverride: true,
+  scaleSteps: 7,
+  scaleStepWidth: 20,
+  scaleStartValue: 0
+});
+var c2 = new Chart(chart2).LineAlt2(data2, {
+  datasetFill: false,
+  scaleShowVerticalLines: false,
+  datasetStrokeWidth: 5,
+  scaleFontColor: '#9e9e9e',
+  scaleGridLineColor: '#e4e4e4',
+  scaleLineColor: 'transparent',
+  scaleOverride: true,
+  scaleSteps: 7,
+  scaleStepWidth: 20,
+  scaleStartValue: 0
+});
+
+
+</script>  	
+				
+
+<!-- ============================================================== -->
+<!-- Close Content -->
+<!-- ============================================================== -->
+		
+				
+				
+</div> 
+<br />
+<br />
+
+</div>
+</div>
+</body>
+
+
+
+
+
+<!-- ============================================================== -->
+<!-- Javascript -->
+<!-- ============================================================== -->
+
+<script src="assets/plugin/sidebar-nav/dist/sidebar-nav.min.js"></script>
+<script src="assets/js/jquery.slimscroll.js"></script>
+<script src="assets/js/custom.min.js"></script>
+<script src="bootstrap/assets/js/vendor/popper.min.js"></script>
+<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bootstrap/dist/js/plus.js"></script>
+
+
+<!-- ============================================================== -->
+<!-- Close Javascript -->
+<!-- ============================================================== -->
+
+
+
+<!-- 
+
+ * Bootstrap v1.0.0 (https://niagawebster*com)
+ * Copyright 2018 The Indra Rani Dwi Putra Authors
+ * Copyright 2018 Niagawebster, Inc.
+ 
+--> 
+
+
+<!-- Mirrored from admin-clip.niagawebster.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Apr 2018 03:27:44 GMT -->
+</html>
