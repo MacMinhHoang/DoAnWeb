@@ -381,7 +381,7 @@
                   </div>
                   <div class="col-sm-6">
                     <div class="input-text">
-                      <input type="tel" name="phone" class="form-control" value="0123456789">
+                      <input type="tel" name="phone" class="form-control" id="myPhone" value="0123456789">
                     </div>
                   </div>
                 </div>
@@ -403,7 +403,7 @@
                   </div>
                   <div class="col-sm-6">
                     <div class="input-text">
-                      <input type="text" name="address" class="form-control" value="wwe.com">
+                      <input type="text" name="address" class="form-control" value="123 Truong Chinh F.15 Q.5 TPHCM">
                     </div>
                   </div>
                 </div>
@@ -630,6 +630,14 @@
         updateNumberOfDays(); 
     });
 
+    //button Update click function
+    $('#btnUpdate').on('click', function() {
+      $('#myMessage').show();
+      $('#myMessage').empty();
+      $('#myMessage').append('Update Successfully');
+    });
+
+
 });
 
 //function to update the days based on the current values of month and year
@@ -648,13 +656,6 @@ function updateNumberOfDays(){
 function daysInMonth(month, year) {
     return new Date(year, month, 0).getDate();
 }
-
-//button Update click function
-$('#btnUpdate').on('click', function() {
-  $('#myMessage').show();
-  $('#myMessage').empty();
-  $('#myMessage').append('Update Successfully');
-});
 </script>
 </body>
 
