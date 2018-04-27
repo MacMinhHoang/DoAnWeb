@@ -7,7 +7,8 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-	<title>Dashboard </title>
+	<link href="vendors/data-tables/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet">
+	<title>Suppliers </title>
 
 
 
@@ -138,7 +139,7 @@
 	<ul class="nav" id="side-menu">			 
 		 
 	<li>
-		<a class="waves-effect " href="javascript:void(0)">
+		<a class="waves-effect " href="index.html">
 			<i class="nc-icon nc-dashboard-level fa-fw red-text" data-icon="v"></i> 
 			<span> Dashboard </span>
 		</a>	  
@@ -184,7 +185,7 @@
 
 
 	<li>
-	  <a class="waves-effect" href="admin-orders.html">
+	  <a class="waves-effect" href="javascript:void(0)">
 		<i class="nc-icon nc-cart-simple fa-fw blue-text" data-icon="v"></i> 
 		<span class="hide-menu">Orders</span>
 	   </a>
@@ -216,175 +217,180 @@
 <!-- ============================================================== -->
 
 	
-<div class="my-header-font center-align">
-	DASHBOARD
+				
+<link href="vendors/data-tables/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="vendors/data-tables/js/jquery.dataTables.min.js"></script>
+
+
+<div class="card-simple overflow">
+    <div id="table-datatables">
+    	<h4 class="header">Suppliers List</h4>
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 p10">
+            <table id="data-table-simple" class="responsive-table display centered" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Supplier ID</th>
+                  <th>Supplier Name</th>
+                  <th>Supplier Logo</th>
+                  <th>Number of Products</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Supplier ID</th>
+                  <th>Supplier Name</th>
+                  <th>Supplier Logo</th>
+                  <th>Number of Products</th>
+                  <th>Status</th>
+                </tr>
+              </tfoot>
+              <tbody>
+              	<tr>
+              	  <td>111001</td>
+                  <td>Canon</td>
+                  <td><img width="50%" height="50%" src="../images/logo/brand_canon.png"></td>
+                  <td>10</td>
+                  <td><i style="font-size: 30px;" class="mdi mdi-check"></td>
+                </tr>
+              	<tr>
+                  <td>111002</td>
+                  <td>Dahua</td>
+                  <td><img width="50%" height="50%" src="../images/logo/brand_dahua.png"></td>
+                  <td>4</td>
+                  <td><i style="font-size: 30px;" class="mdi mdi-check"></td>
+                </tr>
+                <tr>
+                  <td>111003</td>
+                  <td>Fujifilm</td>
+                  <td><img width="50%" height="50%" src="../images/logo/brand_fujifilm.png"></td>
+                  <td>6</td>
+                  <td><i style="font-size: 30px;" class="mdi mdi-check"></td>
+                </tr>
+                <tr>
+                  <td>111004</td>
+                  <td>GOPRO</td>
+                  <td><img width="50%" height="50%" src="../images/logo/brand_gopro.png"></td>
+                  <td>5</td>
+                  <td><i style="font-size: 30px;" class="mdi mdi-check"></td>
+                </tr>
+                <tr>
+                  <td>111005</td>
+                  <td>Logitech</td>
+                  <td><img width="50%" height="50%" src="../images/logo/brand_logitech.png"></td>
+                  <td>4</td>
+                  <td><i style="font-size: 30px;" class="mdi mdi-check"></td>
+                </tr>
+                <tr>
+                  <td>111006</td>
+                  <td>Nikon</td>
+                  <td><img width="50%" height="50%" src="../images/logo/brand_nikon.png"></td>
+                  <td>4</td>
+                  <td><i style="font-size: 30px;" class="mdi mdi-check"></td>
+                </tr>
+                <tr>
+                  <td>111007</td>
+                  <td>Olympus</td>
+                  <td><img width="50%" height="50%" src="../images/logo/brand_olympus.png"></td>
+                  <td>7</td>
+                  <td><i style="font-size: 30px;" class="mdi mdi-check"></td>
+                </tr>
+                <tr>
+                  <td>111008</td>
+                  <td>Pentax</td>
+                  <td><img width="50%" height="50%" src="../images/logo/brand_pentax.png"></td>
+                  <td>4</td>
+                  <td><i style="font-size: 30px;" class="mdi mdi-check"></td>
+                </tr>
+                <tr>
+                  <td>111009</td>
+                  <td>Sony</td>
+                  <td><img width="50%" height="50%" src="../images/logo/brand_sony.png"></td>
+                  <td>4</td>
+                  <td><i style="font-size: 30px;" class="mdi mdi-check"></td>
+                </tr>
+                <tr>
+                  <td>111010</td>
+                  <td>Transcend</td>
+                  <td><img width="50%" height="50%" src=""></td>
+                  <td>0</td>
+                  <td><i style="font-size: 30px;" class="mdi mdi-close"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
 </div>
-<br><br><br><br>
-<div class="row">
 
-	<div class="col-lg-2 col-md-7 p10"></div>
-	
-	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10">
-		<a href="">
-			<div class="card gradient-danger">
-				<div class="row card-content p10">
-					<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-5 p10 " align="center">
-						<div class="card-icon-small"><i class="material-icons">photo_camera</i></div>
-						<p class="card-text  pl-0"><strong>Products</strong></p>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
-	
 
-	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10">
-		<a href="">
-			<div class="card gradient-primary">
-				<div class="row card-content p10">
-					<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-5  p10" align="center">
-						<div class="card-icon-small"><i class="material-icons">perm_identity</i></div>
-						<p class="card-text pl-0"><strong>Suppliers</strong></p>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
 
-</div>
-<br><br>
-<div class="row">
 
-	<div class="col-lg-2 col-md-7 col-sm-12 col-xs-12 col-12 p10"></div>
-
-	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10">
-		<a href="">
-			<div class="card gradient-success">
-				<div class="row card-content p10">
-					<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-5 p10 " align="center">
-						<div class="card-icon-small"><i class="material-icons">view_list</i></div>
-						<p class="card-text pl-0"><strong>Categories</strong> </p>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
-
-	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10">
-		<a href="admin-orders.html">
-			<div class="card gradient-warning">
-				<div class="row card-content p10">
-					<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-5 p10 " align="center">
-						<div class="card-icon-small"><i class="material-icons">shopping_cart</i></div>
-						<p class="card-text pl-0"><strong>Orders</strong></p>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
-
-</div>
-
-<script type="text/javascript" src="vendors/chartjs/chart.min.js"></script>
 <script>  
 
-/*
- * Dashboard - eCommerce
- */
 
-//Line chart with color shadow: Revenue for 2017 Chart
-var chart1 = document.getElementById("thisYearRevenue").getContext("2d");
-var chart2 = document.getElementById("lastYearRevenue").getContext("2d");
+$(function() {
+  $('#data-table-simple').DataTable();
 
-Chart.types.Line.extend({
-  name: "LineAlt",
-  initialize: function() {
-    Chart.types.Line.prototype.initialize.apply(this, arguments);
+  var table = $('#data-table-row-grouping').DataTable({
+    "columnDefs": [{
+      "visible": false,
+      "targets": 2
+    }],
+    "order": [
+      [2, 'asc']
+    ],
+    "displayLength": 25,
+    "drawCallback": function(settings) {
+      var api = this.api();
+      var rows = api.rows({
+        page: 'current'
+      }).nodes();
+      var last = null;
 
-    var ctx = this.chart.ctx;
-    var originalStroke = ctx.stroke;
-    ctx.stroke = function() {
-      ctx.save();
-      ctx.shadowColor = 'rgba(0, 0, 0,0.1)';
-      ctx.shadowBlur = 20;
-      ctx.shadowOffsetX = 2;
-      ctx.shadowOffsetY = 20;
-      originalStroke.apply(this, arguments)
-      ctx.restore();
+      api.column(2, {
+        page: 'current'
+      }).data().each(function(group, i) {
+        if (last !== group) {
+          $(rows).eq(i).before(
+            '<tr class="group"><td colspan="5">' + group + '</td></tr>'
+          );
+
+          last = group;
+        }
+      });
     }
-  }
-});
+  });
 
-Chart.types.Line.extend({
-  name: "LineAlt2",
-  initialize: function() {
-    Chart.types.Line.prototype.initialize.apply(this, arguments);
-    var ctx = this.chart.ctx;
-    var originalStroke = ctx.stroke;
-    ctx.stroke = function() {
-      ctx.save();
-      originalStroke.apply(this, arguments)
-      ctx.restore();
+  // Order by the grouping
+  $('#data-table-row-grouping tbody').on('click', 'tr.group', function() {
+    var currentOrder = table.order()[0];
+    if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+      table.order([2, 'desc']).draw();
     }
-  }
+    else {
+      table.order([2, 'asc']).draw();
+    }
+  });
+
+
+  // var iconClass = ["fa fa-spin fa-spinner", "mdi mdi-truck-delivery", "mdi mdi-check"];
+  // $('.btnUpdate').click(function(event) {
+  // 	var node = $(this).parent().prev().children();
+  // 	var temp = node.attr('class');
+  // 	if (temp === iconClass[0])
+  // 		node.attr('class', iconClass[1]);
+  // 	else if (temp === iconClass[1])
+  // 		node.attr('class', iconClass[2]);
+  // 	else node.attr('class', iconClass[0]);
+  	
+  // });
+
+
 });
 
-var data1 = {
-  labels: ["January", "February", "March", "April", "May", "June","July","August","September","October","November","December"],
-  datasets: [{
-    label: "This year dataset",
-    fillColor: "#28a745",
-    strokeColor: "#28a745",
-    pointColor: "transparent",
-    pointStrokeColor: "transparent",
-    pointHighlightFill: "#fff",
-    pointHighlightStroke: "#9C2E9D",
-    data: [0,0,0,0,0,35, 22, 15, 78, 58, 98,50]
-  }]
-};
-
-var data2 = {
-  labels: ["January", "February", "March", "April", "May", "June","July","August","September","October","November","December"],
-  datasets: [{
-    label: "Last year dataset",
-    fillColor: "#E4E4E4",
-    strokeColor: "#E4E4E4",
-    pointColor: "transparent",
-    pointStrokeColor: "transparent",
-    pointHighlightFill: "#fff",
-    pointHighlightStroke: "#E4E4E4",
-    data: [0,0,0,0,0,12, 6, 35, 58, 38, 68,38]
-  }]
-};
-
-var c1 = new Chart(chart1).LineAlt(data1, {
-  datasetFill: false,
-  scaleShowGridLines: false,
-
-  datasetStrokeWidth: 5,
-  scaleFontColor: '#9e9e9e',
-  scaleGridLineColor: '#e4e4e4',
-  scaleLineColor: 'transparent',
-  scaleOverride: true,
-  scaleSteps: 7,
-  scaleStepWidth: 20,
-  scaleStartValue: 0
-});
-var c2 = new Chart(chart2).LineAlt2(data2, {
-  datasetFill: false,
-  scaleShowVerticalLines: false,
-  datasetStrokeWidth: 5,
-  scaleFontColor: '#9e9e9e',
-  scaleGridLineColor: '#e4e4e4',
-  scaleLineColor: 'transparent',
-  scaleOverride: true,
-  scaleSteps: 7,
-  scaleStepWidth: 20,
-  scaleStartValue: 0
-});
-
-
-</script>  	
+  </script>  	
 				
 
 <!-- ============================================================== -->
@@ -396,7 +402,8 @@ var c2 = new Chart(chart2).LineAlt2(data2, {
 </div> 
 <br />
 <br />
-
+  
+ 
 </div>
 </div>
 </body>
@@ -421,16 +428,4 @@ var c2 = new Chart(chart2).LineAlt2(data2, {
 <!-- Close Javascript -->
 <!-- ============================================================== -->
 
-
-
-<!-- 
-
- * Bootstrap v1.0.0 (https://niagawebster*com)
- * Copyright 2018 The Indra Rani Dwi Putra Authors
- * Copyright 2018 Niagawebster, Inc.
- 
---> 
-
-
-<!-- Mirrored from admin-clip.niagawebster.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Apr 2018 03:27:44 GMT -->
 </html>

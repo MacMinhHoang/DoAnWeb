@@ -359,7 +359,9 @@
                       </td>
                       <td class="availability out-of-stock"><span class="label">No stock</span></td>
                       <td class="price"><span>13,490,000 VND</span></td>
-                      <td class="qty"><input class="form-control input-sm" type="number" value="0" disabled></td>
+                      <td class="qty">
+                        <input class="form-control input-sm" type="number" id="quantity-2" value="0" disabled>
+                      </td>
                       <td class="price"><span>0 VND</span></td>
                       <td class="action" id="del-2"><i class="icon-close"></i></td>
                     </tr>
@@ -394,7 +396,9 @@
               </div>
               <div class="cart_navigation"> 
                 <a class="continue-btn" href="index.html"><i class="fa fa-arrow-left"> </i>&nbsp; Continue shopping</a> 
-                <a class="checkout-btn" href="checkout.html"><i class="fa fa-check"></i> Proceed to checkout</a> 
+                <a class="checkout-btn button" id="btnCheckOut" role="button">
+                  <i class="fa fa-check"></i> Proceed to checkout
+                </a> 
               </div>
             </div>
           </div>
@@ -586,8 +590,14 @@
 
 <script type="text/javascript">
 
+  $(function() {
+
   var qunt1 = $('#quantity-1').val();
+  var qunt2 = $("#quantity-2").val();
   var qunt3 = $('#quantity-3').val();
+  var deleted1 = false;
+  var deleted2 = false;
+  var deleted3 = false;
 
   function addCommas(x) {
     var parts = x.toString().split(".");
@@ -610,28 +620,52 @@
 
   $('#quantity-1').on('input', function(event) {
     qunt1 = $('#quantity-1').val();
+    if (qunt1 > 10)
+      qunt1 = 10;
+    if (qunt1 < 1)
+      qunt1 = 1;
+    $('#quantity-1').val(qunt1);
     updatePrices(qunt1, qunt3);
   });
 
   $('#quantity-3').on('input', function(event) {
     qunt3 = $('#quantity-3').val();
+    if (qunt3 > 10)
+      qunt3 = 10;
+    if (qunt3 < 1)
+      qunt3 = 1;
+    $('#quantity-1').val(qunt3);
     updatePrices(qunt1, qunt3);
   });
 
   $('#del-1').click(function(event) {
     $('#row-1').remove();
     qunt1 = 0;
+    deleted1 = true;
     updatePrices(qunt1, qunt3);
   });
 
   $('#del-2').click(function(event) {
     $('#row-2').remove();
+    deleted2 = true;
   });
 
   $('#del-3').click(function(event) {
     $('#row-3').remove();
     qunt3 = 0;
+    deleted3 = true;
     updatePrices(qunt1, qunt3);
+  });
+
+  $('#btnCheckOut').click(function(event) {
+    if ((!deleted1 && qunt1 == 0) || (!deleted2 && qunt2 == 0) || (!deleted3 && qunt3 == 0))
+    {
+      alert('Giỏ hàng của bạn có sản phẩm không đủ số lượng!');
+      return;
+    }
+    window.location.href = 'checkout.html';
+  });
+
   });
 
 </script> 
