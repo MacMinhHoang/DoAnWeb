@@ -4,7 +4,7 @@ var express_handlebars_sections = require('express-handlebars-sections');
 var bodyParser = require('body-parser');
 var path = require('path');
 
-var homeController = require('./controllers/homeController'),
+var homeController = require('./controllers/homeController');
     // categoryController = require('./controllers/categoryController');
 
 var app = express();
