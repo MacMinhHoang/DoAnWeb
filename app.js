@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 
 var homeController = require('./controllers/homeController'),
-    categoryController = require('./controllers/categoryController');
+    // categoryController = require('./controllers/categoryController');
 
 var app = express();
 
@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/home', homeController);
-app.use('/category', categoryController);
+// app.use('/category', categoryController);
 
 app.listen(3000, () => {
     console.log('Site running on port 3000');
