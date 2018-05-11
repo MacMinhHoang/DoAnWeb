@@ -4,8 +4,9 @@ var express_handlebars_sections = require('express-handlebars-sections');
 var bodyParser = require('body-parser');
 var path = require('path');
 
-var homeController = require('./controllers/homeController');
-    // categoryController = require('./controllers/categoryController');
+var homeController = require('./controllers/homeController'),
+    accountController = require('./controllers/accountController'),
+    cartController = require('./controllers/cartController');
 
 var app = express();
 
@@ -30,7 +31,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/home', homeController);
-// app.use('/category', categoryController);
+app.use('/account_info', accountController);
+app.use('/shopping_cart', cartController);
 
 app.listen(3000, () => {
     console.log('Site running on port 3000');
