@@ -3,6 +3,16 @@
 {{/section}}
 
 
+{{#section 'css'}}
+  
+{{/section}}
+
+
+{{#section 'js'}}
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+{{/section}}
+
+
 <!-- Breadcrumbs -->
   
   <div class="breadcrumbs">
@@ -64,8 +74,11 @@
                     <div class="col-xs-12">
                       <div class="billing-checkbox">
                         <input type="checkbox" value="forever" id="rememberme" name="rememberme">
-                        Sign up for our newsletter! </div>
-                        <br>
+                        Sign up for our newsletter! 
+                      </div>
+                      <br>
+                      <div class="g-recaptcha" data-sitekey="6LcAWlsUAAAAAPt8x-WMQsTjkfAXalEqM9jD4DT8"></div>
+                      <br>
                       <div class="submit-text">
                         <button class="button" type="button" id="btnRegister"><i class="fa fa-user"></i>&nbsp; <span>Register</span></button>
                       </div>
@@ -159,12 +172,3 @@
       </div>
     </div>
   </div>
-
-  <!-- Open Captcha -->
-<script type="text/javascript">
-  jQuery(document).ready(function($) {
-    $('#btnRegister').click(function(){
-      document.location.href='/register_page/captcha_form';
-    });
-  });
-</script>

@@ -3,6 +3,25 @@
 {{/section}}
 
 
+{{#section 'css'}}
+  
+{{/section}}
+
+
+{{#section 'js'}}
+    <script type="text/javascript">
+      $('#btnLogin').click(function(event) {
+        var name = $('#username').val();
+        var pass = $('#password_login').val();
+        if (name === "user" && pass === "user")
+          window.location.href = 'account_info.html';
+        else if (name === "admin" && pass === "admin")
+          window.location.href = 'Admin/index.html';
+        else alert('Username/Passowrd không đúng!');
+      });
+    </script>
+{{/section}}
+
 <!-- Breadcrumbs -->
   
   <div class="breadcrumbs">
