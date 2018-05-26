@@ -4,6 +4,9 @@ var express_handlebars_sections = require('express-handlebars-sections');
 var bodyParser = require('body-parser');
 var path = require('path');
 
+var handleLayoutMDW = require('./middle-wares/handleLayout'),
+    handle404MDW = require('./middle-wares/handle404');
+
 var homeController = require('./controllers/homeController'),
     accountController = require('./controllers/accountController'),
     cartController = require('./controllers/cartController'),
@@ -29,6 +32,9 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
+
+app.use(handleLayoutMDW);
+
 app.get('/', (req, res) => {
     res.redirect('/home');
 });
@@ -39,6 +45,8 @@ app.use('/shopping_cart', cartController);
 app.use('/manufacturers', manuController);
 app.use('/account_page', loginController);
 app.use('/register_page', registerController);
+
+app.use(handle404MDW);
 
 app.listen(3000, () => {
     console.log('Site running on port 3000');

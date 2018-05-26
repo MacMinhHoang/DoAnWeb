@@ -5,39 +5,39 @@
 {{#section 'css'}}
   
 {{/section}}
+    
+{{#section 'js'}}
     <script type="text/javascript">
-      $( document ).ready(function() {
+        $( document ).ready(function() {
 
-        for (var i = 1; i < 16;  i++)
-        {
-          $('#province').append('<option>' + i + '</option>');
-          $('#province_1').append('<option>' + i + '</option>');
-        }
+          for (var i = 1; i < 16;  i++)
+          {
+            $('#province').append('<option>' + i + '</option>');
+            $('#province_1').append('<option>' + i + '</option>');
+          }
 
-        $('#cont').click(function(event) {
-          $(this).hide();
-          $('#box_1').show();
-        });  
+          $('#cont').click(function(event) {
+            $(this).hide();
+            $('#box_1').show();
+          });  
 
-        $('#cont_1').click(function(event) {
-          $(this).hide();
-          $('#box_2').show();
-        });  
+          $('#cont_1').click(function(event) {
+            $(this).hide();
+            $('#box_2').show();
+          });  
 
-        $('#cont_2').click(function(event) {
-          $(this).hide();
-          $('#box_3').show();
-        });  
+          $('#cont_2').click(function(event) {
+            $(this).hide();
+            $('#box_3').show();
+          });  
 
-        $('#cont_3').click(function(event) {
-          $(this).hide();
-          $('#box_4').show();
-        });  
-      });
+          $('#cont_3').click(function(event) {
+            $(this).hide();
+            $('#box_4').show();
+          });  
+        });
 
     </script>
-{{#section 'js'}}
-
 {{/section}}
 
 <!-- Breadcrumbs -->
