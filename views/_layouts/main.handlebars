@@ -9,8 +9,6 @@
 <![endif]-->
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>{{{_sections.title}}}</title>
-<meta name="Have a look at the live preview for the top notch Famous Electronics Website Template to get a better idea of what this theme is prior to buying it. Browse through the pages, examine the images, press the buttons, explore the features.">
-<meta name="clean template, electronics Store, html5, electronics template, makeup store, modern, multipurpose store, electronics shop, commerce, ecommerce, electronics, electronics theme, megamenu, modern, retail, store"/>
 
 <!-- Mobile specific metas  -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,14 +47,14 @@
                 <li>
                   <div class="dropdown"><a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span>My Account</span> <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
-                      <li><a href="/account_info">Account</a></li>
+                      <li><a href="/account">Account</a></li>
                       <li class="divider"></li>
-                      <li><a href="/account_page">Log In</a></li>
-                      <li><a href="/register_page">Register</a></li>
+                      <li><a href="/account/login">Log In</a></li>
+                      <li><a href="/account/register">Register</a></li>
                     </ul>
                   </div>
                 </li>
-                <li><a title="login" href="/account_page"><span>Login</span></a></li>
+                <li><a title="login" href="/account/login"><span>Login</span></a></li>
               </ul>
             </div>
           </div>
@@ -141,25 +139,25 @@
             <!-- Shop by category -->
             <div class="mega-menu-category">
               <ul class="nav">
-                <li><a href="/shop_grid">Cameras</a>
+                <li><a href="javascript:void(0)">Cameras</a>
                   <div class="wrap-popup column3">
                     <div class="popup">
                       <div class="row">
                         <div class="col-sm-6">
                           <ul class="nav">
-                              {{#each layoutVM1.categories}}
-                              <li><a href="/products/byCat?id={{ID}}"> {{TenLoai}} </a></li>
+                              {{#each layoutVM.Cat1}}
+                                <li><a href="/products/byCat?id={{ID}}"> {{TenLoai}} </a></li>
                               {{/each}}
                           </ul>
                         </div>
                         <div class="col-sm-6 has-sep">
                           <ul class="nav">
-                              {{#each layoutVM2.categories}}
-                              <li><a href="/products/byCat?id={{ID}}"> {{TenLoai}} </a></li>
+                              {{#each layoutVM.Cat2}}
+                                <li><a href="/products/byCat?id={{ID}}"> {{TenLoai}} </a></li>
                               {{/each}}
                           </ul>
                         </div>
-                        <div class="col-sm-12"> <a class="ads1" href="#"><img class="img-responsive" src="/images/banner/menu-banner-cameras.jpg" alt="bootstrap"></a> </div>
+                        <div class="col-sm-12"> <a class="ads1" href="javascript:void(0)"><img class="img-responsive" src="/images/banner/menu-banner-cameras.jpg" alt="bootstrap"></a> </div>
                       </div>
                     </div>
                   </div>
@@ -227,28 +225,28 @@
                 <ul class="menu-items col-xs-12">
                   <li class="menu-item depth-1 menucol-1-3 ">
                     <ul class="submenu">
-                        {{#each layoutVM3.manufacturers}}
-                        <li class="menu-item">
-                          <div class="title"> <a href="/products/byBrand?id={{ID}}"> {{TenNSX}} </a></div>
-                        </li>
+                        {{#each layoutVM.Manu1}}
+                          <li class="menu-item">
+                            <div class="title"> <a href="/products/byBrand?id={{ID}}"> {{TenNSX}} </a></div>
+                          </li>
                         {{/each}}
                     </ul>
                   </li>
                   <li class="menu-item depth-1 menucol-1-3 ">
                     <ul class="submenu">
-                        {{#each layoutVM4.manufacturers}}
-                        <li class="menu-item">
-                          <div class="title"> <a href="/products/byBrand?id={{ID}}"> {{TenNSX}} </a></div>
-                        </li>
+                        {{#each layoutVM.Manu2}}
+                          <li class="menu-item">
+                            <div class="title"> <a href="/products/byBrand?id={{ID}}"> {{TenNSX}} </a></div>
+                          </li>
                         {{/each}}
                     </ul>
                   </li>
                   <li class="menu-item depth-1 menucol-1-3 ">
                     <ul class="submenu">
-                        {{#each layoutVM5.manufacturers}}
-                        <li class="menu-item">
-                          <div class="title"> <a href="/products/byBrand?id={{ID}}"> {{TenNSX}} </a></div>
-                        </li>
+                        {{#each layoutVM.Manu3}}
+                          <li class="menu-item">
+                            <div class="title"> <a href="/products/byBrand?id={{ID}}"> {{TenNSX}} </a></div>
+                          </li>
                         {{/each}}
                     </ul>
                   </li>
@@ -305,7 +303,7 @@
                 <li><a href="javascript:void(0)">Trends</a></li>
                 <li><a href="javascript:void(0)">About Us</a></li>
                 <li><a href="javascript:void(0)">Contact Us</a></li>
-                <li><a href="/orders_list">My Orders</a></li>
+                <li><a href="/account/orders_list">My Orders</a></li>
               </ul>
             </div>
           </div>
@@ -315,7 +313,7 @@
             <h5 class="links-title">Service<a class="expander visible-xs" href="#TabBlock-4">+</a></h5>
             <div class="tabBlock" id="TabBlock-4">
               <ul class="list-links list-unstyled">
-                <li><a href="/account_info">Account</a></li>
+                <li><a href="/account">Account</a></li>
                 <li><a href="/shopping_cart">Shopping Cart</a></li>
                 <li><a href="javascript:void(0)">Return Policy</a></li>
                 <li><a href="javascript:void(0)">Special</a></li>

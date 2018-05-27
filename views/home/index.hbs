@@ -100,17 +100,17 @@
                 <ul>
                   <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb=''><img src='images/slider/slide-1.jpg' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="banner"/>
                     <div class="caption-inner left">
-                      <div class='tp-caption sfb  tp-resizeme ' data-x='335'  data-y='130'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href='#' class="buy-btn">EXPLORE NOW</a> </div>
+                      <div class='tp-caption sfb  tp-resizeme ' data-x='335'  data-y='130'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href='javascript:void(0)' class="buy-btn">EXPLORE NOW</a> </div>
                     </div>
                   </li>
                   <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb=''><img src='images/slider/slide-3.jpg' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="banner"/>
                     <div class="caption-inner">
-                      <div class='tp-caption sfb  tp-resizeme ' data-x='250'  data-y='200'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href='#' class="buy-btn">Start Buying</a> </div>
+                      <div class='tp-caption sfb  tp-resizeme ' data-x='250'  data-y='200'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href='javascript:void(0)' class="buy-btn">Start Buying</a> </div>
                     </div>
                   </li>
                   <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb=''><img src='images/slider/slide-2.jpg' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="banner"/>
                     <div class="caption-inner left">
-                      <div class='tp-caption sfb  tp-resizeme ' data-x='570'  data-y='270'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href='#' class="buy-btn">Grab Now </a> </div>
+                      <div class='tp-caption sfb  tp-resizeme ' data-x='570'  data-y='270'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href='javascript:void(0)' class="buy-btn">Grab Now </a> </div>
                     </div>
                   </li>
                 </ul>
@@ -1166,15 +1166,11 @@
           <div class="slider-items-products">
             <div id="our-clients-slider" class="product-flexslider hidden-buttons">
               <div class="slider-items slider-width-col6">
-                <div class="item"><a href="shop_canon.html"><img src="images/logo/brand_canon.png" alt="Image"></a></div>
-                <div class="item"><a href="shop_dahua.html.png"><img src="images/logo/brand_dahua.png" alt="Image"></a></div>
-                <div class="item"><a href="shop_fujifilm.html"><img src="images/logo/brand_fujifilm.png" alt="Image"></a></div>
-                <div class="item"><a href="shop_gopro.html"><img src="images/logo/brand_gopro.png" alt="Image"></a></div>
-                <div class="item"><a href="shop_logitech.html"><img src="images/logo/brand_logitech.png" alt="Image"></a></div>
-                <div class="item"><a href="shop_nikon.html"><img src="images/logo/brand_nikon.png" alt="Image"></a></div>
-                <div class="item"><a href="shop_olympus.html"><img src="images/logo/brand_olympus.png" alt="Image"></a></div>
-                <div class="item"><a href="shop_pentax.html"><img src="images/logo/brand_pentax.png" alt="Image"></a></div>
-                <div class="item"><a href="shop_sony.html"><img src="images/logo/brand_sony.png" alt="Image"></a></div>
+                  {{#each manufacturers}}
+                    <div class="item">
+                      <a href="/products/byBrand?id={{ID}}"><img src="images/logo/{{ID}}.png" alt="Image"></a>
+                    </div>
+                  {{/each}}
               </div>
             </div>
           </div>
