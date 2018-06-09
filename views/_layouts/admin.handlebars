@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-	<title>Dashboard </title>
+	<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+	<title>{{{_sections.title}}}</title>
 
 
 
@@ -21,13 +21,13 @@
 <!-- Style -->
 <!-- ============================================================== -->
 	
-	<link href="assets/paper-dashboard.css" rel="stylesheet"/>
-	<link href="style/icons.css" rel="stylesheet">
-	<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-	<script src="bootstrap/dist/jquery/jquery.min.js"></script>
-	<link rel="stylesheet" href="bootstrap/highlight/styles/default.css">
-	<script src="bootstrap/highlight/highlight.pack.js"></script>
-	<link href="style/style.css" rel="stylesheet">
+	<link href="/Admin/assets/paper-dashboard.css" rel="stylesheet"/>
+	<link href="/Admin/style/icons.css" rel="stylesheet">
+	<link href="/Admin/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/Admin/bootstrap/highlight/styles/default.css" rel="stylesheet" >
+	<link href="/Admin/style/style.css" rel="stylesheet">
+
+	{{{_sections.css}}}
 	
 
 <!-- ============================================================== -->
@@ -76,7 +76,7 @@
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 	<a class="navbar-brand" href="index.html">
-		<b><img src="images/admin-logo.png" alt="home" class="dark-logo"/></b>
+		<b><img src="/Admin/images/admin-logo.png" alt="home" class="dark-logo"/></b>
 		<span class="hidden-xs">&nbsp;&nbsp;A D M I N</span> 
 	</a>
 
@@ -88,16 +88,19 @@
 		<ul class="navbar-nav mr-auto"></ul>
 		<ul class="form-inline my-2 my-md-0">
 			<li class="dropdown ">
-				<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="images/admin_avatar.png" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Anonymous</b><span class="caret"></span> </a>
+				<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> 
+					<img src="/Admin/images/admin_avatar.png" alt="user-img" width="36" class="img-circle">
+					<b class="hidden-xs">Anonymous</b><span class="caret"></span> 
+				</a>
 				<ul class="dropdown-menu dropdown-user animated flipInY">
 					<li>
 						<div class="dw-user-box">
-							<div class="u-img"><img src="images/admin_avatar.png" alt="user" /></div>
+							<div class="u-img"><img src="/Admin/images/admin_avatar.png" alt="user" /></div>
 							<div class="u-text"><h4>Anonymous</h4><p class="text-muted">AnimeNeverDie@gmail.com</p></div>
 						</div>
 					</li>
 					<li role="separator" class="divider"></li>
-					<li><a href="../account_page.html"><i class="fa fa-power-off"></i> Logout</a></li>
+					<li><a href="account/login"><i class="fa fa-power-off"></i> Logout</a></li>
 				</ul>
 				<!-- /.dropdown-user -->
 			</li>
@@ -125,10 +128,10 @@
 		<h3><span class="fa-fw open-close"><i class="mdi mdi-arrow-left"></i></span> <span class="hide-menu"> Navigation</span></h3> </div>
 		<div class="user-profile">
 			<div class="dropdown user-pro-body">
-			  <div><img src="images/admin_avatar.png" alt="user-img" class="img-circle"></div>
+			  <div><img src="/Admin/images/admin_avatar.png" alt="user-img" class="img-circle"></div>
 			  <a  class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Anonymous<span class="caret"></span></a>
 			  <ul class="dropdown-menu animated flipInY">
-				<li><a href="../account_page.html"><i class="fa fa-power-off"></i> Logout</a></li>
+				<li><a href="account/login"><i class="fa fa-power-off"></i> Logout</a></li>
 			  </ul>
 		</div>
 	</div>
@@ -137,7 +140,7 @@
 	<ul class="nav" id="side-menu">			 
 		 
 	<li>
-		<a class="waves-effect " href="index.html">
+		<a class="waves-effect " href="/">
 			<i class="nc-icon nc-dashboard-level fa-fw red-text" data-icon="v"></i> 
 			<span> Dashboard </span>
 		</a>	  
@@ -148,7 +151,7 @@
 	
 
 	<li>
-	  <a class="waves-effect" href="admin-products.html">
+	  <a class="waves-effect" href="/admin/products">
 		<i class="nc-icon nc-camera-20 fa-fw orange-text" data-icon="v"></i> 
 		<span class="hide-menu">Products</span>
 	   </a>
@@ -160,7 +163,7 @@
 	
 
 	<li>
-	  <a class="waves-effect" href="admin-categories.html">
+	  <a class="waves-effect" href="/admin/categories">
 		<i class="nc-icon nc-grid-45 fa-fw red-text" data-icon="v"></i> 
 		<span class="hide-menu">Categories</span>
 	   </a>
@@ -171,7 +174,7 @@
 
 
 	<li>
-	  <a class="waves-effect" href="admin-suppliers.html">
+	  <a class="waves-effect" href="/admin/suppliers">
 		<i class="nc-icon nc-handout bold fa-fw green-text" data-icon="v"></i> 
 		<span class="hide-menu">Suppliers</span>
 	   </a>
@@ -183,7 +186,7 @@
 
 
 	<li>
-	  <a class="waves-effect" href="admin-orders.html">
+	  <a class="waves-effect" href="/admin/orders">
 		<i class="nc-icon nc-cart-simple fa-fw blue-text" data-icon="v"></i> 
 		<span class="hide-menu">Orders</span>
 	   </a>
@@ -224,7 +227,7 @@
 	<div class="col-lg-2 col-md-7 p10"></div>
 	
 	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10">
-		<a href="admin-products.html">
+		<a href="/admin/products">
 			<div class="card gradient-danger">
 				<div class="row card-content p10">
 					<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-5 p10 " align="center">
@@ -238,7 +241,7 @@
 	
 
 	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10">
-		<a href="admin-suppliers.html">
+		<a href="/admin/suppliers">
 			<div class="card gradient-primary">
 				<div class="row card-content p10">
 					<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-5  p10" align="center">
@@ -257,7 +260,7 @@
 	<div class="col-lg-2 col-md-7 col-sm-12 col-xs-12 col-12 p10"></div>
 
 	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10">
-		<a href="admin-categories.html">
+		<a href="/admin/categories">
 			<div class="card gradient-success">
 				<div class="row card-content p10">
 					<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-5 p10 " align="center">
@@ -270,7 +273,7 @@
 	</div>
 
 	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 p10">
-		<a href="admin-orders.html">
+		<a href="/admin/orders">
 			<div class="card gradient-warning">
 				<div class="row card-content p10">
 					<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-5 p10 " align="center">
@@ -284,105 +287,98 @@
 
 </div>
 
-<script type="text/javascript" src="vendors/chartjs/chart.min.js"></script>
-<script>  
 
-/*
- * Dashboard - eCommerce
- */
+<script type="text/javascript">  
+		//Line chart with color shadow: Revenue for 2017 Chart
+	// var chart1 = document.getElementById("thisYearRevenue").getContext("2d");
+	// var chart2 = document.getElementById("lastYearRevenue").getContext("2d");
 
-//Line chart with color shadow: Revenue for 2017 Chart
-var chart1 = document.getElementById("thisYearRevenue").getContext("2d");
-var chart2 = document.getElementById("lastYearRevenue").getContext("2d");
+	// Chart.types.Line.extend({
+	//   name: "LineAlt",
+	//   initialize: function() {
+	//     Chart.types.Line.prototype.initialize.apply(this, arguments);
 
-Chart.types.Line.extend({
-  name: "LineAlt",
-  initialize: function() {
-    Chart.types.Line.prototype.initialize.apply(this, arguments);
+	//     var ctx = this.chart.ctx;
+	//     var originalStroke = ctx.stroke;
+	//     ctx.stroke = function() {
+	//       ctx.save();
+	//       ctx.shadowColor = 'rgba(0, 0, 0,0.1)';
+	//       ctx.shadowBlur = 20;
+	//       ctx.shadowOffsetX = 2;
+	//       ctx.shadowOffsetY = 20;
+	//       originalStroke.apply(this, arguments)
+	//       ctx.restore();
+	//     }
+	//   }
+	// });
 
-    var ctx = this.chart.ctx;
-    var originalStroke = ctx.stroke;
-    ctx.stroke = function() {
-      ctx.save();
-      ctx.shadowColor = 'rgba(0, 0, 0,0.1)';
-      ctx.shadowBlur = 20;
-      ctx.shadowOffsetX = 2;
-      ctx.shadowOffsetY = 20;
-      originalStroke.apply(this, arguments)
-      ctx.restore();
-    }
-  }
-});
+	// Chart.types.Line.extend({
+	//   name: "LineAlt2",
+	//   initialize: function() {
+	//     Chart.types.Line.prototype.initialize.apply(this, arguments);
+	//     var ctx = this.chart.ctx;
+	//     var originalStroke = ctx.stroke;
+	//     ctx.stroke = function() {
+	//       ctx.save();
+	//       originalStroke.apply(this, arguments)
+	//       ctx.restore();
+	//     }
+	//   }
+	// });
 
-Chart.types.Line.extend({
-  name: "LineAlt2",
-  initialize: function() {
-    Chart.types.Line.prototype.initialize.apply(this, arguments);
-    var ctx = this.chart.ctx;
-    var originalStroke = ctx.stroke;
-    ctx.stroke = function() {
-      ctx.save();
-      originalStroke.apply(this, arguments)
-      ctx.restore();
-    }
-  }
-});
+	// var data1 = {
+	//   labels: ["January", "February", "March", "April", "May", "June","July","August","September","October","November","December"],
+	//   datasets: [{
+	//     label: "This year dataset",
+	//     fillColor: "#28a745",
+	//     strokeColor: "#28a745",
+	//     pointColor: "transparent",
+	//     pointStrokeColor: "transparent",
+	//     pointHighlightFill: "#fff",
+	//     pointHighlightStroke: "#9C2E9D",
+	//     data: [0,0,0,0,0,35, 22, 15, 78, 58, 98,50]
+	//   }]
+	// };
 
-var data1 = {
-  labels: ["January", "February", "March", "April", "May", "June","July","August","September","October","November","December"],
-  datasets: [{
-    label: "This year dataset",
-    fillColor: "#28a745",
-    strokeColor: "#28a745",
-    pointColor: "transparent",
-    pointStrokeColor: "transparent",
-    pointHighlightFill: "#fff",
-    pointHighlightStroke: "#9C2E9D",
-    data: [0,0,0,0,0,35, 22, 15, 78, 58, 98,50]
-  }]
-};
+	// var data2 = {
+	//   labels: ["January", "February", "March", "April", "May", "June","July","August","September","October","November","December"],
+	//   datasets: [{
+	//     label: "Last year dataset",
+	//     fillColor: "#E4E4E4",
+	//     strokeColor: "#E4E4E4",
+	//     pointColor: "transparent",
+	//     pointStrokeColor: "transparent",
+	//     pointHighlightFill: "#fff",
+	//     pointHighlightStroke: "#E4E4E4",
+	//     data: [0,0,0,0,0,12, 6, 35, 58, 38, 68,38]
+	//   }]
+	// };
 
-var data2 = {
-  labels: ["January", "February", "March", "April", "May", "June","July","August","September","October","November","December"],
-  datasets: [{
-    label: "Last year dataset",
-    fillColor: "#E4E4E4",
-    strokeColor: "#E4E4E4",
-    pointColor: "transparent",
-    pointStrokeColor: "transparent",
-    pointHighlightFill: "#fff",
-    pointHighlightStroke: "#E4E4E4",
-    data: [0,0,0,0,0,12, 6, 35, 58, 38, 68,38]
-  }]
-};
+	// var c1 = new Chart(chart1).LineAlt(data1, {
+	//   datasetFill: false,
+	//   scaleShowGridLines: false,
 
-var c1 = new Chart(chart1).LineAlt(data1, {
-  datasetFill: false,
-  scaleShowGridLines: false,
-
-  datasetStrokeWidth: 5,
-  scaleFontColor: '#9e9e9e',
-  scaleGridLineColor: '#e4e4e4',
-  scaleLineColor: 'transparent',
-  scaleOverride: true,
-  scaleSteps: 7,
-  scaleStepWidth: 20,
-  scaleStartValue: 0
-});
-var c2 = new Chart(chart2).LineAlt2(data2, {
-  datasetFill: false,
-  scaleShowVerticalLines: false,
-  datasetStrokeWidth: 5,
-  scaleFontColor: '#9e9e9e',
-  scaleGridLineColor: '#e4e4e4',
-  scaleLineColor: 'transparent',
-  scaleOverride: true,
-  scaleSteps: 7,
-  scaleStepWidth: 20,
-  scaleStartValue: 0
-});
-
-
+	//   datasetStrokeWidth: 5,
+	//   scaleFontColor: '#9e9e9e',
+	//   scaleGridLineColor: '#e4e4e4',
+	//   scaleLineColor: 'transparent',
+	//   scaleOverride: true,
+	//   scaleSteps: 7,
+	//   scaleStepWidth: 20,
+	//   scaleStartValue: 0
+	// });
+	// var c2 = new Chart(chart2).LineAlt2(data2, {
+	//   datasetFill: false,
+	//   scaleShowVerticalLines: false,
+	//   datasetStrokeWidth: 5,
+	//   scaleFontColor: '#9e9e9e',
+	//   scaleGridLineColor: '#e4e4e4',
+	//   scaleLineColor: 'transparent',
+	//   scaleOverride: true,
+	//   scaleSteps: 7,
+	//   scaleStepWidth: 20,
+	//   scaleStartValue: 0
+	// });
 </script>  	
 				
 
@@ -407,29 +403,21 @@ var c2 = new Chart(chart2).LineAlt2(data2, {
 <!-- ============================================================== -->
 <!-- Javascript -->
 <!-- ============================================================== -->
+<script src="/Admin/bootstrap/dist/jquery/jquery.min.js"></script>
+<script src="/Admin/bootstrap/highlight/highlight.pack.js"></script>
+{{!-- <script src="/Admin/vendors/chartjs/chart.min.js" type="text/javascript"></script> --}}
+<script src="/Admin/assets/plugin/sidebar-nav/dist/sidebar-nav.min.js"></script>
+<script src="/Admin/assets/js/jquery.slimscroll.js"></script>
+<script src="/Admin/assets/js/custom.min.js"></script>
+<script src="/Admin/bootstrap/assets/js/vendor/popper.min.js"></script>
+<script src="/Admin/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/Admin/bootstrap/dist/js/plus.js"></script>
 
-<script src="assets/plugin/sidebar-nav/dist/sidebar-nav.min.js"></script>
-<script src="assets/js/jquery.slimscroll.js"></script>
-<script src="assets/js/custom.min.js"></script>
-<script src="bootstrap/assets/js/vendor/popper.min.js"></script>
-<script src="bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="bootstrap/dist/js/plus.js"></script>
+{{{_sections.js}}}
 
 
 <!-- ============================================================== -->
 <!-- Close Javascript -->
 <!-- ============================================================== -->
 
-
-
-<!-- 
-
- * Bootstrap v1.0.0 (https://niagawebster*com)
- * Copyright 2018 The Indra Rani Dwi Putra Authors
- * Copyright 2018 Niagawebster, Inc.
- 
---> 
-
-
-<!-- Mirrored from admin-clip.niagawebster.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Apr 2018 03:27:44 GMT -->
 </html>
