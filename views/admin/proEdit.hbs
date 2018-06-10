@@ -1,0 +1,111 @@
+{{#section 'title'}}
+	Edit Product
+{{/section}}
+
+{{#section 'css'}}
+  	
+{{/section}}
+
+{{#section 'js'}}
+	<script type="text/javascript">
+		function readURL(input) {
+		  if (input.files && input.files[0]) {
+		    var reader = new FileReader();
+		    reader.onload = function(e) {
+		      $('#preview').attr('src', e.target.result);
+		    }
+		    reader.readAsDataURL(input.files[0]);
+		  }
+		}
+
+		$("#proImg").change(function() {
+		  readURL(this);
+		});
+
+	</script>
+{{/section}}
+
+{{#with Product}}
+<form action="" method="POST" role="form">
+	<div class="card-simple overflow">
+		<div class="row">
+		    <div class="col-sm">
+				<div class="form-group">
+			    	<label for="proID">Product ID</label>
+			    	<input type="text" class="form-control disabled" name="proID" value="{{ID}}">
+			  	</div>
+			  	<div class="form-group">
+			    	<label for="proName">Product Name</label>
+			    	<input type="text" class="form-control" name="proName" value="{{Ten}}">
+			  	</div>
+			  	<br>
+			 	<div class="form-group">
+			    	<label for="proPic">Choose a picture</label>
+			    	<input type="file" class="form-control-file" name="proPic" id="proImg" accept="image/*">
+			  	</div>
+				<br>
+				<img src="" id="preview"></img>
+				<br>
+				<div class="form-group">
+			    	<label for="proPrice">Product Price</label>
+			    	<input type="number" class="form-control" name="proPrice" value="{{GiaBan}}">
+			  	</div>
+			  	<br>
+			  	<div class="form-group">
+			    	<label for="proViews">Views</label>
+			    	<input type="number" class="form-control" name="proViews" value="{{SoLuotXem}}">
+			  	</div>
+			  	<br>
+				<div class="form-group">
+			    	<label for="proInStore">In Store</label>
+			    	<input type="number" class="form-control" name="proInStore" value="{{SoLuongTon}}">
+			  	</div>
+			  	<br>
+				<div class="form-group">
+			    	<label for="proSold">Sold</label>
+			    	<input type="number" class="form-control" name="proSold" value="{{SoLuongBan}}">
+			  	</div>
+			  	<br>
+		    </div>
+		    <div class="col-sm">
+				<div class="form-group">
+			    	<label for="proDes">Description</label>
+			    	<textarea class="form-control" rows="10" name="proDes">{{MoTa}}</textarea>
+			  	</div>
+			  	<br>
+				<div class="form-group">
+			    	<label for="proCat">Category</label>
+			    	<select class="form-control" name="proCat" id="selCat">
+						{{#each ../Categories}}
+				    		{{#if TrangThai}}
+								<option value="{{ID}}">{{TenLoai}}</option>
+							{{/if}}
+				    	{{/each}}
+				  	</select>
+			  	</div>
+			  	<br>
+				<div class="form-group">
+			    	<label for="proSup">Supplier</label>
+			    	<select class="form-control" name="proSup" id="selSup">
+				    	{{#each ../Suppliers}}
+				    		{{#if TrangThai}}
+								<option value="{{ID}}">{{TenNSX}}</option>
+							{{/if}}
+				    	{{/each}}
+				  	</select>
+			  	</div>
+			  	<br>
+				<div class="form-group">
+			    	<label for="proDate">Date</label>
+			    	<input type="date" class="form-control" name="proDate">
+			  	</div>
+			  	
+		    </div>  
+		</div>
+
+		<div class="col-md-4 text-center">
+		    <button type="submit" class="btn btn-primary">UPDATE</button>
+		</div>
+	</div>
+</form>
+{{/with}}

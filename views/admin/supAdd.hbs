@@ -1,0 +1,60 @@
+{{#section 'title'}}
+	Add New Supplier
+{{/section}}
+
+{{#section 'css'}}
+  	
+{{/section}}
+
+{{#section 'js'}}
+	<script type="text/javascript">
+		function readURL(input) {
+		  if (input.files && input.files[0]) {
+		    var reader = new FileReader();
+		    reader.onload = function(e) {
+		      $('#preview').attr('src', e.target.result);
+		    }
+		    reader.readAsDataURL(input.files[0]);
+		  }
+		}
+
+		$("#imgLogo").change(function() {
+		  readURL(this);
+		});
+	</script>
+{{/section}}
+
+<div class="row">
+    <div class="col-sm"></div>
+    <div class="col-sm">
+      	<div class="card-simple overflow">
+			<form action="" method="POST" role="form">
+			  	<div class="form-group">
+			    	<label for="supName">Supplier Name</label>
+			    	<input type="text" class="form-control" name="supName">
+			  	</div>
+			  	<br>
+			 	<div class="form-group">
+			    	<label for="supLogo">Choose a picture</label>
+			    	<input type="file" class="form-control-file" name="supLogo" id="imgLogo" accept="image/*">
+			  	</div>
+				<br>
+				<img src="" id="preview"></img>
+			  	<div class="form-check">
+				  	<input class="form-check-input" type="radio" name="supStatus" id="Radios1" value="1" checked>
+				  	<label class="form-check-label" for="Radios1">In use</label>
+				</div>
+				<br>
+				<div class="form-check">
+				  	<input class="form-check-input" type="radio" name="supStatus" id="Radios2" value="0">
+				  	<label class="form-check-label" for="Radios2">Not used</label>
+				</div>
+				<br><br>
+			  	<button type="submit" class="btn btn-primary">UPDATE</button>
+			</form>
+		</div>
+    </div>
+    <div class="col-sm"></div>
+  </div>
+</div>
+
