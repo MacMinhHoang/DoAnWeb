@@ -42,11 +42,28 @@ app.use(bodyParser.urlencoded({
 }));
 
 
+// var sessionStore = new MySQLStore({
+//     host: 'localhost',
+//     port: 3306,
+//     user: 'root',
+//     password: 'hoang12124',
+//     database: 'mystoredb',
+//     createDatabaseTable: true,
+//     schema: {
+//         tableName: 'sessions',
+//         columnNames: {
+//             session_id: 'session_id',
+//             expires: 'expires',
+//             data: 'data'
+//         }
+//     }
+// });
+
 var sessionStore = new MySQLStore({
     host: 'localhost',
     port: 3306,
     user: 'root',
-    password: 'hoang12124',
+    password: 'yaoming2010',
     database: 'mystoredb',
     createDatabaseTable: true,
     schema: {
