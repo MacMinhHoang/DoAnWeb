@@ -1,0 +1,90 @@
+{{#section 'title'}}
+	Edit Order
+{{/section}}
+
+{{#section 'css'}}
+  	
+{{/section}}
+
+{{#section 'js'}}
+
+{{/section}}
+
+<div class="row">
+    <div class="col-sm"></div>
+    <div class="col-sm">
+      	<div class="card-simple overflow">
+			{{#with Order}}
+			<form action="" method="POST" role="form">
+				<div class="form-group">
+			    	<label for="orderID">Order ID</label>
+			    	<input type="text" class="form-control disabled" name="orderID" value="{{ID}}">
+			  	</div>
+			  	<br>
+			  	<div class="form-group">
+			    	<label for="orderCus">Customer ID</label>
+			    	<input type="text" class="form-control disabled" name="orderCus" value="{{KhachHang}}">
+			  	</div>
+			  	<br>
+			  	<div class="form-group">
+			    	<label for="orderTotal">Total</label>
+			    	<input type="text" class="form-control disabled" name="orderTotal" value="{{TongTien}}">
+			  	</div>
+			  	<br>
+			  	{{#if TrangThai}}
+				<div class="form-check">
+				  	<input class="form-check-input" type="radio" name="orderStatus" id="R0" value="0">
+				  	<label class="form-check-label" for="R0">Not yet shipped</label>
+				</div>
+				<br>
+			  	<div class="form-check">
+				  	<input class="form-check-input" type="radio" name="orderStatus" id="R1" value="1">
+				  	<label class="form-check-label" for="R1">Shipping</label>
+				</div>
+				<br>
+				<div class="form-check">
+				  	<input class="form-check-input" type="radio" name="orderStatus" id="R2" checked value="2">
+				  	<label class="form-check-label" for="R2">Shipped Successfully</label>
+				</div>
+				{{else if DangGiao}}
+				<div class="form-check">
+				  	<input class="form-check-input" type="radio" name="orderStatus" id="R0" value="0">
+				  	<label class="form-check-label" for="R0">Not yet shipped</label>
+				</div>
+				<br>
+			  	<div class="form-check">
+				  	<input class="form-check-input" type="radio" name="orderStatus" id="R1" checked value="1">
+				  	<label class="form-check-label" for="R1">Shipping</label>
+				</div>
+				<br>
+				<div class="form-check">
+				  	<input class="form-check-input" type="radio" name="orderStatus" id="R2" value="2">
+				  	<label class="form-check-label" for="R2">Shipped Successfully</label>
+				</div>
+				{{else}}
+				<div class="form-check">
+				  	<input class="form-check-input" type="radio" name="orderStatus" id="R0" checked value="0">
+				  	<label class="form-check-label" for="R0">Not yet shipped</label>
+				</div>
+				<br>
+			  	<div class="form-check">
+				  	<input class="form-check-input" type="radio" name="orderStatus" id="R1" value="1">
+				  	<label class="form-check-label" for="R1">Shipping</label>
+				</div>
+				<br>
+				<div class="form-check">
+				  	<input class="form-check-input" type="radio" name="orderStatus" id="R2" value="2">
+				  	<label class="form-check-label" for="R2">Shipped Successfully</label>
+				</div>
+				{{/if}}
+
+				<br><br>
+			  	<button type="submit" class="btn btn-primary">UPDATE</button>
+			</form>
+			{{/with}}
+		</div>
+    </div>
+    <div class="col-sm"></div>
+  </div>
+</div>
+
