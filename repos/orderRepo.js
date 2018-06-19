@@ -5,6 +5,11 @@ exports.loadAll = () => {
     return db.load(sql);
 }
 
+exports.loadWithCus = (cus) => {
+    var sql = `select * from donhang where KhachHang = ${cus.ID}`;
+    return db.load(sql);
+}
+
 exports.single = (OrderID) => {
     return new Promise((resolve, reject) => {
         var sql = `select * from donhang where ID = ${OrderID}`;
@@ -37,3 +42,4 @@ exports.update = (c) => {
     var sql = `update donhang set TrangThai = ` + status + `, DangGiao = ` + ship + ` where ID = ${c.orderID}`;
     return db.save(sql);
 }
+

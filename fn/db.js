@@ -1,60 +1,12 @@
 var mysql = require('mysql');
 
-// exports.load = sql => {
-//     return new Promise((resolve, reject) => {
-//         var cn = mysql.createConnection({
-//             host: 'localhost',
-//             port: 3306,
-//             user: 'root',
-//             password: 'hoang12124',
-//             database: 'mystoredb'
-//         });
-
-//         cn.connect();
-
-//         cn.query(sql, function(error, rows, fields) {
-//             if (error) {
-//                 reject(error);
-//             } else {
-//                 resolve(rows);
-//             }
-
-//             cn.end();
-//         });
-//     });
-// }
-
-// exports.save = sql => {
-//     return new Promise((resolve, reject) => {
-//         var cn = mysql.createConnection({
-//             host: 'localhost',
-//             port: 3306,
-//             user: 'root',
-//             password: 'hoang12124',
-//             database: 'mystoredb'
-//         });
-
-//         cn.connect();
-
-//         cn.query(sql, function(error, value) {
-//             if (error) {
-//                 reject(error);
-//             } else {
-//                 resolve(value);
-//             }
-
-//             cn.end();
-//         });
-//     });
-// }
-
 exports.load = sql => {
     return new Promise((resolve, reject) => {
         var cn = mysql.createConnection({
             host: 'localhost',
             port: 3306,
             user: 'root',
-            password: 'yaoming2010',
+            password: 'hoang12124',
             database: 'mystoredb'
         });
 
@@ -75,10 +27,10 @@ exports.load = sql => {
 exports.save = sql => {
     return new Promise((resolve, reject) => {
         var cn = mysql.createConnection({
-             host: 'localhost',
+            host: 'localhost',
             port: 3306,
             user: 'root',
-            password: 'yaoming2010',
+            password: 'hoang12124',
             database: 'mystoredb'
         });
 
@@ -95,3 +47,51 @@ exports.save = sql => {
         });
     });
 }
+
+// exports.load = sql => {
+//     return new Promise((resolve, reject) => {
+//         var cn = mysql.createConnection({
+//             host: 'localhost',
+//             port: 3306,
+//             user: 'root',
+//             password: 'yaoming2010',
+//             database: 'mystoredb'
+//         });
+
+//         cn.connect();
+
+//         cn.query(sql, function(error, rows, fields) {
+//             if (error) {
+//                 reject(error);
+//             } else {
+//                 resolve(rows);
+//             }
+
+//             cn.end();
+//         });
+//     });
+// }
+
+// exports.save = sql => {
+//     return new Promise((resolve, reject) => {
+//         var cn = mysql.createConnection({
+//              host: 'localhost',
+//             port: 3306,
+//             user: 'root',
+//             password: 'yaoming2010',
+//             database: 'mystoredb'
+//         });
+
+//         cn.connect();
+
+//         cn.query(sql, function(error, value) {
+//             if (error) {
+//                 reject(error);
+//             } else {
+//                 resolve(value);
+//             }
+
+//             cn.end();
+//         });
+//     });
+// }

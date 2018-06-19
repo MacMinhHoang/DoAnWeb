@@ -18,10 +18,10 @@ CREATE TABLE `khachhang` (
   `HoTen` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `NgaySinh` varchar(50) DEFAULT NULL,
   `DiaChi` varchar(200) CHARACTER SET utf8 DEFAULT NULL,
-  `SDT` char(12) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `TenDangNhap` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `MatKhau` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `SDT` char(12) DEFAULT NULL,
+  `Email` varchar(50) DEFAULT NULL,
+  `TenDangNhap` varchar(30) DEFAULT NULL,
+  `MatKhau` varchar(200) DEFAULT NULL,
   `GioiTinh` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -115,15 +115,20 @@ CREATE TABLE `sp_dh` (
 
 USE `mystoredb`;
 
+/* pass : yaoming2010 */
 INSERT INTO khachhang (HoTen,NgaySinh,DiaChi,SDT,Email,TenDangNhap,MatKhau,GioiTinh) VALUES 
-('Nguyễn Lê Huy', '1997/01/11', '54 Lê Quang Định', '01648002334', 'ab@gmail.com', 'huynl', 'yaoming2010','1');
+('Nguyễn Lê Huy', '1997/01/11', '54 Lê Quang Định', '01648002334', 'ab@gmail.com', 
+'huynl', '2526AF6ED6934F708D0DC6A839B555D5812BE47B012E0FC7818C8DF54BA83051','1');
 
+/* pass : hoang12124 */
 INSERT INTO khachhang (HoTen,NgaySinh,DiaChi,SDT,Email,TenDangNhap,MatKhau,GioiTinh) VALUES 
-('Mạc Minh Hoàng', '1997/03/10', '133/5 Trần Phú', '01632348754', 'hoang@gmail.com', 'hoangmm', 'minhhoang', '0');
+('Mạc Minh Hoàng', '1997/03/10', '133/5 Trần Phú', '01632348754', 'hoang@gmail.com', 
+'hoangmm', '79D1104B7C226E6427015339601B1326CFE31F9D2A42695309E4F8A6183EC91A', '1');
 
-
+/* pass : cat123 */
 INSERT INTO khachhang (HoTen,NgaySinh,DiaChi,SDT,Email,TenDangNhap,MatKhau,GioiTinh) VALUES
- ('Đỗ Huy Gia Cát', '1997/07/12', '12/4/5 Lương Ngọc Quyến', '0903567410', 'cat@gmail.com', 'catdhg', 'cat123', '1');
+ ('Đỗ Huy Gia Cát', '1997/07/12', '12/4/5 Lương Ngọc Quyến', '0903567410', 'cat@gmail.com', 
+ 'catdhg', '36515A322EFDE414A1991048DA44BC65623C8E1C31F8C30C652AEEE05428C237', '1');
 
 INSERT INTO donhang (KhachHang,ThoiGian,TongTien,TrangThai, DangGiao) VALUES 
 ('11111001','2018/05/14','11490000','0','0');

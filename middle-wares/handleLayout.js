@@ -1,8 +1,12 @@
-var categoryRepo = require('../repos/categoryRepo');
-var manuRepo = require('../repos/manufacturerRepo');
+var categoryRepo = require('../repos/categoryRepo'),
+    manuRepo = require('../repos/manufacturerRepo');
 
 
 module.exports = (req, res, next) => {
+
+    if (req.session.isLogged === undefined) {
+        req.session.isLogged = false;
+    }
 
     var p1 = categoryRepo.loadWithLimit(2, 0),
 	    p2 = categoryRepo.loadWithLimit(4, 2),
@@ -16,7 +20,9 @@ module.exports = (req, res, next) => {
             Cat2: pRows2,
             Manu1: pRows3,
             Manu2: pRows4,
-            Manu3: pRows5
+            Manu3: pRows5,
+            isLogged: req.session.isLogged,
+            curUser: req.session.user
         };
         next();
     });
