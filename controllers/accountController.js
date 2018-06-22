@@ -3,13 +3,12 @@ var express = require('express');
     moment = require('moment');
 
 var accountRepo = require('../repos/accountRepo'),
-    orderRepo = require('../repos/orderRepo');
+    orderRepo = require('../repos/orderRepo'),
+    adminRepo = require('../repos/adminRepo');
 
-var restrict = require('../middle-wares/restrict');
+var restrict = require('../middle-wares/restrictUser');
 
 var router = express.Router();
-
-var flag = false;
 
 router.get('/', restrict, (req, res) => {
 	accountRepo.single(req.session.user.ID).then(c => {
@@ -27,7 +26,7 @@ router.post('/update', (req, res) => {
 
 router.get('/login', (req, res) => {
     var vm = {
-        logging: flag,
+        logging: false,
         showError: false
     }
     res.render('account/login', vm);
@@ -40,24 +39,46 @@ router.post('/login', (req, res) => {
     };
 
     accountRepo.login(user).then(rows => {
-        flag = true;
         if (rows.length > 0) {
             req.session.isLogged = true;
             req.session.user = rows[0];
+            req.session.admin = null;
             // req.session.cart = [];
 
             var url = '/';
             if (req.query.retUrl) {
                 url = req.query.retUrl;
             }
-            res.redirect(url);
-
-        } else {
             var vm = {
-                logging: flag,
-                showError: true
+                logging: true,
+                showError: false,
+                GoTo: url 
             };
             res.render('account/login', vm);
+
+        } else {
+
+            adminRepo.login(user).then(rows => {
+                if (rows.length > 0) {
+                    req.session.isLogged = true;
+                    req.session.admin = rows[0];
+                    req.session.user = null;
+
+                    var vm = {
+                        logging: true,
+                        showError: false,
+                        GoTo: '/admin' 
+                    };
+                    res.render('account/login', vm);
+
+                } else {
+                    var vm = {
+                        logging: true,
+                        showError: true
+                    };
+                    res.render('account/login', vm);
+                }
+            });
         }
     });
 });
@@ -65,13 +86,25 @@ router.post('/login', (req, res) => {
 router.post('/logout', (req, res) => {
     req.session.isLogged = false;
     req.session.user = null;
-    flag = false;
     // req.session.cart = [];
     res.redirect(req.headers.referer);
 });
 
 router.get('/register', (req, res) => {
-    res.render('account/register');
+    accountRepo.listUsernames().then(rows => {
+        var vm = {
+            usernames: rows
+        };
+        res.render('account/register', vm);
+    });
+});
+
+router.post('/register', (req, res) => {
+    req.body.cusPassword = SHA256(req.body.cusPassword).toString();
+    accountRepo.add(req.body).then(value => {
+        res.redirect('/account/login');
+    });
+   
 });
 
 router.get('/orders', restrict, (req, res) => {

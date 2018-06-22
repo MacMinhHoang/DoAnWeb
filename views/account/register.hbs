@@ -4,12 +4,105 @@
 
 
 {{#section 'css'}}
-  
+    <link rel="stylesheet" type="text/css" href="/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
 {{/section}}
 
 
 {{#section 'js'}}
+    <script src="/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script type="text/javascript">
+      function recaptchaCallback() {
+          $('#btnRegister').removeAttr('disabled');
+      };
+
+      $(function() {
+
+        var phonePattern = /(09|01[2|6|8|9])+([0-9]{8,9})\b/,
+            emailPattern = /\w+@\w+(\.\w){1,2}/,
+            datePattern = /^\d{2}[/]\d{2}[/]\d{4}$/;
+
+        $('#cusBirthday').datepicker({
+          format: 'dd/mm/yyyy',
+          autoclose: true
+        });
+
+        $('#cusBirthday').change(function() {
+          var date = $(this).val();
+          if(!date.match(datePattern))
+          {
+            $(this)[0].setCustomValidity('Invalid Date!');
+            $(this).css('border-color', 'red');
+          }
+          else 
+          {
+            $(this)[0].setCustomValidity("");
+            $(this).css('border-color', 'green');
+          }
+        });
+
+        $('#cusName').change(function() {
+          $(this).css('border-color', 'green');
+        });
+
+        $('#cusAddress').change(function() {
+          $(this).css('border-color', 'green');
+        });
+
+        $('#cusEmail').change(function() {
+          var email = $(this).val();
+          if (!email.match(emailPattern))
+            $(this).css('border-color', 'red');
+          else 
+            $(this).css('border-color', 'green');
+        });
+
+        $('#cusPhone').change(function() {
+          var phone = $(this).val();
+          if (!phone.match(phonePattern) || phone.length > 11)
+          {
+            $(this)[0].setCustomValidity('Phone number must have 10-11 digits and numbers only!');
+            $(this).css('border-color', 'red');
+          }
+          else 
+          {
+            $(this)[0].setCustomValidity("");
+            $(this).css('border-color', 'green');
+          }
+        });
+
+        $('#cusPassword').change(function() {
+          if ($(this).val() !== $('#cusRePass').val())
+          {
+            $('#cusRePass')[0].setCustomValidity('Passwords do not match!');
+            $(this).css('border-color', 'red');
+            $('#cusRePass').css('border-color', 'red');
+          }
+          else 
+          {
+            $('#cusRePass')[0].setCustomValidity("");
+            $(this).css('border-color', 'green');
+            $('#cusRePass').css('border-color', 'green');
+          }
+        });
+
+        $('#cusRePass').change(function() {
+          if ($(this).val() !== $('#cusPassword').val())
+          {
+            $(this)[0].setCustomValidity('Passwords do not match!');
+            $(this).css('border-color', 'red');
+            $('#cusPassword').css('border-color', 'red');
+          }
+          else 
+          {
+            $(this)[0].setCustomValidity("");
+            $(this).css('border-color', 'green');
+            $('#cusPassword').css('border-color', 'green');
+          }
+        });
+
+      });
+    </script>
 {{/section}}
 
 
@@ -44,20 +137,38 @@
                   <div class="col-md-6 col-sm-8">
                     <div class="form-group">
                         <label for="cusName">Full Name<span class="required">*</span></label>
-                        <input type="text" name="cusName" class="form-control">
+                        <input type="text" id="cusName" name="cusName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cusBirthday">Birthday<span class="required">*</span></label>
+                        <input type="text" id="cusBirthday" name="cusBirthday" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="cusAddress">Address<span class="required">*</span></label>
-                        <input type="text" name="cusAddress" class="form-control">
+                        <input type="text" id="cusAddress" name="cusAddress" class="form-control" required>
                     </div>
+                    <div class="form-group">
+                        <label for="cusGender">Gender<span class="required">*</span></label>
+                        <br>  
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cusGender" value="1" id="R1" checked>
+                            <label class="form-check-label" for="R1">Male</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cusGender" value="0" id="R2">
+                            <label class="form-check-label" for="R2">Female</label>
+                        </div>
+                    </div>
+                    
                       {{!-- <div class="billing-checkbox">
                         <input type="checkbox" value="forever" id="rememberme" name="rememberme">
                         Sign up for our newsletter! 
                       </div> --}}
-                      <div class="g-recaptcha" data-sitekey="6LcAWlsUAAAAAPt8x-WMQsTjkfAXalEqM9jD4DT8"></div>
+                      <div class="g-recaptcha" data-callback="recaptchaCallback" 
+                      data-sitekey="6LcAWlsUAAAAAPt8x-WMQsTjkfAXalEqM9jD4DT8"></div>
                       <br>
                       <div class="submit-text">
-                        <button class="button" type="submit" id="btnRegister">
+                        <button class="button" disabled type="submit" id="btnRegister">
                           <i class="fa fa-user"></i>&nbsp; <span>Register</span>
                         </button>
                       </div>
@@ -65,23 +176,23 @@
                   <div class="col-md-6 col-sm-8">
                     <div class="form-group">
                         <label for="cusEmail">Email<span class="required">*</span></label>
-                        <input type="email" name="cusEmail" class="form-control">
+                        <input type="email" id="cusEmail" name="cusEmail" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="cusPhone">Phone<span class="required">*</span></label>
-                        <input type="phone" name="cusPhone" class="form-control">
+                        <input type="phone" id="cusPhone" name="cusPhone" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="username">Username<span class="required">*</span></label>
-                        <input type="text" name="cusUsername" class="form-control">
+                        <input type="text" id="cusUsername" name="cusUsername" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="cusPassword">Password<span class="required">*</span></label>
-                        <input type="password" name="cusPassword" class="form-control">
+                        <input type="password" id="cusPassword" name="cusPassword" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="cusRePass">Password<span class="required">*</span></label>
-                        <input type="password" name="cusRePass" class="form-control">
+                        <label for="cusRePass">RePassword<span class="required">*</span></label>
+                        <input type="password" id="cusRePass" name="cusRePass" class="form-control" required>
                     </div>
                   </div>
                 </div>
