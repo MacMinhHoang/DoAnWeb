@@ -9,14 +9,14 @@ var session = require('express-session');
 var MySQLStore = require('express-mysql-session')(session);
 
 var handleLayoutMDW = require('./middle-wares/handleLayout'),
-    handle404MDW = require('./middle-wares/handle404'),
-    restrict = require('./middle-wares/restrict');
+handle404MDW = require('./middle-wares/handle404'),
+restrict = require('./middle-wares/restrict');
 
 var homeController = require('./controllers/homeController'),
-    accountController = require('./controllers/accountController'),
-    cartController = require('./controllers/cartController'),
-    manuController = require('./controllers/manuController'),
-    adminController = require('./controllers/adminController');
+accountController = require('./controllers/accountController'),
+cartController = require('./controllers/cartController'),
+manuController = require('./controllers/manuController'),
+adminController = require('./controllers/adminController');
 
 var app = express();
 
@@ -43,28 +43,11 @@ app.use(bodyParser.urlencoded({
 }));
 
 
-var sessionStore = new MySQLStore({
-    host: 'localhost',
-    port: 3306,
-    user: 'root',
-    password: 'hoang12124',
-    database: 'mystoredb',
-    createDatabaseTable: true,
-    schema: {
-        tableName: 'sessions',
-        columnNames: {
-            session_id: 'session_id',
-            expires: 'expires',
-            data: 'data'
-        }
-    }
-});
-
 // var sessionStore = new MySQLStore({
 //     host: 'localhost',
 //     port: 3306,
 //     user: 'root',
-//     password: 'yaoming2010',
+//     password: 'hoang12124',
 //     database: 'mystoredb',
 //     createDatabaseTable: true,
 //     schema: {
@@ -76,6 +59,24 @@ var sessionStore = new MySQLStore({
 //         }
 //     }
 // });
+
+var sessionStore = new MySQLStore({
+    host: 'localhost',
+    port: 3306,
+    user: 'root',
+    password: '1234',
+    database: 'mystoredb',
+    insecureAuth: true,
+    createDatabaseTable: true,
+    schema: {
+        tableName: 'sessions',
+        columnNames: {
+            session_id: 'session_id',
+            expires: 'expires',
+            data: 'data'
+        }
+    }
+});
 
 app.use(session({
     key: 'session_cookie_name',
