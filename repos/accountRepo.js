@@ -25,3 +25,15 @@ exports.update = (c) => {
     SDT = '${c.cusPhone}', Email = '${c.cusEmail}', GioiTinh = '${c.cusGender}' where ID = ${c.cusID}`;
     return db.save(sql);
 }
+
+exports.listUsernames = () => {
+    var sql = `select TenDangNhap from khachhang`;
+    return db.load(sql);
+}
+
+exports.add = (c) => {
+    var sql = `insert into khachhang (HoTen, NgaySinh, DiaChi, SDT, Email, TenDangNhap, MatKhau, GioiTinh) values
+    ('${c.cusName}', '${c.cusBirthday}', '${c.cusAddress}', '${c.cusPhone}', '${c.cusEmail}', '${c.cusUsername}', 
+    '${c.cusPassword}', '${c.cusGender}')`;
+    return db.save(sql);
+}

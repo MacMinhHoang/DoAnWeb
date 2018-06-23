@@ -7,7 +7,23 @@
 {{/section}}
 
 {{#section 'js'}}
+	<script type="text/javascript">
+    $(function(){
 
+      $('#btnUpdate').click(function( event ) {
+          event.preventDefault();
+          swal({
+            type: 'success',
+            title: 'Update Successfully',
+            showConfirmButton: false,
+            timer: 1500
+          }).then((result) => {
+              $('#frmUpdate').submit();
+          })
+      });
+
+    });
+    </script>
 {{/section}}
 
 <div class="row">
@@ -15,7 +31,7 @@
     <div class="col-sm">
       	<div class="card-simple overflow">
 			{{#with Order}}
-			<form action="" method="POST" role="form">
+			<form id="frmUpdate" action="" method="POST" role="form">
 				<div class="form-group">
 			    	<label for="orderID">Order ID</label>
 			    	<input type="text" class="form-control disabled" name="orderID" value="{{ID}}">
@@ -79,7 +95,7 @@
 				{{/if}}
 
 				<br><br>
-			  	<button type="submit" class="btn btn-primary">UPDATE</button>
+			  	<button id="btnUpdate" type="submit" class="btn btn-primary">UPDATE</button>
 			</form>
 			{{/with}}
 		</div>

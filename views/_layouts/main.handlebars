@@ -53,6 +53,7 @@
                       <li class="divider"></li>
                       <li><a id="lnkLogout" href="javascript:;">Log Out</a></li>
                       {{else}}
+<<<<<<< HEAD
                         {{!-- <li><a href="/account">Account</a></li>
                         <li class="divider"></li> --}}
                         <li><a href="/account/login">Log In</a></li>
@@ -64,6 +65,18 @@
                   {{!-- <li><a title="login" href="/account/login"><span>Login</span></a></li> --}}
                 </ul>
               </div>
+=======
+                          {{!-- <li><a href="/account">Account</a></li>
+                          <li class="divider"></li> --}}
+                          <li><a id="lnkLogin" href="javascript:;">Log In</a></li>
+                          <li><a href="/account/register">Register</a></li>
+                      {{/if}}
+                    </ul>
+                  </div>
+                </li>
+                {{!-- <li><a title="login" href="/account/login"><span>Login</span></a></li> --}}
+              </ul>
+>>>>>>> 677b2386b769ab7a60e81f5ae616b612a64ab89f
             </div>
           </div>
         </div>
@@ -499,7 +512,16 @@ $('#lnkLogout').on('click', function() {
           }
         });
     });
+<<<<<<< HEAD
     </script>
+=======
+
+    $('#lnkLogin').on('click', function() {
+        var curURL = window.location.pathname;
+        window.location.href = "/account/login?retUrl=" + curURL;
+    });
+</script>
+>>>>>>> 677b2386b769ab7a60e81f5ae616b612a64ab89f
 
     {{{_sections.js}}}
 

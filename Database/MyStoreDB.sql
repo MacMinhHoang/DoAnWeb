@@ -4,13 +4,14 @@
 -- ------------------------------------------------------
 -- Server version	5.7.21-log
 
---
--- Table structure for table `khachhang`
---
 
 CREATE SCHEMA `mystoredb` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
 
 USE `mystoredb`;
+
+--
+-- Table structure for table `khachhang`
+--
 
 DROP TABLE IF EXISTS `khachhang`;
 CREATE TABLE `khachhang` (
@@ -26,6 +27,18 @@ CREATE TABLE `khachhang` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 ALTER TABLE `khachhang` AUTO_INCREMENT=11111001;
+
+--
+-- Table structure for table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
+  `TenDangNhap` varchar(30) NOT NULL,
+  `MatKhau` varchar(200) DEFAULT NULL,
+  `Email` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`TenDangNhap`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Table structure for table `donhang`
@@ -129,6 +142,9 @@ INSERT INTO khachhang (HoTen,NgaySinh,DiaChi,SDT,Email,TenDangNhap,MatKhau,GioiT
 INSERT INTO khachhang (HoTen,NgaySinh,DiaChi,SDT,Email,TenDangNhap,MatKhau,GioiTinh) VALUES
  ('Đỗ Huy Gia Cát', '1997/07/12', '12/4/5 Lương Ngọc Quyến', '0903567410', 'cat@gmail.com', 
  'catdhg', '36515A322EFDE414A1991048DA44BC65623C8E1C31F8C30C652AEEE05428C237', '1');
+ 
+ INSERT INTO admin VALUES 
+ ('admin', '8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918', 'animeneverdie@gmail.com');
 
 INSERT INTO donhang (KhachHang,ThoiGian,TongTien,TrangThai, DangGiao) VALUES 
 ('11111001','2018/05/14','11490000','0','0');

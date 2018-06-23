@@ -8,6 +8,18 @@
 
 {{#section 'js'}}
 	<script type="text/javascript">
+		$('#btnUpdate').click(function( event ) {
+         	event.preventDefault();
+          	swal({
+	          	type: 'success',
+	          	title: 'Update Successfully',
+	          	showConfirmButton: false,
+	           	timer: 1500
+        	}).then((result) => {
+            	$('#frmUpdate').submit();
+        	})
+	    });
+
 		function readURL(input) {
 		  if (input.files && input.files[0]) {
 		    var reader = new FileReader();
@@ -29,7 +41,7 @@
     <div class="col-sm">
       	<div class="card-simple overflow">
 			{{#with Supplier}}
-			<form action="" method="POST" role="form">
+			<form id="frmUpdate" action="" method="POST" role="form">
 				<div class="form-group">
 			    	<label for="supID">Supplier ID</label>
 			    	<input type="text" class="form-control disabled" name="supID" value="{{ID}}">
@@ -55,7 +67,7 @@
 				  	<label class="form-check-label" for="Radios2">Not used</label>
 				</div>
 				<br><br>
-			  	<button type="submit" class="btn btn-primary">UPDATE</button>
+			  	<button id="btnUpdate" type="submit" class="btn btn-primary">UPDATE</button>
 			</form>
 			{{/with}}
 		</div>
