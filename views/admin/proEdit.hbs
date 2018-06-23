@@ -3,10 +3,11 @@
 {{/section}}
 
 {{#section 'css'}}
-  	
+  	<link rel="stylesheet" type="text/css" href="/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
 {{/section}}
 
 {{#section 'js'}}
+	<script src="/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 	<script type="text/javascript">
 		function readURL(input) {
 		  if (input.files && input.files[0]) {
@@ -16,17 +17,39 @@
 		    }
 		    reader.readAsDataURL(input.files[0]);
 		  }
-		}
+		};
 
-		$("#proImg").change(function() {
-		  readURL(this);
+		$(function() {
+
+			$('#proDate').datepicker({
+	          format: 'dd/mm/yyyy',
+	          autoclose: true
+	        });
+
+			$('#btnUpdate').click(function( event ) {
+	         	event.preventDefault();
+	          	swal({
+		          	type: 'success',
+		          	title: 'Update Successfully',
+		          	showConfirmButton: false,
+		           	timer: 1500
+	        	}).then((result) => {
+	            	$('#frmUpdate').submit();
+	        	})
+		    });
+
+			$("#proImg").change(function() {
+			  readURL(this);
+			});
+
 		});
 
 	</script>
+
 {{/section}}
 
 {{#with Product}}
-<form action="" method="POST" role="form">
+<form id="frmUpdate" action="" method="POST" role="form">
 	<div class="card-simple overflow">
 		<div class="row">
 		    <div class="col-sm">
@@ -40,11 +63,11 @@
 			  	</div>
 			  	<br>
 			 	<div class="form-group">
-			    	<label for="proPic">Choose a picture</label>
+			    	<label for="proPic">Change Product Picture</label>
 			    	<input type="file" class="form-control-file" name="proPic" id="proImg" accept="image/*">
 			  	</div>
 				<br>
-				<img src="" id="preview"></img>
+				<img src="{{HinhAnh}}" id="preview"></img>
 				<br>
 				<div class="form-group">
 			    	<label for="proPrice">Product Price</label>
@@ -97,14 +120,14 @@
 			  	<br>
 				<div class="form-group">
 			    	<label for="proDate">Date</label>
-			    	<input type="date" class="form-control" name="proDate">
+			    	<input type="text" class="form-control" id="proDate" name="proDate" value="{{NgayTiepNhan}}">
 			  	</div>
 			  	
 		    </div>  
 		</div>
 
 		<div class="col-md-4 text-center">
-		    <button type="submit" class="btn btn-primary">UPDATE</button>
+		    <button id="btnUpdate" type="submit" class="btn btn-primary">UPDATE</button>
 		</div>
 	</div>
 </form>

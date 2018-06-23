@@ -5,17 +5,24 @@ var manuRepo = require('../repos/manufacturerRepo'),
 	orderRepo = require('../repos/orderRepo'),
 	productRepo = require('../repos/productRepo');
 
+var restrict = require('../middle-wares/restrictAdmin');
+
 var router = express.Router();
 
+router.post('/logout', (req, res) => {
+    req.session.isLogged = false;
+    req.session.admin = null;
+    res.redirect('/');
+});
 
-router.get('/', (req, res) => {
+router.get('/', restrict, (req, res) => {
 	var vm = {
 		layout: 'admin.handlebars'
 	};
     res.render('admin/index', vm);
 });
 
-router.get('/categories', (req, res) => {
+router.get('/categories', restrict, (req, res) => {
 
 	categoryRepo.loadAll().then(rows => {
 		var vm = {
@@ -31,7 +38,7 @@ router.post('/categories/remove', (req, res) => {
     res.redirect('/admin/categories');
 });
 
-router.get('/categories/edit', (req, res) => {
+router.get('/categories/edit', restrict, (req, res) => {
 
 	categoryRepo.single(req.query.id).then(c => {
 		var vm = {
@@ -48,7 +55,7 @@ router.post('/categories/edit', (req, res) => {
     });
 });
 
-router.get('/categories/add', (req, res) => {
+router.get('/categories/add', restrict, (req, res) => {
 	var vm = {
 		layout: 'admin.handlebars',
 	};
@@ -61,7 +68,7 @@ router.post('/categories/add', (req, res) => {
     });
 });
 
-router.get('/orders', (req, res) => {
+router.get('/orders', restrict, (req, res) => {
 
 	orderRepo.loadAll().then(rows => {
 		var vm = {
@@ -72,7 +79,7 @@ router.get('/orders', (req, res) => {
 	});
 });
 
-router.get('/orders/edit', (req, res) => {
+router.get('/orders/edit', restrict, (req, res) => {
 
 	orderRepo.single(req.query.id).then(c => {
 		var vm = {
@@ -90,7 +97,7 @@ router.post('/orders/edit', (req, res) => {
 });
 
 
-router.get('/products', (req, res) => {
+router.get('/products', restrict, (req, res) => {
 
 	productRepo.loadAll().then(rows => {
 		var vm = {
@@ -106,7 +113,7 @@ router.post('/products/remove', (req, res) => {
     res.redirect(req.headers.referer);
 });
 
-router.get('/products/edit', (req, res) => {
+router.get('/products/edit', restrict, (req, res) => {
 	var p1 = productRepo.single(req.query.id),
 		p2 = categoryRepo.loadAll(),
 		p3 = manuRepo.loadAll();
@@ -127,7 +134,7 @@ router.post('/products/edit', (req, res) => {
     });
 });
 
-router.get('/products/add', (req, res) => {
+router.get('/products/add', restrict, (req, res) => {
 	var p1 = categoryRepo.loadAll(),
 		p2 = manuRepo.loadAll();
 	 Promise.all([p1, p2]).then(([pRows1, pRows2]) => {
@@ -146,7 +153,7 @@ router.post('/products/add', (req, res) => {
     });
 });
 
-router.get('/suppliers', (req, res) => {
+router.get('/suppliers', restrict, (req, res) => {
 
 	manuRepo.loadAll().then(rows => {
 		var vm = {
@@ -162,7 +169,7 @@ router.post('/suppliers/remove', (req, res) => {
     res.redirect('/admin/suppliers');
 });
 
-router.get('/suppliers/edit', (req, res) => {
+router.get('/suppliers/edit', restrict, (req, res) => {
 
 	manuRepo.single(req.query.id).then(c => {
 		var vm = {
@@ -179,7 +186,7 @@ router.post('/suppliers/edit', (req, res) => {
     });
 });
 
-router.get('/suppliers/add', (req, res) => {
+router.get('/suppliers/add', restrict, (req, res) => {
 	var vm = {
 		layout: 'admin.handlebars',
 	};

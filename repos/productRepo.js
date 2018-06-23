@@ -26,10 +26,20 @@ exports.remove = (ProID) => {
 } 
 
 exports.update = (c) => {
-    var sql = `update sanpham set Ten = '${c.proName}', HinhAnh = '/images/products/${c.proPic}', 
-	GiaBan = ${c.proPrice}, SoLuotXem = ${c.proViews}, SoLuongTon = ${c.proInStore}, SoLuongBan = ${c.proSold},
-	MoTa = '${c.proDes}', Loai = ${c.proCat}, NhaSanXuat = ${c.proSup}, NgayTiepNhan = ${c.proDate}
-    where ID = ${c.proID}`;
+    var sql;
+    if (c.proPic !== "")
+    {
+        sql = `update sanpham set Ten = '${c.proName}', HinhAnh = '/images/products/${c.proPic}', 
+        GiaBan = ${c.proPrice}, SoLuotXem = ${c.proViews}, SoLuongTon = ${c.proInStore}, SoLuongBan = ${c.proSold},
+        MoTa = '${c.proDes}', Loai = ${c.proCat}, NhaSanXuat = ${c.proSup}, NgayTiepNhan = ${c.proDate}
+        where ID = ${c.proID}`;
+    }
+    else
+    {
+        sql = `update sanpham set Ten = '${c.proName}', GiaBan = ${c.proPrice}, SoLuotXem = ${c.proViews}, 
+        SoLuongTon = ${c.proInStore}, SoLuongBan = ${c.proSold}, MoTa = '${c.proDes}', Loai = ${c.proCat}, NhaSanXuat = ${c.proSup}, NgayTiepNhan = ${c.proDate}
+        where ID = ${c.proID}`;
+    }
     return db.save(sql);
 }
 
