@@ -2,11 +2,19 @@ var mysql = require('mysql');
 
 exports.load = sql => {
     return new Promise((resolve, reject) => {
+        // var cn = mysql.createConnection({
+        //     host: 'localhost',
+        //     port: 3306,
+        //     user: 'root',
+        //     password: 'hoang12124',
+        //     database: 'mystoredb'
+        // });
+
         var cn = mysql.createConnection({
             host: 'localhost',
             port: 3306,
             user: 'root',
-            password: 'hoang12124',
+            password: '1234',
             database: 'mystoredb'
         });
 
@@ -30,7 +38,7 @@ exports.save = sql => {
             host: 'localhost',
             port: 3306,
             user: 'root',
-            password: 'hoang12124',
+            password: '1234',
             database: 'mystoredb'
         });
 

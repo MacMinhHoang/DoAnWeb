@@ -16,7 +16,8 @@ var homeController = require('./controllers/homeController'),
     accountController = require('./controllers/accountController'),
     cartController = require('./controllers/cartController'),
     manuController = require('./controllers/manuController'),
-    adminController = require('./controllers/adminController');
+    adminController = require('./controllers/adminController'),
+    productController = require('./controllers/productController');
 
 var app = express();
 
@@ -43,22 +44,22 @@ app.use(bodyParser.urlencoded({
 }));
 
 
-var sessionStore = new MySQLStore({
-    host: 'localhost',
-    port: 3306,
-    user: 'root',
-    password: 'hoang12124',
-    database: 'mystoredb',
-    createDatabaseTable: true,
-    schema: {
-        tableName: 'sessions',
-        columnNames: {
-            session_id: 'session_id',
-            expires: 'expires',
-            data: 'data'
-        }
-    }
-});
+// var sessionStore = new MySQLStore({
+//     host: 'localhost',
+//     port: 3306,
+//     user: 'root',
+//     password: 'hoang12124',
+//     database: 'mystoredb',
+//     createDatabaseTable: true,
+//     schema: {
+//         tableName: 'sessions',
+//         columnNames: {
+//             session_id: 'session_id',
+//             expires: 'expires',
+//             data: 'data'
+//         }
+//     }
+// });
 
 // var sessionStore = new MySQLStore({
 //     host: 'localhost',
@@ -76,6 +77,24 @@ var sessionStore = new MySQLStore({
 //         }
 //     }
 // });
+
+var sessionStore = new MySQLStore({
+    host: 'localhost',
+    port: 3306,
+    user: 'root',
+    password: '1234',
+    database: 'mystoredb',
+    createDatabaseTable: true,
+    schema: {
+        tableName: 'sessions',
+        columnNames: {
+            session_id: 'session_id',
+            expires: 'expires',
+            data: 'data'
+        }
+    }
+});
+
 
 app.use(session({
     key: 'session_cookie_name',
@@ -97,6 +116,7 @@ app.use('/account', accountController);
 app.use('/shopping_cart', cartController);
 app.use('/manufacturers', manuController);
 app.use('/admin', adminController);
+app.use('/products', productController);
 
 app.use(handle404MDW);
 
