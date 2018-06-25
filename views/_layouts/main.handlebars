@@ -425,30 +425,30 @@
           // still exists in the string.
           while (intIndexOfMatch != -1){
           // Relace out the current instance.
-          txtSearch = txtSearch.replace(' ','-');
+          txtSearch = txtSearch.replace(' ','_');
 
           // Get the index of any next matching substring.
           intIndexOfMatch = txtSearch.indexOf(' ');
         }
 
         if (selSearch == 1){
-          window.location = "products/search?search=name&key=" + txtSearch;
+          window.location = "/products/search?search=name&key=" + txtSearch;
             // alert("products/?search=name&key=" + txtSearch);
           }
           else if (selSearch == 2){
-            window.location = "products/search?search=price&key=" + txtSearch;
+            window.location = "/products/search?search=price&key=" + txtSearch;
             // alert("products/?search=price&key=" + txtSearch);
           }
           else if (selSearch == 3){
-            window.location = "products/search?search=brand&key=" + txtSearch;
+            window.location = "/products/search?search=brand&key=" + txtSearch;
             // alert("products/?search=brand&key=" + txtSearch);
           }
           else if (selSearch == 4){
-            window.location = "products/search?search=category&key=" + txtSearch;
+            window.location = "/products/search?search=category&key=" + txtSearch;
             // alert("products/?search=category&key=" + txtSearch);
           }
           else if (selSearch == 0){
-            window.location = "products/search?search=all&key=" + txtSearch;
+            window.location = "/products/search?search=all&key=" + txtSearch;
             // alert("products/?search=all&key=" + txtSearch);
           }
         });

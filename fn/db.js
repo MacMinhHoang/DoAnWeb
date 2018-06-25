@@ -6,17 +6,18 @@ exports.load = sql => {
             host: 'localhost',
             port: 3306,
             user: 'root',
-            password: 'hoang12124',
+            // password: 'hoang12124',
+            password: '1234',
             database: 'mystoredb'
         });
 
-        // var cn = mysql.createConnection({
-        //     host: 'localhost',
-        //     port: 3306,
-        //     user: 'root',
-        //     password: '1234',
-        //     database: 'mystoredb'
-        // });
+        var cn = mysql.createConnection({
+            host: 'localhost',
+            port: 3306,
+            user: 'root',
+            password: '1234',
+            database: 'mystoredb'
+        });
 
         cn.connect();
 
@@ -32,38 +33,14 @@ exports.load = sql => {
     });
 }
 
-// exports.save = sql => {
-//     return new Promise((resolve, reject) => {
-//         var cn = mysql.createConnection({
-//             host: 'localhost',
-//             port: 3306,
-//             user: 'root',
-//             password: '1234',
-//             database: 'mystoredb'
-//         });
-
-//         cn.connect();
-
-//         cn.query(sql, function(error, value) {
-//             if (error) {
-//                 reject(error);
-//             } else {
-//                 resolve(value);
-//             }
-
-//             cn.end();
-//         });
-//     });
-// }
-
-
 exports.save = sql => {
     return new Promise((resolve, reject) => {
         var cn = mysql.createConnection({
             host: 'localhost',
             port: 3306,
             user: 'root',
-            password: 'hoang12124',
+            // password: 'hoang12124',
+            password: '1234',
             database: 'mystoredb'
         });
 

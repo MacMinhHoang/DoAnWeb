@@ -49,7 +49,8 @@ var sessionStore = new MySQLStore({
     host: 'localhost',
     port: 3306,
     user: 'root',
-    password: 'hoang12124',
+    // password: 'hoang12124',
+    password: '1234',
     database: 'mystoredb',
     createDatabaseTable: true,
     schema: {
@@ -67,23 +68,6 @@ var sessionStore = new MySQLStore({
 //     port: 3306,
 //     user: 'root',
 //     password: 'yaoming2010',
-//     database: 'mystoredb',
-//     createDatabaseTable: true,
-//     schema: {
-//         tableName: 'sessions',
-//         columnNames: {
-//             session_id: 'session_id',
-//             expires: 'expires',
-//             data: 'data'
-//         }
-//     }
-// });
-
-// var sessionStore = new MySQLStore({
-//     host: 'localhost',
-//     port: 3306,
-//     user: 'root',
-//     password: '1234',
 //     database: 'mystoredb',
 //     createDatabaseTable: true,
 //     schema: {
