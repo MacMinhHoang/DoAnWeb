@@ -366,7 +366,7 @@ trúc bền bỉ cho phép máy có thể “lặn” dưới nước tới đ�
  và nằng gió thì máy cũng hoạt động một cách hoàn hảo nhất.','6','33333003','22/11/2015','Trung Quốc');
  
  INSERT INTO sanpham (Ten,HinhAnh,GiaBan,SoLuotXem,SoLuongTon,SoLuongBan,MoTa,Loai,NhaSanXuat,NgayTiepNhan,XuatXu)
-VALUES ('FUJIFILM FINEPIX XP120 (VÀNG)','/images/products/789654023-1jpg','5090000',
+VALUES ('FUJIFILM FINEPIX XP120 (VÀNG)','/images/products/789654023-1.jpg','5090000',
 '2368','450','204','So với thế hệ trước, máy ảnh Fujifilm FinePix XP120 hoàn toàn vượt trội về độ bền
  cũng như khả năng hoạt động trong mọi điều kiện thời tiết. Lớp vỏ cứng cáp và sự kín kẽ cũng như cấu
  trúc bền bỉ cho phép máy có thể “lặn” dưới nước tới độ sâu 20 mét, chống sốc khi rơi từ độ cao 1,7

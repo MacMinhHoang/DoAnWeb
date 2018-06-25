@@ -65,3 +65,14 @@ exports.mostViewed = () => {
     var sql = `select * from sanpham order by SoLuotXem desc limit 10`;
     return db.load(sql);
 }
+
+exports.searchbyBrand = (ID) => {
+    var sql = `select s.*,nsx.TenNSX from sanpham s, nhasanxuat nsx where s.NhaSanXuat = nsx.ID and nsx.ID = '${ID}'`;
+    return db.save(sql);
+
+}
+
+exports.searchbyCat =  (ID) => {
+    var sql = `select s.* from sanpham s, loai l where s.Loai = l.ID and l.ID = '${ID}'`;
+    return db.save(sql);
+}

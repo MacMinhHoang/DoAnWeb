@@ -1,9 +1,9 @@
 var express = require('express');
-var config = require('../config/config');
+//var config = require('../config/config');
 
 var searchRepo = require('../repos/searchRepo');
 var productRepo = require('../repos/productRepo');
-
+var manuRepo = require('../repos/manufacturerRepo');
 var router = express.Router();
 
 router.get('/', (req, res) => {
@@ -90,4 +90,30 @@ router.get('/quickview', (req, res) => {
 	});
 });
 
+router.get('/byBrand', (req, res) => {
+
+	var p1 = productRepo.searchbyBrand(req.query.id);
+	var p2 = manuRepo.single(req.query.id);
+	Promise.all([p1, p2]).then(([pRow1, pRow2]) => {
+		var vm = {
+			searchBrand : pRow1,
+			brand: pRow2
+		};
+		res.render('product/byBrand', vm);
+	});
+});
+
+router.get('/byCat', (req, res) => {
+	
+	var p1 = productRepo.searchbyCat(req.query.id);
+	var p2 = manuRepo.singleType(req.query.id);
+	Promise.all([p1, p2]).then(([pRow1, pRow2]) => {
+		var vm = {
+			searchType: pRow1,
+			type: pRow2
+		};
+		res.render('product/byCat', vm);
+	});
+
+});
 module.exports = router;
