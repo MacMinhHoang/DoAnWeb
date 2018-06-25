@@ -3,11 +3,12 @@
 {{/section}}
 
 {{#section 'css'}}
-  	<link rel="stylesheet" type="text/css" href="/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+  	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
 {{/section}}
 
 {{#section 'js'}}
-	<script src="/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 	<script type="text/javascript">
 
 	function readURL(input) {
@@ -21,14 +22,13 @@
 	  	}
 	}
 
+	var datePattern = /^\d{2}[/]\d{2}[/]\d{4}$/;
+
 	$(function() {
 
-		var datePattern = /^\d{2}[/]\d{2}[/]\d{4}$/;
-
 		$('#txtDate').datepicker({
-          format: 'dd/mm/yyyy',
-          autoclose: true
-        });
+		  	dateFormat: "dd/mm/yy"
+		});
 
         $('#txtDate').change(function() {
           var date = $(this).val();
@@ -42,6 +42,38 @@
             $(this)[0].setCustomValidity("");
             $(this).css('border-color', 'green');
           }
+        });
+
+        $('#proPrice').change(function() {
+          var price = $(this).val();
+          if(price < 1000)
+          	$(this).css('border-color', 'red');
+          else 
+          	$(this).css('border-color', 'green');
+        });
+
+        $('#proViews').change(function() {
+          var views = $(this).val();
+          if(views < 0)
+          	$(this).css('border-color', 'red');
+          else 
+          	$(this).css('border-color', 'green');
+        });
+
+        $('#proSold').change(function() {
+          var sold = $(this).val();
+          if(sold < 0)
+          	$(this).css('border-color', 'red');
+          else 
+          	$(this).css('border-color', 'green');
+        });
+
+        $('#proInStore').change(function() {
+          var stored = $(this).val();
+          if(stored < 0)
+          	$(this).css('border-color', 'red');
+          else 
+          	$(this).css('border-color', 'green');
         });
 
 		$("#proImg").change(function() {
@@ -59,7 +91,14 @@
 			  cancelButtonColor: '#d33'
 			}).then((result) => {
 			  if (result.value) 
+			  {
+			  	$('#proDate').css('border-color', '');
+			  	$('#proPrice').css('border-color', '');
+			  	$('#proViews').css('border-color', '');
+			  	$('#proSold').css('border-color', '');
+			  	$('#proInStore').css('border-color', '');
 			  	$('#frmUpdate')[0].reset();
+			  }
 			});
         });
 
@@ -105,22 +144,26 @@
 				<br>
 				<div class="form-group">
 			    	<label for="proPrice">Product Price</label>
-			    	<input type="number" class="form-control" required name="proPrice" value="{{GiaBan}}">
+			    	<input type="number" class="form-control" required id="proPrice" name="proPrice" 
+			    	value="{{GiaBan}}" min="1000">
 			  	</div>
 			  	<br>
 			  	<div class="form-group">
 			    	<label for="proViews">Views</label>
-			    	<input type="number" class="form-control" required name="proViews" value="{{SoLuotXem}}">
+			    	<input type="number" class="form-control" required id="proViews" name="proViews" 
+			    	value="{{SoLuotXem}}" min="0">
 			  	</div>
 			  	<br>
 				<div class="form-group">
 			    	<label for="proInStore">In Store</label>
-			    	<input type="number" class="form-control" required name="proInStore" value="{{SoLuongTon}}">
+			    	<input type="number" class="form-control" required id="proInStore" name="proInStore" 
+			    	value="{{SoLuongTon}}" min="0">
 			  	</div>
 			  	<br>
 				<div class="form-group">
 			    	<label for="proSold">Sold</label>
-			    	<input type="number" class="form-control" required name="proSold" value="{{SoLuongBan}}">
+			    	<input type="number" class="form-control" required id="proSold" name="proSold" 
+			    	value="{{SoLuongBan}}" min="0">
 			  	</div>
 			  	<br>
 		    </div>
