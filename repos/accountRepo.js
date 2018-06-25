@@ -26,8 +26,8 @@ exports.update = (c) => {
     return db.save(sql);
 }
 
-exports.listUsernames = () => {
-    var sql = `select TenDangNhap from khachhang`;
+exports.checkUsername = (name) => {
+    var sql = `select * from khachhang where TenDangNhap = '${name}'`;
     return db.load(sql);
 }
 

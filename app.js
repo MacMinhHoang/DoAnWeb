@@ -17,10 +17,12 @@ restrictAdmin = require('./middle-wares/restrictAdmin');
 
 
 var homeController = require('./controllers/homeController'),
-accountController = require('./controllers/accountController'),
-cartController = require('./controllers/cartController'),
-manuController = require('./controllers/manuController'),
-adminController = require('./controllers/adminController');
+    accountController = require('./controllers/accountController'),
+    cartController = require('./controllers/cartController'),
+    manuController = require('./controllers/manuController'),
+    adminController = require('./controllers/adminController'),
+    productController = require('./controllers/productController');
+
 
 var app = express();
 
@@ -64,6 +66,7 @@ app.use(bodyParser.urlencoded({
 //     }
 // });
 
+
 var sessionStore = new MySQLStore({
     host: 'localhost',
     port: 3306,
@@ -81,6 +84,7 @@ var sessionStore = new MySQLStore({
         }
     }
 });
+
 
 app.use(session({
     key: 'session_cookie_name',
@@ -102,6 +106,7 @@ app.use('/account', accountController);
 app.use('/shopping_cart', cartController);
 app.use('/manufacturers', manuController);
 app.use('/admin', adminController);
+app.use('/products', productController);
 
 app.use(handle404MDW);
 

@@ -1,0 +1,249 @@
+{{#section 'title'}}
+	Detail
+{{/section}}
+
+{{#section 'css'}}
+  
+{{/section}}
+
+{{#section 'js'}}
+	<!--cloud-zoom js --> 
+	<script type="text/javascript" src="/js/cloud-zoom.js"></script> 
+
+	<!-- flexslider js --> 
+	<script type="text/javascript" src="/js/jquery.flexslider.js"></script> 
+
+	<!-- countdown js --> 
+	<script type="text/javascript" src="/js/countdown.js"></script>
+{{/section}}
+
+{{#with singlePro}}
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<ul>
+					<li class="home"> <a title="Go to Home Page" href="/home">Home</a><span>&raquo;</span></li>
+					<li><strong> {{Ten}} </strong></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Breadcrumbs End --> 
+<!-- Main Container -->
+<div class="main-container col1-layout">
+	<div class="container">
+		<div class="row">
+			<div class="col-main">
+				<div class="product-view-area">
+					<div class="product-big-image col-xs-12 col-sm-5 col-lg-5 col-md-5">
+						<div class="icon-sale-label sale-left">Sale</div>
+						<div class="large-image"> <a href="{{HinhAnh}}" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img class="zoom-img" src="{{HinhAnh}}" alt="products"> </a> </div>
+						<div class="flexslider flexslider-thumb">
+							<ul class="previews-list slides">
+								<li><a href='{{HinhAnh}}' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '{{HinhAnh}}' "><img src="{{HinhAnh}}" alt = "Thumbnail 2"/></a></li>
+								<li><a href='/images/products/{{ID}}-2.jpg' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/images/products/{{ID}}-2.jpg' "><img src="/images/products/{{ID}}-2.jpg" alt = "Thumbnail 1"/></a></li>
+								<li><a href='/images/products/{{ID}}-3.jpg' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/images/products/{{ID}}-3.jpg' "><img src="/images/products/{{ID}}-3.jpg" alt = "Thumbnail 1"/></a></li>
+							</ul>
+						</div>
+
+						<!-- end: more-images --> 
+
+					</div>
+					<div class="col-xs-12 col-sm-7 col-lg-7 col-md-7 product-details-area">
+						<div class="product-name">
+							<h1>{{Ten}}</h1>
+						</div>
+						<div class="price-box">
+							<p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> {{number_format GiaBan}} VND </span> </p>
+						</div>
+						<div class="ratings">
+							<div class="rating">
+								<p class="availability in-stock pull-right">Availability: <span>In Stock</span></p>
+							</div>
+						</div>
+
+						<!-- Short description -->
+						<div class="short-description">
+							<h2>Views</h2>
+							<p>{{SoLuotXem}}</p>
+						</div>
+						<div class="short-description">
+							<h2>Sold</h2>
+							<p>{{SoLuongBan}}</p>
+						</div>
+						<div class="product-variation">
+							<form action="#" method="post">
+								<div class="cart-plus-minus">
+									<label for="qty">Quantity:</label>
+									<div class="numbers-row">
+										<div onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="dec qtybutton"><i class="fa fa-minus">&nbsp;</i></div>
+										<input type="text" class="qty" title="Qty" value="1" maxlength="12" id="qty" name="qty">
+										<div onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="inc qtybutton"><i class="fa fa-plus">&nbsp;</i></div>
+									</div>
+								</div>
+								<button class="button pro-add-to-cart" title="Add to Cart" type="button"><span><i class="fa fa-shopping-basket"></i> Add to Cart</span></button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="product-overview-tab">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="product-tab-inner">
+								<ul id="product-detail-tab" class="nav nav-tabs product-tabs">
+									<li class="active"> <a href="#description" data-toggle="tab"> Description </a> </li>
+									<li> <a href="#reviews" data-toggle="tab">Detail</a> </li>
+								</ul>
+								<div id="productTabContent" class="tab-content">
+									<div class="tab-pane fade in active" id="description">
+										<div class="std">
+											<p><strong>{{Ten}}</strong></p>
+											<p>
+												{{MoTa}}
+											</p>
+											<p></p>
+											<p>
+											</div>
+										</div>
+										<div id="reviews" class="tab-pane fade">
+											<div class="col-md-8">
+												<div class="reviews-content-left">
+													<h2>Thông tin</h2>
+													<table>
+														<tr>
+															<td style="padding: 18px;"><strong>Xuất xứ</strong></td>
+															<td style="padding: 18px;">Trung Quốc</td>
+														</tr>
+														<tr>
+															<td style="padding: 18px;"><strong>Loại</strong></td>
+															<td style="padding: 18px;">{{Loai}}</td>
+														</tr>
+														<tr>
+															<td style="padding: 18px;"><strong>Nhà sản xuất</strong></td>
+															<td style="padding: 18px;">{{NhaSanXuat}}</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Main Container End -->
+{{/with}}
+
+<!-- Related Product Slider -->
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="related-product-area">
+				<div class="page-header">
+					<h2>More From This Brand</h2>
+				</div>
+				<div class="related-products-pro">
+					<div class="slider-items-products">
+						<div id="related-product-slider" class="product-flexslider hidden-buttons">
+							<div class="slider-items slider-width-col4 fadeInUp">
+								{{#each MoreFromThisBrand}}  
+								<div class="product-item">
+									<div class="item-inner">
+										<div class="product-thumbnail">
+											<div class="pr-img-area"> <a title="{{Ten}}" href="/products/detail?id={{ID}}">
+												<figure> 
+													<img class="first-img" src="{{HinhAnh}}" alt="HTML template">
+												</figure>
+											</a> </div>
+											<div class="pr-info-area">
+												<div class="pr-button">
+													<div class="mt-button quick-view"> <a href="/products/quickview?id={{ID}}"> <i class="fa fa-search"></i> </a> </div>
+												</div>
+											</div>
+										</div>
+										<div class="item-info">
+											<div class="info-inner">
+												<div class="item-title"> <a title="{{Ten}}" href="/products/detail?id={{ID}}"> {{Ten}} </a> </div>
+												<div class="item-content">
+													<div class="item-price">
+														<div class="price-box"> <span class="regular-price"> <span class="price"> {{number_format GiaBan}} VND</span> </span> </div>
+													</div>
+													<div class="pro-action">
+														<button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								{{/each}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Related Product Slider End -->
+  
+<!-- Upsell Product Slider -->
+<section class="upsell-product-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="page-header">
+					<h2>More From This Category</h2>
+				</div>
+				<div class="slider-items-products">
+					<div id="upsell-product-slider" class="product-flexslider hidden-buttons">
+						<div class="slider-items slider-width-col4">
+							{{#each MoreFromThisCategory}}
+							<div class="product-item">
+								<div class="item-inner">
+									<div class="product-thumbnail">
+										<div class="pr-img-area"> <a title="{{Ten}}" href="/products/detail?id={{ID}}">
+											<figure> <img class="first-img" src="{{HinhAnh}}" alt="HTML template"></figure>
+										</a> </div>
+										<div class="pr-info-area">
+											<div class="pr-button">
+												<div class="mt-button quick-view"> <a href="/products/quickview?id={{ID}}"> <i class="fa fa-search"></i> </a> </div>
+											</div>
+										</div>
+									</div>
+									<div class="item-info">
+										<div class="info-inner">
+											<div class="item-title"> <a title="{{Ten}}" href="/products/detail?id={{ID}}"> {{Ten}} </a> </div>
+											<div class="item-content">
+												<div class="item-price">
+													<div class="price-box">
+														<p class="special-price"> <span class="price-label">Regular Price:</span> <span class="price"> {{number_format GiaBan}} VND </span> </p>
+													</div>
+												</div>
+												<div class="pro-action">
+													<button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Upsell Product Slider End --> 

@@ -3,28 +3,79 @@
 {{/section}}
 
 {{#section 'css'}}
-  
+    <link rel="stylesheet" type="text/css" href="/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
 {{/section}}
 
 {{#section 'js'}}
-
+    <script src="/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript">
     $(function(){
 
-      $('#btnUpdate').click(function( event ) {
-          event.preventDefault();
+      var phonePattern = /(09|01[2|6|8|9])+([0-9]{8,9})\b/,
+          emailPattern = /\w+@\w+(\.\w){1,2}/,
+          datePattern = /^\d{2}[/]\d{2}[/]\d{4}$/;
+
+      $('#cusBirthday').datepicker({
+          format: 'dd/mm/yyyy',
+          autoclose: true
+      });
+
+      $('#cusBirthday').change(function() {
+        var date = $(this).val();
+        if(!date.match(datePattern))
+        {
+          $(this)[0].setCustomValidity('Invalid Date!');
+          $(this).css('border-color', 'red');
+        }
+        else 
+        {
+          $(this)[0].setCustomValidity("");
+          $(this).css('border-color', 'green');
+        }
+      });
+
+      $('#cusAddress').change(function() {
+          $(this).css('border-color', 'green');
+        });
+
+      $('#cusEmail').change(function() {
+        var email = $(this).val();
+        if (!email.match(emailPattern))
+          $(this).css('border-color', 'red');
+        else 
+          $(this).css('border-color', 'green');
+      });
+
+      $('#cusPhone').change(function() {
+        var phone = $(this).val();
+        if (!phone.match(phonePattern) || phone.length > 11)
+        {
+          $(this)[0].setCustomValidity('Phone number must have 10-11 digits and numbers only!');
+          $(this).css('border-color', 'red');
+        }
+        else 
+        {
+          $(this)[0].setCustomValidity("");
+          $(this).css('border-color', 'green');
+        }
+      });
+
+    });
+    </script>
+
+
+    {{#if isUpdate}}
+        <script type="text/javascript">
           swal({
             type: 'success',
             title: 'Update Successfully',
             showConfirmButton: false,
             timer: 1500
           }).then((result) => {
-              $('#accForm').submit();
-          })
-      });
-
-    });
-    </script>
+              window.location.href = "/account";
+          });
+        </script>
+    {{/if}}
 {{/section}}
 
 <div class="breadcrumbs">
@@ -59,7 +110,7 @@
                     </div>
                     <div class="col-sm-6">
                       <div class="input-text">
-                        <input type="text" name="cusID" class="form-control disabled" value="{{ID}}">
+                        <input type="text" name="cusID" class="form-control" readonly value="{{ID}}">
                       </div>
                     </div>
                 </div>
@@ -70,7 +121,7 @@
                     </div>
                     <div class="col-sm-6">
                       <div class="input-text">
-                        <input type="text" name="cusName" class="form-control" value="{{HoTen}}">
+                        <input type="text" name="cusName" class="form-control" value="{{HoTen}}" required>
                       </div>
                     </div>
                 </div>
@@ -114,7 +165,8 @@
                     </div>
                      <div class="col-sm-6">
                       <div class="input-text">
-                        <input type="text" name="cusBirthday" class="form-control" value="{{NgaySinh}}">
+                        <input type="text" id="cusBirthday" name="cusBirthday" class="form-control" 
+                        value="{{NgaySinh}}" required>
                       </div>
                     </div>
                 </div>
@@ -125,7 +177,8 @@
                     </div>
                     <div class="col-sm-6">
                       <div class="input-text">
-                        <input type="tel" name="cusPhone" class="form-control" id="myPhone" value="{{SDT}}">
+                        <input type="tel" id="cusPhone" name="cusPhone" class="form-control" id="myPhone" 
+                        value="{{SDT}}" required>
                       </div>
                     </div>
                 </div>
@@ -136,7 +189,8 @@
                     </div>
                     <div class="col-sm-6">
                       <div class="input-text">
-                        <input type="email" name="cusEmail" class="form-control" value="{{Email}}">
+                        <input type="email" id="cusEmail" name="cusEmail" class="form-control" 
+                        value="{{Email}}" required>
                       </div>
                     </div>
                 </div>
@@ -147,7 +201,8 @@
                     </div>
                     <div class="col-sm-6">
                       <div class="input-text">
-                        <input type="text" name="cusAddress" class="form-control" value="{{DiaChi}}">
+                        <input type="text" id="cusAddress" name="cusAddress" class="form-control" 
+                        value="{{DiaChi}}" required>
                       </div>
                     </div>
                 </div>

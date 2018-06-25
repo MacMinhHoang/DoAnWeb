@@ -20,8 +20,13 @@ router.get('/', restrict, (req, res) => {
 });
 
 router.post('/update', (req, res) => {
-    accountRepo.update(req.body);
-    res.redirect('/account');
+    accountRepo.update(req.body).then(c => {
+        var vm = {
+            isUpdate: true
+        };
+        res.render('account/index', vm);
+    });
+    
 });
 
 router.get('/login', (req, res) => {
@@ -91,18 +96,35 @@ router.post('/logout', (req, res) => {
 });
 
 router.get('/register', (req, res) => {
-    accountRepo.listUsernames().then(rows => {
-        var vm = {
-            usernames: rows
-        };
-        res.render('account/register', vm);
-    });
+     var vm = {
+        Duplicate: false,
+        isChecked: false
+    };
+    res.render('account/register', vm);
 });
 
 router.post('/register', (req, res) => {
-    req.body.cusPassword = SHA256(req.body.cusPassword).toString();
-    accountRepo.add(req.body).then(value => {
-        res.redirect('/account/login');
+    accountRepo.checkUsername(req.body.cusUsername).then(rows => {
+        if (rows.length > 0)
+        {
+            var vm = {
+                Duplicate: true,
+                isChecked: false,
+                Fields: req.body
+            };
+            res.render('account/register', vm);
+        }
+        else
+        {
+            req.body.cusPassword = SHA256(req.body.cusPassword).toString();
+            accountRepo.add(req.body).then(value => {
+                var vm = {
+                    Duplicate: false,
+                    isChecked: true,
+                };
+                res.render('account/register', vm);
+            });
+        }
     });
    
 });
