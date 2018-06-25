@@ -15,6 +15,18 @@
 
     <script type='text/javascript'>
         jQuery(document).ready(function(){
+            $('.add-to-cart').click(function(event){
+                event.preventDefault();
+                swal({
+                  type: 'success',
+                  title: 'Add Successfully',
+                  showConfirmButton: false,
+                  timer: 1500
+                }).then((result) => {
+                    $('.frmAddToCart').submit();
+                });
+            });
+
             jQuery('#rev_slider_4').show().revolution({
                 dottedOverlay: 'none',
                 delay: 5000,
@@ -192,18 +204,23 @@
                   <div class="item-inner">
                     <div class="product-thumbnail">
                       <div class="icon-new-label new-left">New</div>
+<<<<<<< HEAD
                       <div class="pr-img-area"> <a title="{{Ten}}">
                         <figure> <img class="first-img" src="{{HinhAnh}}" alt="HTML template"> </figure>
+=======
+                      <div class="pr-img-area"> <a title="{{Ten}}" href="/products/detail?id={{ID}}">
+                        <figure> <img class="first-img" src="images/products/{{ID}}-1.jpg" alt="HTML template"> </figure>
+>>>>>>> a356c96e228131b9c8149caa528ee45994a7fd84
                         </a> </div>                            
                         <div class="pr-info-area">
                         <div class="pr-button">
-                          <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
+                          <div class="mt-button quick-view"> <a href="/products/quickview?id={{ID}}"> <i class="fa fa-search"></i> </a> </div>
                         </div>
                       </div>
                     </div>
                     <div class="item-info">
                       <div class="info-inner">
-                        <div class="item-title"> <a title="{{Ten}}">{{Ten}} </a> </div>
+                        <div class="item-title"> <a title="{{Ten}}" href="/products/detail?id={{ID}}">{{Ten}} </a> </div>
                         <div class="item-content">
                           <div class="item-price">
                             <div class="price-box">
@@ -211,7 +228,10 @@
                             </div>
                           </div>
                             <div class="pro-action">
-                                <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
+                                <form action="/cart/add?id={{ID}}" method="post" class="frmAddToCart">
+                                  <input value="1" name="proQty" type="hidden">
+                                  <button type="submit" class="add-to-cart"><span> Add to Cart</span> </button>
+                                </form>
                             </div>
                         </div>
                      </div>
@@ -267,13 +287,13 @@
                         </a> </div>                            
                         <div class="pr-info-area">
                         <div class="pr-button">
-                          <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
+                          <div class="mt-button quick-view"> <a href="/products/quickview?id={{ID}}"> <i class="fa fa-search"></i> </a> </div>
                         </div>
                       </div>
                     </div>
                     <div class="item-info">
                       <div class="info-inner">
-                        <div class="item-title"> <a title="{{Ten}}">{{Ten}} </a> </div>
+                        <div class="item-title"> <a title="{{Ten}}" href="/products/detail?id={{ID}}">{{Ten}} </a> </div>
                         <div class="item-content">
                           <div class="item-price">
                             <div class="price-box">
@@ -281,7 +301,10 @@
                             </div>
                           </div>
                             <div class="pro-action">
-                                <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
+                                <form action="/cart/add?id={{ID}}" method="post" class="frmAddToCart">
+                                  <input value="1" name="proQty" type="hidden">
+                                  <button type="submit" class="add-to-cart"><span> Add to Cart</span> </button>
+                                </form>
                             </div>
                         </div>
                      </div>
@@ -317,14 +340,14 @@
                         <figure> <img class="first-img" src="{{HinhAnh}}" alt="HTML template"> </figure>
                         </a> </div>                            
                         <div class="pr-info-area">
-                        <div class="pr-button">
-                          <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
+                          <div class="pr-button">
+                            <div class="mt-button quick-view"> <a href="/products/quickview?id={{ID}}"> <i class="fa fa-search"></i> </a> </div>
+                          </div>
                         </div>
-                      </div>
                     </div>
                     <div class="item-info">
                       <div class="info-inner">
-                        <div class="item-title"> <a title="{{Ten}}">{{Ten}} </a> </div>
+                        <div class="item-title"> <a title="{{Ten}}" href="/products/detail?id={{ID}}">{{Ten}} </a> </div>
                         <div class="item-content">
                           <div class="item-price">
                             <div class="price-box">
@@ -332,7 +355,10 @@
                             </div>
                           </div>
                             <div class="pro-action">
-                                <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
+                                <form action="/cart/add?id={{ID}}" method="post" class="frmAddToCart">
+                                  <input value="1" name="proQty" type="hidden">
+                                  <button type="submit" class="add-to-cart"><span> Add to Cart</span> </button>
+                                </form>
                             </div>
                         </div>
                      </div>

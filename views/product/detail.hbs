@@ -15,6 +15,22 @@
 
 	<!-- countdown js --> 
 	<script type="text/javascript" src="/js/countdown.js"></script>
+
+	<script type='text/javascript'>
+        jQuery(document).ready(function(){
+            $('.mybtn').click(function(event){
+                event.preventDefault();
+                swal({
+                  type: 'success',
+                  title: 'Add Successfully',
+                  showConfirmButton: false,
+                  timer: 1500
+                }).then((result) => {
+                    $('.frmAddToCart').submit();
+                });
+            });
+        });
+    </script>
 {{/section}}
 
 {{#with singlePro}}
@@ -75,16 +91,16 @@
 							<p>{{SoLuongBan}}</p>
 						</div>
 						<div class="product-variation">
-							<form action="#" method="post">
+							<form action="/cart/add?id={{ID}}" method="post" class="frmAddToCart">
 								<div class="cart-plus-minus">
 									<label for="qty">Quantity:</label>
 									<div class="numbers-row">
 										<div onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="dec qtybutton"><i class="fa fa-minus">&nbsp;</i></div>
-										<input type="text" class="qty" title="Qty" value="1" maxlength="12" id="qty" name="qty">
+										<input type="text" class="qty" title="Qty" value="1" maxlength="12" id="qty" name="proQty">
 										<div onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="inc qtybutton"><i class="fa fa-plus">&nbsp;</i></div>
 									</div>
 								</div>
-								<button class="button pro-add-to-cart" title="Add to Cart" type="button"><span><i class="fa fa-shopping-basket"></i> Add to Cart</span></button>
+								<button class="mybtn button pro-add-to-cart" title="Add to Cart" type="submit"><span><i class="fa fa-shopping-basket"></i> Add to Cart</span></button>
 							</form>
 						</div>
 					</div>
@@ -117,7 +133,7 @@
 													<table>
 														<tr>
 															<td style="padding: 18px;"><strong>Xuất xứ</strong></td>
-															<td style="padding: 18px;">Trung Quốc</td>
+															<td style="padding: 18px;">{{XuatXu}}</td>
 														</tr>
 														<tr>
 															<td style="padding: 18px;"><strong>Loại</strong></td>
@@ -179,7 +195,10 @@
 														<div class="price-box"> <span class="regular-price"> <span class="price"> {{number_format GiaBan}} VND</span> </span> </div>
 													</div>
 													<div class="pro-action">
-														<button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
+														<form action="/cart/add?id={{ID}}" method="post" class="frmAddToCart">
+        													<input value="1" name="proQty" type="hidden">
+        													<button type="submit" class="mybtn add-to-cart"><span> Add to Cart</span> </button>
+        												</form>
 													</div>
 												</div>
 											</div>
@@ -231,7 +250,10 @@
 													</div>
 												</div>
 												<div class="pro-action">
-													<button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
+													<form action="/cart/add?id={{ID}}" method="post" class="frmAddToCart">
+    													<input value="1" name="proQty" type="hidden">
+    													<button type="submit" class="mybtn add-to-cart"><span> Add to Cart</span> </button>
+    												</form>
 												</div>
 											</div>
 										</div>

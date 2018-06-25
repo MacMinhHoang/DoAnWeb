@@ -129,6 +129,22 @@ CREATE TABLE `sp_dh` (
   CONSTRAINT `FK_spdh_sp` FOREIGN KEY (`SanPham`) REFERENCES `sanpham` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Table structure for table `giohang`
+--
+
+DROP TABLE IF EXISTS `giohang`;
+CREATE TABLE `giohang` (
+  `IDKH` int(11) NOT NULL,
+  `IDSP` int(11) NOT NULL,
+  `SoLuong` int(11) DEFAULT NULL,
+  PRIMARY KEY (`IDKH`, `IDSP`),
+  KEY `FK_giohang_kh_idx` (`IDKH`),
+  KEY `FK_giohang_sp_idx` (`IDSP`),
+  CONSTRAINT `FK_giohang_kh` FOREIGN KEY (`IDKH`) REFERENCES `khachhang` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_giohang_sp` FOREIGN KEY (`IDSP`) REFERENCES `sanpham` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 USE `mystoredb`;
 
 /* pass : yaoming2010 */
