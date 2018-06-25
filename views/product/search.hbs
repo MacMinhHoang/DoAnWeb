@@ -8,6 +8,22 @@
 
 {{#section 'js'}}
 
+	<script type='text/javascript'>
+        jQuery(document).ready(function(){
+            $('.add-to-cart').click(function(event){
+                event.preventDefault();
+                swal({
+                  type: 'success',
+                  title: 'Add Successfully',
+                  showConfirmButton: false,
+                  timer: 1500
+                }).then((result) => {
+                    $('.frmAddToCart').submit();
+                });
+            });
+        });
+    </script>
+
 {{/section}}
 
 <!-- Breadcrumbs -->
@@ -60,18 +76,7 @@
 				</div>
 	      		<div class="shop-inner">
 	        		<div class="page-title">
-	          			<h2>All Products </h2>
-	        		</div>
-	        		<div class="toolbar">
-	          			<div class="sorter">
-	            			<div class="short-by">
-	              				<label>Sort By:</label>
-	              				<select>
-					                <option selected="selected">Type</option>
-					                <option>Brand</option>
-	              				</select>
-	            			</div>
-	          			</div>
+	          			<h2>Results </h2>
 	        		</div>
 	        		<div class="product-grid-area">
 	        			<ul class="products-grid">
@@ -80,8 +85,8 @@
 	        					<div class="product-item">
 	        						<div class="item-inner">
 	        							<div class="product-thumbnail">
-	        								<div class="pr-img-area"> <a title={{Ten}} href="#">
-	        									<figure> <img class="first-img" src={{HinhAnh}} alt="HTML template"> </figure>
+	        								<div class="pr-img-area"> <a title={{Ten}} href="/products/detail?id={{ID}}">
+	        									<figure> <img class="first-img" src="{{HinhAnh}}" alt="HTML template"> </figure>
 	        								</a> </div>
 	        								<div class="pr-info-area">
 	        									<div class="pr-button">
@@ -100,7 +105,10 @@
 	        												<p class="special-price"> <span class="price-label">Regular Price:</span> <span class="price"> {{number_format GiaBan}} VND </span> </p>
 	        											</div>
 	        											<div class="pro-action">
-	        												<button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
+	        												<form action="/cart/add?id={{ID}}" method="post" class="frmAddToCart">
+	        													<input value="1" name="proQty" type="hidden">
+	        													<button type="submit" class="add-to-cart"><span> Add to Cart</span> </button>
+	        												</form>
 	        											</div>
 	        										</div>
 	        									</div>

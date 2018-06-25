@@ -103,7 +103,7 @@ app.get('/', (req, res) => {
 
 app.use('/home', homeController);
 app.use('/account', accountController);
-app.use('/shopping_cart', cartController);
+app.use('/cart', cartController);
 app.use('/manufacturers', manuController);
 app.use('/admin', adminController);
 app.use('/products', productController);
