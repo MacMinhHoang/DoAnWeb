@@ -51,20 +51,28 @@ router.get('/categories/edit', restrict, (req, res) => {
 
 router.post('/categories/edit', (req, res) => {
     categoryRepo.update(req.body).then(value => {
-        res.redirect('/admin/categories');
+        var vm = {
+			layout: 'admin.handlebars',
+			isUpdate: true
+		};
+	    res.render('admin/catEdit', vm);
     });
 });
 
 router.get('/categories/add', restrict, (req, res) => {
 	var vm = {
-		layout: 'admin.handlebars',
+		layout: 'admin.handlebars'
 	};
     res.render('admin/catAdd', vm);
 });
 
 router.post('/categories/add', (req, res) => {
     categoryRepo.add(req.body).then(value => {
-        res.redirect('/admin/categories');
+        var vm = {
+			layout: 'admin.handlebars',
+			isUpdate: true
+		};
+	    res.render('admin/catAdd', vm);
     });
 });
 
@@ -116,22 +124,43 @@ router.post('/products/remove', (req, res) => {
 router.get('/products/edit', restrict, (req, res) => {
 	var p1 = productRepo.single(req.query.id),
 		p2 = categoryRepo.loadAll(),
-		p3 = manuRepo.loadAll();
-	 Promise.all([p1, p2, p3]).then(([c, pRows1, pRows2]) => {
+		p3 = manuRepo.loadAll(),
+		p4 = categoryRepo.singleProID(req.query.id),
+		p5 = manuRepo.singleProID(req.query.id);
+	 Promise.all([p1, p2, p3, p4, p5]).then(([p, pRows1, pRows2, cat, manu]) => {
 		var vm = {
 			layout: 'admin.handlebars',
-			Product: c,
+			Product: p,
 			Categories: pRows1,
-			Suppliers: pRows2
+			Suppliers: pRows2,
+			ProCat: cat,
+			ProManu: manu
 		};
 	    res.render('admin/proEdit', vm);
 	});
 });
 
 router.post('/products/edit', (req, res) => {
-    productRepo.update(req.body).then(value => {
-        res.redirect('/admin/products');
-    });
+	if (req.body.proPic === null || req.body.proPic === "")
+	{
+		productRepo.updateWithoutPic(req.body).then(value => {
+	        var vm = {
+	        	layout: 'admin.handlebars',
+	            isUpdate: true
+	        };
+	        res.render('admin/proEdit', vm);
+	    });
+	}
+	else 
+	{
+		productRepo.update(req.body).then(value => {
+	        var vm = {
+	        	layout: 'admin.handlebars',
+	            isUpdate: true
+	        };
+	        res.render('admin/proEdit', vm);
+	    });
+	}
 });
 
 router.get('/products/add', restrict, (req, res) => {
@@ -149,7 +178,11 @@ router.get('/products/add', restrict, (req, res) => {
 
 router.post('/products/add', (req, res) => {
     productRepo.add(req.body).then(value => {
-        res.redirect('/admin/products');
+        var vm = {
+        	layout: 'admin.handlebars',
+            isUpdate: true
+        };
+        res.render('admin/proAdd', vm);
     });
 });
 
@@ -181,21 +214,42 @@ router.get('/suppliers/edit', restrict, (req, res) => {
 });
 
 router.post('/suppliers/edit', (req, res) => {
-    manuRepo.update(req.body).then(value => {
-        res.redirect('/admin/suppliers');
-    });
+	if (req.body.supLogo === null || req.body.supLogo === "")
+	{
+		manuRepo.updateWithoutLogo(req.body).then(value => {
+	        var vm = {
+	        	layout: 'admin.handlebars',
+	            isUpdate: true
+	        };
+	        res.render('admin/supEdit', vm);
+		});
+	}
+	else
+	{
+		manuRepo.update(req.body).then(value => {
+	        var vm = {
+	        	layout: 'admin.handlebars',
+	            isUpdate: true
+	        };
+	        res.render('admin/supEdit', vm);
+	    });
+	}
 });
 
 router.get('/suppliers/add', restrict, (req, res) => {
 	var vm = {
-		layout: 'admin.handlebars',
+		layout: 'admin.handlebars'
 	};
     res.render('admin/supAdd', vm);
 });
 
 router.post('/suppliers/add', (req, res) => {
     manuRepo.add(req.body).then(value => {
-        res.redirect('/admin/suppliers');
+        var vm = {
+			layout: 'admin.handlebars',
+			isUpdate: true
+		};
+	    res.render('admin/supAdd', vm);
     });
 });
 

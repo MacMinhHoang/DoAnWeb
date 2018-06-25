@@ -25,6 +25,21 @@ exports.single = (NSXID) => {
     });
 }
 
+exports.singleProID = (ProID) => {
+    return new Promise((resolve, reject) => {
+        var sql = `select n.* from nhasanxuat n, sanpham s where s.ID = ${ProID} and s.NhaSanXuat = n.id`;
+        db.load(sql).then(rows => {
+            if (rows.length === 0) {
+                resolve(null);
+            } else {
+                resolve(rows[0]);
+            }
+        }).catch(err => {
+            reject(err);
+        });
+    });
+}
+
 exports.remove = (NSXID) => {
     var sql = `update nhasanxuat set TrangThai = '0' where ID = ${NSXID}`;
     return db.load(sql);
@@ -33,6 +48,11 @@ exports.remove = (NSXID) => {
 exports.update = (c) => {
     var sql = `update nhasanxuat set TenNSX = '${c.supName}', Logo = '/images/logo/${c.supLogo}', 
     TrangThai = '${c.supStatus}' where ID = ${c.supID}`;
+    return db.save(sql);
+}
+
+exports.updateWithoutLogo = (c) => {
+    var sql = `update nhasanxuat set TenNSX = '${c.supName}', TrangThai = '${c.supStatus}' where ID = ${c.supID}`;
     return db.save(sql);
 }
 

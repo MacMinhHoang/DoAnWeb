@@ -11,6 +11,7 @@
 {{#section 'js'}}
     <script src="/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
+
     <script type="text/javascript">
       function recaptchaCallback() {
           $('#btnRegister').removeAttr('disabled');
@@ -103,6 +104,35 @@
 
       });
     </script>
+
+    {{#if Duplicate}}
+        <script type="text/javascript">
+            swal({
+              type: 'error',
+              title: 'Register failed.',
+              text: 'Username already exists!'
+            }).then((result) => {
+                $('#cusUsername').css('border-color', 'red');
+                $('#cusUsername').change(function(event) {
+                  $(this).css('border-color', '');
+                });
+                $('#frmRegister').submit(function(event) {
+                    event.preventDefault();
+                });
+            });
+        </script>
+    {{else if isChecked}}
+        <script type="text/javascript">
+            swal({
+              type: 'success',
+              title: 'Register Successfully',
+              showConfirmButton: false,
+              timer: 1500
+            }).then((result) => {
+              window.location.href = "/account/login";
+            });
+        </script>
+    {{/if}}
 {{/section}}
 
 
@@ -128,74 +158,161 @@
       <div class="page-content">
         <div class="account-login">
             <div class="single-input p-bottom50 clearfix">
-              <form action="" method="post">
+              <form id="frmRegister" action="" method="post">
                 <div class="check-title">
                     <h4>New Customer</h4>
                 </div>
                 <br>
-                <div class="row">
-                  <div class="col-md-6 col-sm-8">
-                    <div class="form-group">
-                        <label for="cusName">Full Name<span class="required">*</span></label>
-                        <input type="text" id="cusName" name="cusName" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="cusBirthday">Birthday<span class="required">*</span></label>
-                        <input type="text" id="cusBirthday" name="cusBirthday" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="cusAddress">Address<span class="required">*</span></label>
-                        <input type="text" id="cusAddress" name="cusAddress" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="cusGender">Gender<span class="required">*</span></label>
-                        <br>  
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="cusGender" value="1" id="R1" checked>
-                            <label class="form-check-label" for="R1">Male</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="cusGender" value="0" id="R2">
-                            <label class="form-check-label" for="R2">Female</label>
-                        </div>
-                    </div>
-                    
-                      {{!-- <div class="billing-checkbox">
-                        <input type="checkbox" value="forever" id="rememberme" name="rememberme">
-                        Sign up for our newsletter! 
-                      </div> --}}
-                      <div class="g-recaptcha" data-callback="recaptchaCallback" 
-                      data-sitekey="6LcAWlsUAAAAAPt8x-WMQsTjkfAXalEqM9jD4DT8"></div>
-                      <br>
-                      <div class="submit-text">
-                        <button class="button" disabled type="submit" id="btnRegister">
-                          <i class="fa fa-user"></i>&nbsp; <span>Register</span>
-                        </button>
+
+                {{#if Duplicate}}
+                  {{#with Fields}}
+                  <div class="row">
+                    <div class="col-md-6 col-sm-8">
+                      <div class="form-group">
+                          <label for="cusName">Full Name<span class="required">*</span></label>
+                          <input type="text" id="cusName" name="cusName" class="form-control" 
+                          required value="{{cusName}}">
                       </div>
+                      <div class="form-group">
+                          <label for="cusBirthday">Birthday<span class="required">*</span></label>
+                          <input type="text" id="cusBirthday" name="cusBirthday" class="form-control" 
+                          required  value="{{cusBirthday}}">
+                      </div>
+                      <div class="form-group">
+                          <label for="cusAddress">Address<span class="required">*</span></label>
+                          <input type="text" id="cusAddress" name="cusAddress" class="form-control" 
+                          required  value="{{cusAddress}}">
+                      </div>
+                      <div class="form-group">
+                          <label for="cusGender">Gender<span class="required">*</span></label>
+                          <br>
+                          {{#if GioiTinh}}  
+                          <div class="form-check">
+                              <input class="form-check-input" type="radio" name="cusGender" value="1" id="R1" checked>
+                              <label class="form-check-label" for="R1">Male</label>
+                          </div>
+                          <div class="form-check">
+                              <input class="form-check-input" type="radio" name="cusGender" value="0" id="R2">
+                              <label class="form-check-label" for="R2">Female</label>
+                          </div>
+                          {{else}}
+                          <div class="form-check">
+                              <input class="form-check-input" type="radio" name="cusGender" value="1" id="R1">
+                              <label class="form-check-label" for="R1">Male</label>
+                          </div>
+                          <div class="form-check">
+                              <input class="form-check-input" type="radio" name="cusGender" value="0" id="R2"checked>
+                              <label class="form-check-label" for="R2">Female</label>
+                          </div>
+                          {{/if}}
+                      </div>
+                      
+                        {{!-- <div class="billing-checkbox">
+                          <input type="checkbox" value="forever" id="rememberme" name="rememberme">
+                          Sign up for our newsletter! 
+                        </div> --}}
+                        <div class="g-recaptcha" data-callback="recaptchaCallback" 
+                        data-sitekey="6LcAWlsUAAAAAPt8x-WMQsTjkfAXalEqM9jD4DT8"></div>
+                        <br>
+                        <div class="submit-text">
+                          <button class="button" disabled type="submit" id="btnRegister">
+                            <i class="fa fa-user"></i>&nbsp; <span>Register</span>
+                          </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-8">
+                      <div class="form-group">
+                          <label for="cusEmail">Email<span class="required">*</span></label>
+                          <input type="email" id="cusEmail" name="cusEmail" class="form-control" 
+                          required value="{{cusEmail}}">
+                      </div>
+                      <div class="form-group">
+                          <label for="cusPhone">Phone<span class="required">*</span></label>
+                          <input type="phone" id="cusPhone" name="cusPhone" class="form-control" 
+                          required value="{{cusPhone}}">
+                      </div>
+                      <div class="form-group">
+                          <label for="cusUsername">Username<span class="required">*</span></label>
+                          <input type="text" id="cusUsername" name="cusUsername" class="form-control" 
+                          required value="{{cusUsername}}">
+                      </div>
+                      <div class="form-group">
+                          <label for="cusPassword">Password<span class="required">*</span></label>
+                          <input type="password" id="cusPassword" name="cusPassword" class="form-control" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="cusRePass">RePassword<span class="required">*</span></label>
+                          <input type="password" id="cusRePass" name="cusRePass" class="form-control" required>
+                      </div>
+                    </div>
                   </div>
-                  <div class="col-md-6 col-sm-8">
-                    <div class="form-group">
-                        <label for="cusEmail">Email<span class="required">*</span></label>
-                        <input type="email" id="cusEmail" name="cusEmail" class="form-control" required>
+                  {{/with}}
+                {{else}}
+                  <div class="row">
+                    <div class="col-md-6 col-sm-8">
+                      <div class="form-group">
+                          <label for="cusName">Full Name<span class="required">*</span></label>
+                          <input type="text" id="cusName" name="cusName" class="form-control" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="cusBirthday">Birthday<span class="required">*</span></label>
+                          <input type="text" id="cusBirthday" name="cusBirthday" class="form-control" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="cusAddress">Address<span class="required">*</span></label>
+                          <input type="text" id="cusAddress" name="cusAddress" class="form-control" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="cusGender">Gender<span class="required">*</span></label>
+                          <br>  
+                          <div class="form-check">
+                              <input class="form-check-input" type="radio" name="cusGender" value="1" id="R1" checked>
+                              <label class="form-check-label" for="R1">Male</label>
+                          </div>
+                          <div class="form-check">
+                              <input class="form-check-input" type="radio" name="cusGender" value="0" id="R2">
+                              <label class="form-check-label" for="R2">Female</label>
+                          </div>
+                      </div>
+                      
+                        {{!-- <div class="billing-checkbox">
+                          <input type="checkbox" value="forever" id="rememberme" name="rememberme">
+                          Sign up for our newsletter! 
+                        </div> --}}
+                        <div class="g-recaptcha" data-callback="recaptchaCallback" 
+                        data-sitekey="6LcAWlsUAAAAAPt8x-WMQsTjkfAXalEqM9jD4DT8"></div>
+                        <br>
+                        <div class="submit-text">
+                          <button class="button" disabled type="submit" id="btnRegister">
+                            <i class="fa fa-user"></i>&nbsp; <span>Register</span>
+                          </button>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="cusPhone">Phone<span class="required">*</span></label>
-                        <input type="phone" id="cusPhone" name="cusPhone" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="username">Username<span class="required">*</span></label>
-                        <input type="text" id="cusUsername" name="cusUsername" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="cusPassword">Password<span class="required">*</span></label>
-                        <input type="password" id="cusPassword" name="cusPassword" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="cusRePass">RePassword<span class="required">*</span></label>
-                        <input type="password" id="cusRePass" name="cusRePass" class="form-control" required>
+                    <div class="col-md-6 col-sm-8">
+                      <div class="form-group">
+                          <label for="cusEmail">Email<span class="required">*</span></label>
+                          <input type="email" id="cusEmail" name="cusEmail" class="form-control" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="cusPhone">Phone<span class="required">*</span></label>
+                          <input type="phone" id="cusPhone" name="cusPhone" class="form-control" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="username">Username<span class="required">*</span></label>
+                          <input type="text" id="cusUsername" name="cusUsername" class="form-control" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="cusPassword">Password<span class="required">*</span></label>
+                          <input type="password" id="cusPassword" name="cusPassword" class="form-control" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="cusRePass">RePassword<span class="required">*</span></label>
+                          <input type="password" id="cusRePass" name="cusRePass" class="form-control" required>
+                      </div>
                     </div>
                   </div>
-                </div>
+                {{/if}}
+
               </form>
           </div> 
         </div>

@@ -10,20 +10,36 @@
 	<script type="text/javascript">
     $(function(){
 
-    	$('#btnAdd').click(function( event ) {
-        	event.preventDefault();
-        	swal({
-        		type: 'success',
-            	title: 'Update Successfully',
-            	showConfirmButton: false,
-            	timer: 1500
-        	}).then((result) => {
-            	$('#frmAdd').submit();
-          	})
-    	});
+        $('#btnCancel').click(function(event) {
+          event.preventDefault();
+          swal({
+            title: 'Are you sure?',
+            text: "Reset all fields?",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33'
+          }).then((result) => {
+            if (result.value) 
+              $('#frmAdd')[0].reset();
+          });
+        });
 
     });
     </script>
+
+    {{#if isUpdate}}
+        <script type="text/javascript">
+          swal({
+            type: 'success',
+            title: 'Add Successfully',
+            showConfirmButton: false,
+            timer: 1500
+          }).then((result) => {
+              window.location.href = "/admin/categories";
+          });
+        </script>
+    {{/if}}
 {{/section}}
 
 <div class="row">
@@ -33,7 +49,7 @@
 			<form id="frmAdd" action="" method="POST" role="form">
 			  	<div class="form-group">
 			    	<label for="catName">Category Name</label>
-			    	<input type="text" class="form-control" name="catName">
+			    	<input type="text" class="form-control" required name="catName">
 			  	</div>
 			  	<br>
 			  	<div class="form-check">
@@ -47,6 +63,7 @@
 				</div>
 				<br><br>
 			  	<button id="btnAdd" type="submit" class="btn btn-primary">ADD</button>
+          <button id="btnCancel" type="reset" class="btn btn-primary">RESET</button>
 			</form>
 		</div>
     </div>

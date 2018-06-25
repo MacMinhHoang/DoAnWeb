@@ -22,6 +22,21 @@
           })
       });
 
+      $('#btnCancel').click(function(event) {
+    	event.preventDefault();
+    	swal({
+		  title: 'Are you sure?',
+		  text: "Cancel all changes?",
+		  type: 'warning',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: '#d33'
+		}).then((result) => {
+		  if (result.value) 
+		  	$('#frmUpdate')[0].reset();
+		});
+    });
+
     });
     </script>
 {{/section}}
@@ -96,6 +111,7 @@
 
 				<br><br>
 			  	<button id="btnUpdate" type="submit" class="btn btn-primary">UPDATE</button>
+			  	<button id="btnCancel" type="reset" class="btn btn-primary">CANCEL</button>
 			</form>
 			{{/with}}
 		</div>

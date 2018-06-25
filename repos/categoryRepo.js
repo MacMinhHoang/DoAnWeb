@@ -25,6 +25,21 @@ exports.single = (CatID) => {
     });
 }
 
+exports.singleProID = (ProID) => {
+    return new Promise((resolve, reject) => {
+        var sql = `select l.* from loai l, sanpham s where s.ID = ${ProID} and s.loai = l.id`;
+        db.load(sql).then(rows => {
+            if (rows.length === 0) {
+                resolve(null);
+            } else {
+                resolve(rows[0]);
+            }
+        }).catch(err => {
+            reject(err);
+        });
+    });
+}
+
 exports.remove = (CatID) => {
     var sql = `update loai set TrangThai = '0' where ID = ${CatID}`;
     return db.load(sql);
