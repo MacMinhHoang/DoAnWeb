@@ -10,7 +10,7 @@ var MySQLStore = require('express-mysql-session')(session);
 
 var handleLayoutMDW = require('./middle-wares/handleLayout'),
 handle404MDW = require('./middle-wares/handle404'),
-restrict = require('./middle-wares/restrict');
+// restrict = require('./middle-wares/restrict');
 handle404MDW = require('./middle-wares/handle404'),
 restrictUser = require('./middle-wares/restrictUser'),
 restrictAdmin = require('./middle-wares/restrictAdmin');

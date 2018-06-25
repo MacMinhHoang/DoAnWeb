@@ -50,3 +50,18 @@ exports.add = (c) => {
     '${c.proDes}', ${c.proCat}, ${c.proSup}, ${c.proDate})`;
     return db.save(sql);
 }
+// san pham moi nhat (10 cai dau)
+exports.loadNewest = () => {
+    var sql = `select *,STR_TO_DATE(NgayTiepNhan,'%d/%m/%Y') as Ngay from sanpham order by Ngay desc limit 10`;
+    return db.load(sql);
+}
+
+exports.loadBestSelling = () => {
+    var sql = `select * from sanpham order by SoLuongBan desc limit 10`;
+    return db.load(sql);
+} 
+
+exports.mostViewed = () => {
+    var sql = `select * from sanpham order by SoLuotXem desc limit 10`;
+    return db.load(sql);
+}
