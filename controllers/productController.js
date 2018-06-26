@@ -1,9 +1,6 @@
 var express = require('express');
-<<<<<<< HEAD
 //var config = require('../config/config');
-=======
-// var config = require('../config/config');
->>>>>>> a356c96e228131b9c8149caa528ee45994a7fd84
+//var config = require('../config/config');
 
 var searchRepo = require('../repos/searchRepo');
 var productRepo = require('../repos/productRepo');
