@@ -1,0 +1,129 @@
+{{#section 'title'}}
+  Order Detail
+{{/section}}
+
+{{#section 'css'}}
+  
+{{/section}}
+
+{{#section 'js'}}
+
+{{/section}}
+
+
+<div class="breadcrumbs">
+	<div class="container">
+	  	<div class="row">
+	    	<div class="col-xs-12">
+		      	<ul>
+		        	<li class="home"> <a title="Go to Home Page" href="/">Home</a><span>&raquo;</span></li>
+		        	<li> <a href="/account/orders">My Orders</a><span>&raquo;</span><li>
+		        	<li><strong>Order Information</strong></li>
+		      	</ul>
+	   	 	</div>
+	 	 </div>
+	</div>
+</div>
+
+<section class="main-container col2-right-layout">
+    <div class="main container">
+      <div class="row">
+        <div class="col-main col-sm-9 col-xs-12">
+          <div class="my-account">
+            <div class="page-title">
+              <h2>Order Information</h2>
+            </div>
+            {{!-- <div class="orders-list table-responsive">  --}}
+              <table class="table table-bordered cart_summary table-striped">
+                  {{#with order}}
+                      <tr>
+                        <td width="500px">Order Number</td>
+                          <td data-title="Order Number">{{ID}}</td>
+                      </tr>
+                      <tr>
+                        <td>Order Date</td>
+                        <td data-title="Order Date">{{ThoiGian}}</td>
+                      </tr>
+                      <tr>
+                          <td>Order Status</td>
+                          {{#if TrangThai}}
+                            <td data-title="Order Status">Delivered Successfully</td>
+                          {{else if DangGiao}}
+                            <td data-title="Order Status">Shipping</td>
+                          {{else}}
+                            <td data-title="Order Status">Ready to ship</td>
+                          {{/if}}
+                      </tr>
+                      <tr>
+                        <td>Total</td>
+                        <td data-title="Total"><p>{{number_format TongTien}} VND</p></td>
+                      </tr>
+                  {{/with}}
+              </table>
+            {{!-- </div> --}}
+          </div>
+          <div class="my-account">
+            <div class="page-title">
+              <h2>Bill To</h2>
+            </div>
+            {{!-- <div class="orders-list table-responsive">  --}}
+              <table class="table table-bordered cart_summary table-striped">
+                  {{#with customer}}
+                      <tr>
+                          <td width="500px">Full Name</td>
+                          <td data-title="First Name" >{{HoTen}}</td>
+                      </tr>
+                      <tr>
+                          <td>Address</td>
+                          <td data-title="Address" >{{DiaChi}}</td>
+                      </tr>
+                      <tr>
+                          <td>Phone</td>
+                          <td data-title="Phone" >{{SDT}}</td>
+                      </tr>
+                      <tr>
+                          <td>Email</td>
+                          <td data-title="Email" >{{Email}}</td>
+                      </tr>
+                  {{/with}}
+              </table>
+            {{!-- </div> --}}
+          </div>
+          <div class="my-account">
+            <div class="page-title">
+              <h2>Bill To</h2>
+            </div>
+            <div class="orders-list table-responsive"> 
+              <table class="table table-condensed table-bordered table-striped">
+                <thead>
+                    <tr>
+                      <th>Product Name</th>
+                      <th>Product Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {{#each products}}
+                    <tr>
+                        <td width="500px"><a href="/products/detail?id={{ID}}">{{Ten}}</a></td>
+                        <td>{{SoLuong}}</td>
+                    </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <aside class="right sidebar col-sm-3 col-xs-12">
+          <div class="sidebar-account block">
+            <div class="sidebar-bar-title"><h3>My Account</h3></div>
+            <div class="block-content">
+              <ul>
+                  <li><a href="/account">Account Information</a></li>
+                  <li><a href="/account/orders">My Orders</a></li>
+                </ul>
+            </div>
+          </div>
+      </aside>
+      </div>
+    </div>
+  </section>

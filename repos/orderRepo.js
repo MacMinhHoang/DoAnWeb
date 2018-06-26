@@ -43,3 +43,9 @@ exports.update = (c) => {
     return db.save(sql);
 }
 
+exports.loadOrderProducts = (OrderID) => {
+    var sql = `select p.ID, p.Ten, s.SoLuong from donhang d, sp_dh s, sanpham p 
+    where d.ID = ${OrderID} and d.ID = s.DonHang and s.SanPham = p.ID`;
+    return db.load(sql);
+}
+

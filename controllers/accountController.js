@@ -134,7 +134,22 @@ router.get('/orders', restrict, (req, res) => {
         var vm = {
             orders: rows
         };
-        res.render('account/orders');
+        res.render('order/index', vm);
+    });
+});
+
+router.get('/orders/detail', restrict, (req, res) => {
+    var p1 = orderRepo.single(req.query.id),
+        p2 = accountRepo.singleWithOrderID(req.query.id),
+        p3 = orderRepo.loadOrderProducts(req.query.id);
+
+    Promise.all([p1, p2, p3]).then(([a, b, pRows]) => {
+        var vm = {
+            order: a,
+            customer: b,
+            products: pRows
+        };
+        res.render('order/detail', vm);
     });
 });
 

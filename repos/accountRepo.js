@@ -20,6 +20,21 @@ exports.single = (CusID) => {
     });
 }
 
+exports.singleWithOrderID = (OrderID) => {
+    return new Promise((resolve, reject) => {
+        var sql = `select k.* from khachhang k, donhang d where d.ID = ${OrderID} and d.KhachHang = k.ID`;
+        db.load(sql).then(rows => {
+            if (rows.length === 0) {
+                resolve(null);
+            } else {
+                resolve(rows[0]);
+            }
+        }).catch(err => {
+            reject(err);
+        });
+    });
+}
+
 exports.update = (c) => {
     var sql = `update khachhang set HoTen = '${c.cusName}', NgaySinh = '${c.cusBirthday}', DiaChi = '${c.cusAddress}', 
     SDT = '${c.cusPhone}', Email = '${c.cusEmail}', GioiTinh = '${c.cusGender}' where ID = ${c.cusID}`;
