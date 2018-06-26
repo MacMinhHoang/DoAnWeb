@@ -83,7 +83,7 @@
                   <form>
                     <div class="input-group">
                       <select id="cbSearch" class="cate-dropdown hidden-xs hidden-sm" name="category_id">
-                        <option value="0">&nbsp;&nbsp;All </option>
+                        {{!-- <option value="0">&nbsp;&nbsp;All </option> --}}
                         <option value="1">&nbsp;&nbsp;Search By Name</option>
                         <option value="2">&nbsp;&nbsp;Search By Price</option>
                         <option value="3">&nbsp;&nbsp;Search By Brand</option>
@@ -446,8 +446,20 @@
             // alert("products/?search=name&key=" + txtSearch);
           }
           else if (selSearch == 2){
-            window.location = "/products/search?search=price&key=" + txtSearch;
-            // alert("products/?search=price&key=" + txtSearch);
+            if (!$('#txtSearch').val().match(/[\d]/))
+            {
+              swal({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Price value must be number!'
+              });
+            }
+            else
+            {
+                $(this)[0].setCustomValidity('');
+                window.location = "/products/search?search=price&key=" + txtSearch;
+                // alert("products/?search=price&key=" + txtSearch);
+            }
           }
           else if (selSearch == 3){
             window.location = "/products/search?search=brand&key=" + txtSearch;
@@ -457,10 +469,10 @@
             window.location = "/products/search?search=category&key=" + txtSearch;
             // alert("products/?search=category&key=" + txtSearch);
           }
-          else if (selSearch == 0){
-            window.location = "/products/search?search=all&key=" + txtSearch;
-            // alert("products/?search=all&key=" + txtSearch);
-          }
+          // else if (selSearch == 0){
+          //   window.location = "/products/search?search=all&key=" + txtSearch;
+          //   // alert("products/?search=all&key=" + txtSearch);
+          // }
         });
     // });
 

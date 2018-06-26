@@ -1,9 +1,5 @@
 var express = require('express');
-<<<<<<< HEAD
 //var config = require('../config/config');
-=======
-// var config = require('../config/config');
->>>>>>> a356c96e228131b9c8149caa528ee45994a7fd84
 
 var searchRepo = require('../repos/searchRepo');
 var productRepo = require('../repos/productRepo');
@@ -60,14 +56,14 @@ router.get('/search', (req, res) => {
 		    res.render('product/search', vm);
 		});
 	}
-	else if (req.query.search === 'all'){
-		searchRepo.searchByAll(strSearch).then(result => {
-			var vm = {
-				results: result
-			};
-		    res.render('product/search', vm);
-		});
-	}
+	// else if (req.query.search === 'all'){
+	// 	searchRepo.searchByAll(strSearch).then(result => {
+	// 		var vm = {
+	// 			results: result
+	// 		};
+	// 	    res.render('product/search', vm);
+	// 	});
+	// }
 });
 
 router.get('/detail', (req, res) => {

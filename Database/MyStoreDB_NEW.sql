@@ -102,7 +102,6 @@ CREATE TABLE `sanpham` (
   `Loai` int(11) DEFAULT NULL,
   `NhaSanXuat` int(11) DEFAULT NULL,
   `NgayTiepNhan` varchar(20) DEFAULT NULL,
-  --
   `XuatXu` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `FK_sanpham_loai_idx` (`Loai`),

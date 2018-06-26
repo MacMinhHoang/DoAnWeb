@@ -188,74 +188,68 @@
   
   <!-- All products-->
   <!-- Newest -->
-  <div class="container">
-    <div class="home-tab">
-      <div class="tab-title text-left">
-        <h2>Newest</h2>
-      </div>
+<div class="container">
+  <div class="home-tab">
+    <div class="tab-title text-left">
+      <h2>Newest</h2>
+    </div>
     <div id="productTabContent" class="tab-content">
-      <div class="tab-pane active in" id="computer">
-        <div class="featured-pro">
-          <div class="slider-items-products">
-            <div id="computer-slider" class="product-flexslider hidden-buttons">
-              <div class="slider-items slider-width-col4">
-                {{#each newest}}
-                <div class="product-item">
-                  <div class="item-inner">
-                    <div class="product-thumbnail">
-                      <div class="icon-new-label new-left">New</div>
-<<<<<<< HEAD
-                      <div class="pr-img-area"> <a title="{{Ten}}">
-                        <figure> <img class="first-img" src="{{HinhAnh}}" alt="HTML template"> </figure>
-=======
-                      <div class="pr-img-area"> <a title="{{Ten}}" href="/products/detail?id={{ID}}">
-                        <figure> <img class="first-img" src="images/products/{{ID}}-1.jpg" alt="HTML template"> </figure>
->>>>>>> a356c96e228131b9c8149caa528ee45994a7fd84
+        <div class="tab-pane active in" id="computer">
+          <div class="featured-pro">
+            <div class="slider-items-products">
+              <div id="computer-slider" class="product-flexslider hidden-buttons">
+                <div class="slider-items slider-width-col4">
+                  {{#each newest}}
+                  <div class="product-item">
+                    <div class="item-inner">
+                      <div class="product-thumbnail">
+                        <div class="pr-img-area"> <a title="{{Ten}}" href="/products/detail?id={{ID}}">
+                          <figure> <img class="first-img" src="{{HinhAnh}}" alt="HTML template"> </figure>
                         </a> </div>                            
                         <div class="pr-info-area">
-                        <div class="pr-button">
-                          <div class="mt-button quick-view"> <a href="/products/quickview?id={{ID}}"> <i class="fa fa-search"></i> </a> </div>
+                          <div class="pr-button">
+                            <div class="mt-button quick-view"> <a href="/products/quickview?id={{ID}}"> <i class="fa fa-search"></i> </a> </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item-info">
+                        <div class="info-inner">
+                          <div class="item-title"> <a title="{{Ten}}" href="/products/detail?id={{ID}}">{{Ten}} </a> </div>
+                          <div class="item-content">
+                            <div class="item-price">
+                              <div class="price-box">
+                                <p class="special-price"> <span class="price-label">Special Price:</span> <span class="price">{{number_format GiaBan}} VNĐ </span> </p>
+                              </div>
+                            </div>
+                            <div class="pro-action">
+                              <form action="/cart/add?id={{ID}}" method="post" class="frmAddToCart">
+                                <input value="1" name="proQty" type="hidden">
+                                <button type="submit" class="add-to-cart"><span> Add to Cart</span> </button>
+                              </form>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <div class="item-info">
-                      <div class="info-inner">
-                        <div class="item-title"> <a title="{{Ten}}" href="/products/detail?id={{ID}}">{{Ten}} </a> </div>
-                        <div class="item-content">
-                          <div class="item-price">
-                            <div class="price-box">
-                              <p class="special-price"> <span class="price-label">Special Price:</span> <span class="price">{{number_format GiaBan}} VNĐ </span> </p>
-                            </div>
-                          </div>
-                            <div class="pro-action">
-                                <form action="/cart/add?id={{ID}}" method="post" class="frmAddToCart">
-                                  <input value="1" name="proQty" type="hidden">
-                                  <button type="submit" class="add-to-cart"><span> Add to Cart</span> </button>
-                                </form>
-                            </div>
-                        </div>
-                     </div>
-                   </div>
-                 </div>
-                </div>
-                {{/each}}
+                  </div>
+                  {{/each}}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
   </div>
+</div>
       <!--  -->
   <!-- Best Selling -->
   <div class="inner-box">
     <div class="container">
       <div class="row"> 
         <!-- Banner -->
-     <div class="col-md-3 top-banner hidden-sm">
+        <div class="col-md-3 top-banner hidden-sm">
           <div class="jtv-banner3">
-            <div class="jtv-banner3-inner"><a href="javascript:void(0)"><img src="images/sub1.jpg" alt="HTML template"></a>
+            <div class="jtv-banner3-inner"><a href="javascript:void(0)"><img src="/images/sub1.jpg" alt="HTML template"></a>
               <div class="hover_content">
                 <div class="hover_data">
                   <div class="title"> Big Sale </div>
@@ -279,46 +273,46 @@
               <div id="jtv-best-sale-slider" class="product-flexslider">
                 <div class="slider-items">
                   {{#each bestsell}}
-                <div class="product-item">
-                  <div class="item-inner">
-                    <div class="product-thumbnail">
-                      <div class="pr-img-area"> <a title="{{Ten}}">
-                        <figure> <img class="first-img" src="{{HinhAnh}}" alt="HTML template"> </figure>
+                  <div class="product-item">
+                    <div class="item-inner">
+                      <div class="product-thumbnail">
+                        <div class="pr-img-area"> <a title="{{Ten}}" href="/products/detail?id={{ID}}">
+                          <figure> <img class="first-img" src="{{HinhAnh}}" alt="HTML template"> </figure>
                         </a> </div>                            
                         <div class="pr-info-area">
-                        <div class="pr-button">
-                          <div class="mt-button quick-view"> <a href="/products/quickview?id={{ID}}"> <i class="fa fa-search"></i> </a> </div>
+                          <div class="pr-button">
+                            <div class="mt-button quick-view"> <a href="/products/quickview?id={{ID}}"> <i class="fa fa-search"></i> </a> </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item-info">
+                        <div class="info-inner">
+                          <div class="item-title"> <a title="{{Ten}}" href="/products/detail?id={{ID}}">{{Ten}} </a> </div>
+                          <div class="item-content">
+                            <div class="item-price">
+                              <div class="price-box">
+                                <p class="special-price"> <span class="price-label">Special Price:</span> <span class="price">{{number_format GiaBan}} VNĐ </span> </p>
+                              </div>
+                            </div>
+                            <div class="pro-action">
+                              <form action="/cart/add?id={{ID}}" method="post" class="frmAddToCart">
+                                <input value="1" name="proQty" type="hidden">
+                                <button type="submit" class="add-to-cart"><span> Add to Cart</span> </button>
+                              </form>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <div class="item-info">
-                      <div class="info-inner">
-                        <div class="item-title"> <a title="{{Ten}}" href="/products/detail?id={{ID}}">{{Ten}} </a> </div>
-                        <div class="item-content">
-                          <div class="item-price">
-                            <div class="price-box">
-                              <p class="special-price"> <span class="price-label">Special Price:</span> <span class="price">{{number_format GiaBan}} VNĐ </span> </p>
-                            </div>
-                          </div>
-                            <div class="pro-action">
-                                <form action="/cart/add?id={{ID}}" method="post" class="frmAddToCart">
-                                  <input value="1" name="proQty" type="hidden">
-                                  <button type="submit" class="add-to-cart"><span> Add to Cart</span> </button>
-                                </form>
-                            </div>
-                        </div>
-                     </div>
-                   </div>
-                 </div>
+                  </div>
+                  {{/each}}
                 </div>
-                {{/each}}
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
   <!-- Most Views -->
   <div class="container">
@@ -333,40 +327,39 @@
               <div id="computer-slider" class="product-flexslider hidden-buttons">
                 <div class="slider-items slider-width-col4">
                   {{#each mostview}}
-                <div class="product-item">
-                  <div class="item-inner">
-                    <div class="product-thumbnail">
-                      <div class="pr-img-area"> <a title="{{Ten}}">
-                        <figure> <img class="first-img" src="{{HinhAnh}}" alt="HTML template"> </figure>
+                  <div class="product-item">
+                    <div class="item-inner">
+                      <div class="product-thumbnail">
+                        <div class="pr-img-area"> <a title="{{Ten}}" href="/products/detail?id={{ID}}">
+                          <figure> <img class="first-img" src="{{HinhAnh}}" alt="HTML template"> </figure>
                         </a> </div>                            
                         <div class="pr-info-area">
                           <div class="pr-button">
                             <div class="mt-button quick-view"> <a href="/products/quickview?id={{ID}}"> <i class="fa fa-search"></i> </a> </div>
                           </div>
                         </div>
-                    </div>
-                    <div class="item-info">
-                      <div class="info-inner">
-                        <div class="item-title"> <a title="{{Ten}}" href="/products/detail?id={{ID}}">{{Ten}} </a> </div>
-                        <div class="item-content">
-                          <div class="item-price">
-                            <div class="price-box">
-                              <p class="special-price"> <span class="price-label">Special Price:</span> <span class="price">{{number_format GiaBan}} VNĐ </span> </p>
+                      </div>
+                      <div class="item-info">
+                        <div class="info-inner">
+                          <div class="item-title"> <a title="{{Ten}}" href="/products/detail?id={{ID}}">{{Ten}} </a> </div>
+                          <div class="item-content">
+                            <div class="item-price">
+                              <div class="price-box">
+                                <p class="special-price"> <span class="price-label">Special Price:</span> <span class="price">{{number_format GiaBan}} VNĐ </span> </p>
+                              </div>
+                            </div>
+                            <div class="pro-action">
+                              <form action="/cart/add?id={{ID}}" method="post" class="frmAddToCart">
+                                <input value="1" name="proQty" type="hidden">
+                                <button type="submit" class="add-to-cart"><span> Add to Cart</span> </button>
+                              </form>
                             </div>
                           </div>
-                            <div class="pro-action">
-                                <form action="/cart/add?id={{ID}}" method="post" class="frmAddToCart">
-                                  <input value="1" name="proQty" type="hidden">
-                                  <button type="submit" class="add-to-cart"><span> Add to Cart</span> </button>
-                                </form>
-                            </div>
                         </div>
-                     </div>
-                   </div>
-                 </div>
-                </div>
-                {{/each}}
-              </div>
+                      </div>
+                    </div>
+                  </div>
+                  {{/each}}
                 </div>
               </div>
             </div>
@@ -374,6 +367,7 @@
         </div>
       </div>
     </div>
+  </div>
 
   
   <!-- our clients Slider -->
