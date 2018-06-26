@@ -16,7 +16,7 @@
 	    });
 
 	    jQuery(document).ready(function(){
-            $('.add-to-cart').click(function(event){
+            $('.pro-add-to-cart').click(function(event){
                 event.preventDefault();
                 swal({
                   type: 'success',
@@ -27,7 +27,7 @@
                     $('.frmAddToCart').submit();
                 });
             });
-        )};
+        });
 	</script>
 {{/section}}
 
@@ -87,7 +87,7 @@
 				        				<div onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="inc qtybutton"><i class="fa fa-plus">&nbsp;</i></div>
 				        			</div>
 				        		</div>
-				        		<button class="button pro-add-to-cart" title="Add to Cart" type="button"><span><i class="fa fa-shopping-basket"></i> Add to Cart</span></button>
+				        		<button class="button pro-add-to-cart" title="Add to Cart" type="submit"><span><i class="fa fa-shopping-basket"></i> Add to Cart</span></button>
 				        	</form>
 				        </div>
 	    			</div>
