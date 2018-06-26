@@ -42,6 +42,11 @@ exports.updateWithoutPic = (c) => {
     return db.save(sql);
 }
 
+exports.updateViews = (ProID) => {
+    var sql;
+    sql = `update sanpham set SoLuotXem = SoLuotXem + 1 where ID = ${ProID}`;
+    return db.save(sql);
+}
 
 exports.add = (c) => {
     var sql = `insert into sanpham 

@@ -57,21 +57,22 @@ router.get('/search', (req, res) => {
 		    res.render('product/search', vm);
 		});
 	}
-	else if (req.query.search === 'all'){
-		searchRepo.searchByAll(strSearch).then(result => {
-			var vm = {
-				results: result
-			};
-		    res.render('product/search', vm);
-		});
-	}
+	// else if (req.query.search === 'all'){
+	// 	searchRepo.searchByAll(strSearch).then(result => {
+	// 		var vm = {
+	// 			results: result
+	// 		};
+	// 	    res.render('product/search', vm);
+	// 	});
+	// }
 });
 
 router.get('/detail', (req, res) => {
 	var p1 = productRepo.single(req.query.id);
 	var p2 = searchRepo.listSameBrand(req.query.id, 5);
 	var p3 = searchRepo.listSameCategory(req.query.id, 5);
-
+	
+	productRepo.updateViews(req.query.id);
 	Promise.all([p1, p2, p3]).then(([pRow1, pRow2, pRow3]) => {
 		var vm = {
 			singlePro: pRow1,
