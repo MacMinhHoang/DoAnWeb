@@ -153,4 +153,36 @@ router.get('/orders/detail', restrict, (req, res) => {
     });
 });
 
+router.get('/changepass', restrict, (req, res) => {
+     var vm = {
+        isError: false,
+        isChecked: false
+    };
+    res.render('account/password', vm);
+});
+
+router.post('/changepass', (req, res) => {
+    var hash = SHA256(req.body.cusOldPass).toString();
+    if (hash.toUpperCase() !== req.session.user.MatKhau)
+    {
+        var vm = {
+            isError: true,
+            isChecked: true
+        };
+        res.render('account/password', vm);
+    }
+    else 
+    {
+        var newHash = SHA256(req.body.cusNewPass);
+        accountRepo.changePass(req.session.user.ID, newHash).then(rows => {
+            req.session.user.MatKhau = newHash;
+            var vm = {
+                isError: false,
+                isChecked: true
+            };
+            res.render('account/password', vm);
+        });
+    }
+});
+
 module.exports = router;
