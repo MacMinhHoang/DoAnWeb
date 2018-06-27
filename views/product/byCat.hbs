@@ -20,7 +20,13 @@
         <div class="col-xs-12">
           <ul>
             <li class="home"> <a title="Go to Home Page" href="/home">Home</a><span>&raquo;</span></li>
-            <li><strong>All Products</strong></li>
+            <li>
+				<strong> 
+	            {{#with type}}
+	        		{{TenLoai}}
+	    		{{/with}}
+	    		</strong>
+            </li>
           </ul>
         </div>
       </div>
@@ -32,8 +38,8 @@
 <div class="main-container col2-left-layout">
 	<div class="container">
   		<div class="row">
-    		<div class="col-main col-sm-9 col-xs-12 col-sm-push-3">
-      			<div class="category-description std">
+    		{{!-- <div class="col-main col-sm-9 col-xs-12 col-sm-push-3"> --}}
+      			{{!-- <div class="category-description std">
         			<div class="slider-items-products">
           				<div id="category-desc-slider" class="product-flexslider hidden-buttons">
             				<div class="slider-items slider-width-col1 owl-carousel owl-theme"> 
@@ -59,7 +65,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> --}}
 	      		<div class="shop-inner">
 	        		<div class="page-title">
 	          			<h2>
@@ -68,17 +74,6 @@
 	          			 {{/with}}
 						</h2>
 	        		</div>
-	        		{{!-- <div class="toolbar">
-	          			<div class="sorter">
-	            			<div class="short-by">
-	              				<label>Sort By:</label>
-	              				<select>
-					                <option selected="selected">Type</option>
-					                <option>Brand</option>
-	              				</select>
-	            			</div>
-	          			</div>
-	        		</div> --}}
 	        		<div class="product-grid-area">
 	        			<ul class="products-grid">
 	        				{{#each products}}
@@ -120,9 +115,13 @@
 					</div>
 					<div class="pagination-area">
 						<ul class="pagination"> 
-							<li class="disabled">
-								<a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a>
+							{{#if prev_page}}
+							<li>
+								<a href="?id={{id}}&page={{prev_value}}" aria-label="Previous">
+									<span aria-hidden="true">«</span>
+								</a>
 							</li>
+							{{/if}}
 							{{#each page_numbers}}
 								{{#if isCurPage}}
 									<li class="active"><a href="javascript:;">{{value}}</a></li>
@@ -130,13 +129,17 @@
 									<li><a href="?id={{../id}}&page={{value}}">{{value}}</a></li>
 								{{/if}}
 							{{/each}}
+							{{#if next_page}}
 							<li>
-								<a href="#" aria-label="Next"><span aria-hidden="true">»</span></a>
+								<a href="?id={{id}}&page={{next_value}}" aria-label="Next">
+									<span aria-hidden="true">»</span>
+								</a>
 							</li>
+							{{/if}}
 						</ul>
 					</div>
 				</div>
-			</div>
+			{{!-- </div> --}}
 		</div>
 	</div>
 </div>

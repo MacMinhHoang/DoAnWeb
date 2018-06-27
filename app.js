@@ -9,11 +9,10 @@ var session = require('express-session');
 var MySQLStore = require('express-mysql-session')(session);
 
 var handleLayoutMDW = require('./middle-wares/handleLayout'),
-handle404MDW = require('./middle-wares/handle404'),
-// restrict = require('./middle-wares/restrict');
-handle404MDW = require('./middle-wares/handle404'),
-restrictUser = require('./middle-wares/restrictUser'),
-restrictAdmin = require('./middle-wares/restrictAdmin');
+    handle404MDW = require('./middle-wares/handle404'),
+    handle404MDW = require('./middle-wares/handle404'),
+    restrictUser = require('./middle-wares/restrictUser'),
+    restrictAdmin = require('./middle-wares/restrictAdmin');
 
 
 var homeController = require('./controllers/homeController'),
@@ -49,28 +48,11 @@ app.use(bodyParser.urlencoded({
 }));
 
 
-// var sessionStore = new MySQLStore({
-//     host: 'localhost',
-//     port: 3306,
-//     user: 'root',
-//     password: 'hoang12124',
-//     database: 'mystoredb',
-//     createDatabaseTable: true,
-//     schema: {
-//         tableName: 'sessions',
-//         columnNames: {
-//             session_id: 'session_id',
-//             expires: 'expires',
-//             data: 'data'
-//         }
-//     }
-// });
-
-
 var sessionStore = new MySQLStore({
     host: 'localhost',
     port: 3306,
     user: 'root',
+    // password: 'hoang12124',
     password: '1234',
     database: 'mystoredb',
     insecureAuth: true,

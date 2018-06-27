@@ -1,10 +1,10 @@
 var express = require('express');
 var config = require('../config/config');
-//var config = require('../config/config');
 
 var searchRepo = require('../repos/searchRepo');
 var productRepo = require('../repos/productRepo');
 var manuRepo = require('../repos/manufacturerRepo');
+var catRepo = require('../repos/categoryRepo');
 var router = express.Router();
 
 router.get('/', (req, res) => {
@@ -115,7 +115,7 @@ router.get('/byBrand', (req, res) => {
 
 	var page = req.query.page;
 
-    var catID = req.query.id; 
+    var brandID = req.query.id; 
 
 
     if (!page) {
@@ -124,9 +124,9 @@ router.get('/byBrand', (req, res) => {
 
     var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
 
-    var p1 = productRepo.loadAllByBrand(catID, offset);
-    var p2 = productRepo.countByBrand(catID);
-    var p3 = manuRepo.single(catID);
+    var p1 = productRepo.loadAllByBrand(brandID, offset);
+    var p2 = productRepo.countByBrand(brandID);
+    var p3 = manuRepo.single(brandID);
 
     Promise.all([p1, p2, p3]).then(([pRows, countRows, pRows2]) => {
        
@@ -135,24 +135,32 @@ router.get('/byBrand', (req, res) => {
         if (total % config.PRODUCTS_PER_PAGE > 0) {
             nPages++;
         }
-
+        var prev, nxt;
         var numbers = [];
         for (i = 1; i <= nPages; i++) {
             numbers.push({
                 value: i,
                 isCurPage: i === +page
             });
+            if (i === +page)
+            {
+                prev = i - 1;
+                nxt = i + 1;
+            }
         }
 
         var vm = {
-        	type: pRows2,
+            type: pRows2,
             products: pRows,
             noProducts: pRows.length === 0,
             page_numbers: numbers,
-            id: catID
+            id: brandID,
+            prev_page: prev > 0,
+            prev_value: prev,
+            next_page: nxt <= nPages,
+            next_value: nxt
         };
         res.render('product/byBrand', vm);
-
 	});
 });
 
@@ -172,7 +180,7 @@ router.get('/byCat', (req, res) => {
 
     var p1 = productRepo.loadAllByCat(catID, offset);
     var p2 = productRepo.countByCat(catID);
-    var p3 = manuRepo.singleType(catID);
+    var p3 = catRepo.single(catID);
    
     Promise.all([p1, p2, p3]).then(([pRows, countRows, pRows2]) => {
        
@@ -182,12 +190,18 @@ router.get('/byCat', (req, res) => {
             nPages++;
         }
 
+        var prev, nxt;
         var numbers = [];
         for (i = 1; i <= nPages; i++) {
             numbers.push({
                 value: i,
                 isCurPage: i === +page
             });
+            if (i === +page)
+            {
+                prev = i - 1;
+                nxt = i + 1;
+            }
         }
 
         var vm = {
@@ -195,7 +209,11 @@ router.get('/byCat', (req, res) => {
             products: pRows,
             noProducts: pRows.length === 0,
             page_numbers: numbers,
-            id: catID
+            id: catID,
+            prev_page: prev > 0,
+            prev_value: prev,
+            next_page: nxt <= nPages,
+            next_value: nxt
         };
         res.render('product/byCat', vm);
     });

@@ -40,21 +40,6 @@ exports.singleProID = (ProID) => {
     });
 }
 
-exports.singleType = (TID) => {
-    return new Promise((resolve, reject) => {
-        var sql = `select * from loai where ID = ${TID}`;
-        db.load(sql).then(rows => {
-            if (rows.length === 0) {
-                resolve(null);
-            } else {
-                resolve(rows[0]);
-            }
-        }).catch(err => {
-            reject(err);
-        });
-    });
-}
-
 exports.remove = (NSXID) => {
     var sql = `update nhasanxuat set TrangThai = '0' where ID = ${NSXID}`;
     return db.load(sql);

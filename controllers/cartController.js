@@ -2,9 +2,11 @@ var express = require('express');
 
 var cartRepo = require('../repos/cartRepo');
 
+var restrict = require('../middle-wares/restrictUser');
+
 var router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', restrict, (req, res) => {
 	cartRepo.loadAll(req.session.user.ID).then(rows => {
 		var vm = {
 			cart: rows
@@ -13,11 +15,11 @@ router.get('/', (req, res) => {
 	});
 });
 
-router.get('/checkout', (req, res) => {
+router.get('/checkout', restrict, (req, res) => {
     res.render('cart/checkout');
 });
 
-router.get('/order_success', (req, res) => {
+router.get('/order_success', restrict, (req, res) => {
     res.render('cart/order_success');
 });
 
