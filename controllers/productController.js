@@ -26,46 +26,65 @@ router.get('/search', (req, res) => {
     }
 
 	if (req.query.search === 'name'){
-		searchRepo.searchByName(strSearch).then(result => {
-			var vm = {
-				results: result
-			};
-		    res.render('product/search', vm);
-		});
-	}
-	else if (req.query.search === 'price'){
-		searchRepo.searchByPrice(strSearch).then(result => {
-			var vm = {
-				results: result
-			};
-		    res.render('product/search', vm);
-		});
-	}
-	else if (req.query.search === 'brand'){
-		searchRepo.searchByBrand(strSearch).then(result => {
-			var vm = {
-				results: result
-			};
-		    res.render('product/search', vm);
-		});
-	}
-	else if (req.query.search === 'category'){
-		searchRepo.searchByCategory(strSearch).then(result => {
-			var vm = {
-				results: result
-			};
-		    res.render('product/search', vm);
-		});
-	}
-	// else if (req.query.search === 'all'){
-	// 	searchRepo.searchByAll(strSearch).then(result => {
-	// 		var vm = {
-	// 			results: result
-	// 		};
-	// 	    res.render('product/search', vm);
-	// 	});
-	// }
+		var page = req.query.page; 
+    	if (!page) {
+       		page = 1;
+   		 }
+
+    var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
+
+    var p1 = searchRepo.loadSearchByName(strSearch, offset);
+    var p2 = searchRepo.countSearchByName(strSearch);
+    var p3 = searchRepo.searchByName(strSearch);
+    console.log(strSearch);
+    Promise.all([p1, p2, p3]).then(([pRows1, countRows, pRows2]) => {
+    	var total = countRows[0].total;
+        var nPages = total / config.PRODUCTS_PER_PAGE;
+        if (total % config.PRODUCTS_PER_PAGE > 0) {
+            nPages++;
+        }
+
+        var numbers = [];
+        for (i = 1; i <= nPages; i++) {
+            numbers.push({
+                value: i,
+                isCurPage: i === +page
+            });
+        }
+
+        var vm = {
+            products: pRows2,
+            page_numbers: numbers,
+        };
+  	 res.render('product/search', vm);
+    });
+}
 });
+// 	else if (req.query.search === 'price'){
+// 		searchRepo.searchByPrice(strSearch).then(result => {
+// 			var vm = {
+// 				results: result
+// 			};
+// 		    res.render('product/search', vm);
+// 		});
+// 	}
+// 	else if (req.query.search === 'brand'){
+// 		searchRepo.searchByBrand(strSearch).then(result => {
+// 			var vm = {
+// 				results: result
+// 			};
+// 		    res.render('product/search', vm);
+// 		});
+// 	}
+// 	else if (req.query.search === 'category'){
+// 		searchRepo.searchByCategory(strSearch).then(result => {
+// 			var vm = {
+// 				results: result
+// 			};
+// 		    res.render('product/search', vm);
+// 		});
+// 	}
+// });
 
 router.get('/detail', (req, res) => {
 	var p1 = productRepo.single(req.query.id);
@@ -91,19 +110,6 @@ router.get('/quickview', (req, res) => {
 		res.render('product/quickview', vm);
 	});
 });
-
-// router.get('/byBrand', (req, res) => {
-
-// 	var p1 = productRepo.searchbyBrand(req.query.id);
-// 	var p2 = manuRepo.single(req.query.id);
-// 	Promise.all([p1, p2]).then(([pRow1, pRow2]) => {
-// 		var vm = {
-// 			searchBrand : pRow1,
-// 			brand: pRow2
-// 		};
-// 		res.render('product/byBrand', vm);
-// 	});
-// });
 
 router.get('/byBrand', (req, res) => {
 
