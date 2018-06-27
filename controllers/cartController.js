@@ -5,7 +5,12 @@ var cartRepo = require('../repos/cartRepo');
 var router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('cart/cart');
+	cartRepo.loadAll(req.session.user.ID).then(rows => {
+		var vm = {
+			cart: rows
+		}
+	    res.render('cart/cart', vm);
+	});
 });
 
 router.get('/checkout', (req, res) => {
@@ -26,6 +31,18 @@ router.post('/add', (req, res) => {
 	    	cartRepo.add(req.session.user.ID, req.query.id, req.body.proQty).then(result => {
 				res.redirect(req.headers.referer);
 			});
+	});
+});
+
+router.post('/update', (req, res) => {
+	cartRepo.update1(req.session.user.ID, req.query.id, req.body.proQty).then(result => {
+		res.redirect(req.headers.referer);
+	});
+});
+
+router.post('/remove', (req, res) => {
+	cartRepo.remove(req.session.user.ID, req.query.id).then(result => {
+		res.redirect(req.headers.referer);
 	});
 });
 

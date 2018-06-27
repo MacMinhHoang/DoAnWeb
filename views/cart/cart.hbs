@@ -8,185 +8,181 @@
 
 {{#section 'js'}}
 
+<script type="text/javascript">
+
+    $(function() {
+      var $totalPrice = $('.myTotal');
+      var totalPrice = 0;
+
+      // function numberFormat(number) {
+      //   var strNumber = number.toString();
+      //   var strReverse = '';
+      //   // Đảo chuỗi
+      //   for (var i = strNumber.length - 1; i >= 0; i--) {
+      //     strReverse += strNumber[i];
+      //   }
+      //   var strFormat = '';
+      //   while (strReverse.length >= 3)
+      //   {
+      //     strFormat += strReverse.substr(0, 3);
+      //     if (strReverse.length > 3)
+      //       strFormat += ',';
+      //   }
+      // }
+
+      // Tính tổng từng hàng => tổng giỏ hàng
+      $('.row-tb-cart').each(function () {
+
+        // var $proID = $(this).find('td:first');                // Cột ID sp
+        // var $proName = $(this).find('td:nth-child(2)');       // Cột Tên sp
+        var $proUnitPrice = $(this).find('td:nth-child(3)');  // Cột Giá 1 sp
+        var $proQty = $(this).find('td:nth-child(4)');        // Cột Số lượng sp
+        var $proTotal = $(this).find('td:nth-child(5)');      // Cột Tổng giá
+        var $proDel = $(this).find('td:nth-child(6)');        // Cột Xóa cart
+
+        var proUnitPrice = $proUnitPrice.children(':input').val();  // Giá 1 sp
+        var proQty = $proQty.children().children(':input').val();   // Số lượng sp
+        var proTotal = proUnitPrice * proQty;                       // Tổng giá
+        $proTotal.children(':input').val(proTotal);
+        $proTotal.children('span').text(proTotal + ' VND');
+        
+        totalPrice += proTotal;
+      });
+
+      $totalPrice.children(':input').val(totalPrice);
+      $totalPrice.children('span').text(totalPrice + ' VND');
+
+      // Thay đổi số lượng của 1 sp nào đó
+      $('.myQty').each(function() {
+        $(this).on('change', function(event) {
+          var proQty = $(this).val();
+          if (proQty > 10)
+            proQty = 10;
+          if (proQty < 1)
+            proQty = 1;
+          $(this).val(proQty);
+          $(this).parent().submit();
+
+          var $proUnitPrice = $(this).parents('td').prev();
+          var $proTotal = $(this).parents('td').next();
+          var proUnitPrice = $proUnitPrice.children(':input').val();
+          var old_proTotal = $proTotal.children(':input').val();
+
+          // Update Tổng giá của sp
+          var new_proTotal = proQty * proUnitPrice;
+          $proTotal.children(':input').val(new_proTotal);
+          $proTotal.children('span').text(new_proTotal + ' VND'); 
+
+          //Update Tổng giá của giỏ hàng
+          totalPrice += (new_proTotal - old_proTotal);
+          $totalPrice.children(':input').val(totalPrice);
+          $totalPrice.children('span').text(totalPrice + ' VND');
+        });
+      });
+
+      // Xóa 1 hàng trong danh sách giỏ hàng
+      $('.btnDel').each(function() {
+        $(this).on('click', function(event) {
+          var $this = $(this);
+          $this.parents('tr').fadeOut(function(){
+            swal({
+                  type: 'success',
+                  title: 'Remove Successfully',
+                  showConfirmButton: false,
+                  timer: 1500
+            }).then((result) => {
+                var $delItem = $this.parents('td').prev();        // Lấy cột Total
+                var delItem = $delItem.children(':input').val();  // Lấy giá trị cột Total
+                totalPrice -= delItem;
+                $totalPrice.children(':input').val(totalPrice);
+                $totalPrice.children('span').text(totalPrice + ' VND');
+
+                $this.parent().submit();
+                $this.remove();
+            });
+          });
+        });
+      });
+
+    });
+
+</script> 
+
 {{/section}}
 
- <!-- Main Container -->
-  <section class="main-container col1-layout">
-    <div class="main container">
-      <div class="col-main">
-        <div class="cart">
-          
-          <div class="page-content page-order"><div class="page-title">
+<!-- Main Container -->
+<section class="main-container col1-layout">
+  <div class="main container">
+    <div class="col-main">
+      <div class="cart">
+        
+        <div class="page-content page-order">
+          <div class="page-title">
             <h2>Shopping Cart</h2>
           </div>
-            
-            
-            <div class="order-detail-content">
-              <div class="table-responsive">
-                <table class="table table-bordered cart_summary">
-                  <thead>
-                    <tr>
-                      <th class="cart_product">Product</th>
-                      <th>Description</th>
-                      <th>Avail.</th>
-                      <th>Unit price</th>
-                      <th>Qty</th>
-                      <th>Total</th>
-                      <th  class="action"><i class="fa fa-trash-o"></i></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr id="row-1">
-                      <td class="cart_product">
-                        <a href="#"><img src="/images/products/Nikon/NIKON_COOLPIX-B700.jpg" alt="Product"></a>
-                      </td>
-                      <td class="cart_description">
-                        <p class="product-name"><a href="/single_product">NIKON COOLPIX B700 </a></p>
-                      </td>
-                      <td class="availability in-stock"><span class="label">In stock</span></td>
-                      <td class="price"><span>8,490,000 VND</span></td>
-                      <td class="qty">
-                        <input class="form-control input-sm" type="number" id="quantity-1" min="1" max="10" value="1">
-                      </td>
-                      <td class="price" id="total-1"><span>8,490,000 VND</span></td>
-                      <td class="action" id="del-1"><i class="icon-close"></i></td>
-                    </tr>
-                    <tr id="row-2">
-                      <td class="cart_product">
-                        <a href="#"><img src="/images/products/Sony/SONY_ALPHA-A6000.jpg" alt="Product"></a>
-                      </td>
-                      <td class="cart_description">
-                        <p class="product-name"><a href="/single_product">SONY ALPHA A6000 </a></p>
-                      </td>
-                      <td class="availability out-of-stock"><span class="label">No stock</span></td>
-                      <td class="price"><span>13,490,000 VND</span></td>
-                      <td class="qty">
-                        <input class="form-control input-sm" type="number" id="quantity-2" value="0" disabled>
-                      </td>
-                      <td class="price"><span>0 VND</span></td>
-                      <td class="action" id="del-2"><i class="icon-close"></i></td>
-                    </tr>
-                    <tr id="row-3">
-                      <td class="cart_product">
-                        <a href="#"><img src="/images/products/Canon/[10].CANON POWERSHOT SX430 IS/10-1.jpg"></a>
-                      </td>
-                      <td class="cart_description">
-                        <p class="product-name"><a href="/single_product">CANON POWERSHOT SX430 IS </a></p>
-                      </td>
-                      <td class="availability in-stock"><span class="label">In stock</span></td>
-                      <td class="price"><span>5,350,000 VND</span></td>
-                      <td class="qty">
-                        <input class="form-control input-sm" type="number" id="quantity-3" min="1" max="10" value="1">
-                      </td>
-                      <td class="price" id="total-3"><span>5,350,000 VND</span></td>
-                      <td class="action" id="del-3"><i class="icon-close"></i></td>
-                    </tr>
-                  </tbody>
-                  <tfoot>
-                    <tr>
-                      <td colspan="2" rowspan="2"></td>
-                      <td colspan="3">Total products (tax incl.)</td>
-                      <td colspan="2" id="total-4">13,840,000 VND </td>
-                    </tr>
-                    <tr>
-                      <td colspan="3"><strong>Total</strong></td>
-                      <td colspan="2" id="total-5"><strong>13,840,000 VND </strong></td>
-                    </tr>
-                  </tfoot>
-                </table>
-              </div>
-              <div class="cart_navigation"> 
-                <a class="continue-btn" href="/home"><i class="fa fa-arrow-left"> </i>&nbsp; Continue shopping</a> 
-                <a class="checkout-btn button" id="btnCheckOut" role="button">
-                  <i class="fa fa-check"></i> Proceed to checkout
-                </a> 
-              </div>
+
+          <div class="order-detail-content">
+            <div class="table-responsive">
+              <table class="table table-bordered cart_summary" id="list-cart">
+                <thead>
+                  <tr>
+                    <th class="cart_product">Product</th>
+                    <th>Name</th>
+                    <th>Unit price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th  class="action"><i class="fa fa-trash-o"></i></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each cart}}
+                  <tr class="row-tb-cart">
+                    <td class="cart_product">
+                      <a href="/products/detail?id={{ID}}"><img src="{{HinhAnh}}" alt="Product"></a>
+                    </td>
+                    <td class="cart_description">
+                      <p class="product-name"><a href="/products/detail?id={{ID}}"> {{Ten}} </a></p>
+                    </td>
+                    <td class="unit-price">
+                      <input type="hidden" value="{{GiaBan}}">
+                      <span> {{number_format GiaBan}} VND</span>
+                    </td>
+                    <td class="qty">
+                      <form action="/cart/update?id={{ID}}" method="post" class="frmAddToCart">
+                        <input class="myQty form-control input-sm" type="number" min="1" max="10" value="{{SoLuong}}" name="proQty">
+                      </form>
+                    </td>
+                    <td class="row-total">
+                      <input type="hidden" value="0">
+                      <span></span>
+                    </td>
+                    <td class="action">
+                      <form action="/cart/remove?id={{ID}}" method="post" class="frmRemoveCart">
+                        <button type="submit" class="btnDel" style="border: none; background-color: transparent">
+                          <span><i class="icon-close"></i></span> 
+                        </button>
+                      </form>
+                    </td>
+                  </tr>
+                  {{/each}}
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="3"><strong>Total</strong></td>
+                    <td colspan="2" class="myTotal"><input type="hidden" value="0"><span></span></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <div class="cart_navigation"> 
+              <a class="continue-btn" href="/home"><i class="fa fa-arrow-left"> </i>&nbsp; Continue shopping</a> 
+              <a class="checkout-btn button" id="btnCheckOut" role="button">
+                <i class="fa fa-check"></i> Proceed to checkout
+              </a> 
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-
-
-  <script type="text/javascript">
-
-  $(function() {
-
-  var qunt1 = $('#quantity-1').val();
-  var qunt2 = $("#quantity-2").val();
-  var qunt3 = $('#quantity-3').val();
-  var deleted1 = false;
-  var deleted2 = false;
-  var deleted3 = false;
-
-  function addCommas(x) {
-    var parts = x.toString().split(".");
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    return parts.join(".");
-  }
-
-  function updatePrices(num1, num3){
-    var price1 = num1 * 8490;
-    var price3 = num3 * 5350;
-    $('#total-1').empty();
-    $('#total-1').append('<span>' + addCommas(price1) + ',000 VND</span>');
-    $('#total-3').empty();
-    $('#total-3').append('<span>' + addCommas(price3) + ',000 VND</span>');
-    $('#total-4').empty();
-    $('#total-4').append('<span>' + addCommas(price1 + price3) + ',000 VND</span>');
-    $('#total-5').empty();
-    $('#total-5').append('<span><strong>' + addCommas(price1 + price3) + ',000 VND</strong></span>');
-  }
-
-  $('#quantity-1').on('input', function(event) {
-    qunt1 = $('#quantity-1').val();
-    if (qunt1 > 10)
-      qunt1 = 10;
-    if (qunt1 < 1)
-      qunt1 = 1;
-    $('#quantity-1').val(qunt1);
-    updatePrices(qunt1, qunt3);
-  });
-
-  $('#quantity-3').on('input', function(event) {
-    qunt3 = $('#quantity-3').val();
-    if (qunt3 > 10)
-      qunt3 = 10;
-    if (qunt3 < 1)
-      qunt3 = 1;
-    $('#quantity-1').val(qunt3);
-    updatePrices(qunt1, qunt3);
-  });
-
-  $('#del-1').click(function(event) {
-    $('#row-1').remove();
-    qunt1 = 0;
-    deleted1 = true;
-    updatePrices(qunt1, qunt3);
-  });
-
-  $('#del-2').click(function(event) {
-    $('#row-2').remove();
-    deleted2 = true;
-  });
-
-  $('#del-3').click(function(event) {
-    $('#row-3').remove();
-    qunt3 = 0;
-    deleted3 = true;
-    updatePrices(qunt1, qunt3);
-  });
-
-  $('#btnCheckOut').click(function(event) {
-    if ((!deleted1 && qunt1 == 0) || (!deleted2 && qunt2 == 0) || (!deleted3 && qunt3 == 0))
-    {
-      alert('Giỏ hàng của bạn có sản phẩm không đủ số lượng!');
-      return;
-    }
-    window.location.href = '/shopping_cart/checkout';
-  });
-
-  });
-
-</script> 
+  </div>
+</section>
