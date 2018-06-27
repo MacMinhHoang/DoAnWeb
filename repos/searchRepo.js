@@ -21,14 +21,48 @@ exports.searchByPrice = (strSearch) => {
     return db.load(sql);
 }
 
+exports.loadSearchByPrice = (str, offset) => {
+    var sql = `select * from sanpham where GiaBan = ${str} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+    return db.load(sql);
+}
+
+exports.countSearchByPrice = (str) => {
+    var sql = `select count(*) as total from sanpham where GiaBan = ${str}`;
+    return db.load(sql);
+}
+
 exports.searchByBrand = (strSearch) => {
     var sql = `select * from sanpham where NhaSanXuat like N'%${strSearch}%'`;
+    return db.load(sql);
+}
+
+exports.loadSearchByBrand = (str, offset) => {
+    var sql = `select * from sanpham 
+                where NhaSanXuat = (select ID from nhasanxuat where TenNSX like N'%${str}%')
+                 limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+    return db.load(sql);
+}
+
+exports.countSearchByBrand = (str) => {
+    var sql = `select count(*) as total from sanpham where where NhaSanXuat = (select ID from nhasanxuat where TenNSX like N'%${str}%')`;
     return db.load(sql);
 }
 
 exports.searchByCategory = (strSearch) => {
     var sql = `select * from sanpham 
                 where loai = (select ID from loai where TenLoai like N'%${strSearch}%)`;
+    return db.load(sql);
+}
+
+exports.loadSearchByCategory = (str, offset) => {
+    var sql = `select * from sanpham 
+                where loai = (select ID from loai where TenLoai like N'%${str}%) 
+                limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+    return db.load(sql);
+}
+
+exports.countSearchByCategory = (str) => {
+    var sql = `select count(*) as total from sanpham where loai = (select ID from loai where TenLoai like N'%${str}%)`;
     return db.load(sql);
 }
 
