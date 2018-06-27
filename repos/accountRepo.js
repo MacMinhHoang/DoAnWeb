@@ -41,6 +41,11 @@ exports.update = (c) => {
     return db.save(sql);
 }
 
+exports.changePass = (cusID, pass) => {
+    var sql = `update khachhang set MatKhau = '${pass}' where ID = ${cusID}`;
+    return db.save(sql);
+}
+
 exports.checkUsername = (name) => {
     var sql = `select * from khachhang where TenDangNhap = '${name}'`;
     return db.load(sql);
