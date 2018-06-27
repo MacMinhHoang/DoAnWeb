@@ -1,7 +1,18 @@
 var db = require('../fn/db');
+var config = require('../config/config');
 
 exports.searchByName = (strSearch) => {
     var sql = `select * from sanpham where Ten like N'%${strSearch}%'`;
+    return db.load(sql);
+}
+
+exports.loadSearchByName = (str, offset) => {
+    var sql = `select * from sanpham where Ten like N'%${str}%' limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+    return db.load(sql);
+}
+
+exports.countSearchByName = (str) => {
+    var sql = `select count(*) as total from sanpham where Ten like N'%${str}%'`;
     return db.load(sql);
 }
 
