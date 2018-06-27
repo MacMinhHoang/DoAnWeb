@@ -38,7 +38,7 @@ exports.searchByBrand = (strSearch) => {
 
 exports.loadSearchByBrand = (str, offset) => {
     var sql = `select * from sanpham 
-                where NhaSanXuat = (select ID from nhasanxuat where TenNSX like N'%${str}%')
+                where NhaSanXuat = (select ID from nhasanxuat where TenNSX like N'%${str}%') 
                  limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
     return db.load(sql);
 }
@@ -56,7 +56,7 @@ exports.searchByCategory = (strSearch) => {
 
 exports.loadSearchByCategory = (str, offset) => {
     var sql = `select * from sanpham 
-                where loai = (select ID from loai where TenLoai like N'%${str}%) 
+                where loai = (select ID from loai where TenLoai like N'%${str}%') 
                 limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
     return db.load(sql);
 }
