@@ -1,4 +1,5 @@
 var db = require('../fn/db');
+var config = require('../config/config');
 
 exports.loadAll = () => {
     var sql = 'select * from sanpham';
@@ -80,4 +81,24 @@ exports.searchbyBrand = (ID) => {
 exports.searchbyCat =  (ID) => {
     var sql = `select s.* from sanpham s, loai l where s.Loai = l.ID and l.ID = '${ID}'`;
     return db.save(sql);
+}
+
+exports.loadAllByCat = (catId, offset) => {
+    var sql = `select * from sanpham where Loai = ${catId} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+    return db.load(sql);
+}
+
+exports.countByCat = (catId) => {
+    var sql = `select count(*) as total from sanpham where Loai = ${catId}`;
+    return db.load(sql);
+}
+
+exports.loadAllByBrand = (ID, offset) => {
+    var sql = `select * from sanpham where NhaSanXuat = ${ID} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+    return db.load(sql);
+}
+
+exports.countByBrand = (ID) => {
+    var sql = `select count(*) as total from sanpham where NhaSanXuat = ${ID}`;
+    return db.load(sql);
 }
