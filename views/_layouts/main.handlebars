@@ -108,19 +108,24 @@
                   <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle">
                     <a href="#">
                       <div class="cart-icon">
-                        <i class="icon-basket-loaded icons"></i><span class="cart-total">3</span>
+                        <i class="icon-basket-loaded icons"></i>
+                        <span class="cart-total">
+                        {{#each layoutVM.cartCount}}
+                          {{SoLuong}}
+                        {{/each}}
+                        </span>
                       </div>
                       <div class="shoppingcart-inner hidden-xs"><span class="cart-title">My Cart</span></div>
                     </a>
                   </div>
                   <div class="top-cart-content">
-                    <div class="block-subtitle hidden">Recently added items</div>
-                    <div class="top-subtotal">Subtotal: <span class="price">13.840.000 VND</span></div>
+                    {{!-- <div class="block-subtitle hidden">Recently added items</div>
+                    <div class="top-subtotal">Subtotal: <span class="price">13.840.000 VND</span></div> --}}
                     <div class="actions">
-                      <button class="btn-checkout" type="button" onClick="location.href='/checkout'">
+                      <button class="btn-checkout" type="button" onClick="location.href='/cart/checkout'">
                         <i class="fa fa-check"></i><span>Checkout</span>
                       </button>
-                      <button class="view-cart" type="button" onClick="location.href='/shopping_cart'">
+                      <button class="view-cart" type="button" onClick="location.href='/cart'">
                         <i class="fa fa-shopping-cart"></i><span>View Cart</span>
                       </button>
                     </div>
@@ -142,14 +147,14 @@
             <span class="mm-label">All Categories</span> </div>
             <div class="col-md-3 col-sm-3 mega-container hidden-xs">
               <div class="navleft-container">
-                <div class="mega-menu-title">
+                <div class="mega-menu-title" id="all-categories">
                   <h3><span>All Categories</span></h3>
                 </div>
 
                 <!-- Shop by category -->
                 <div class="mega-menu-category">
-                  <ul class="nav">
-                    <li><a href="javascript:void(0)">Cameras</a>
+                  <ul class="nav" id="list-cameras" style="display: none;">
+                    <li id="cameras"><a href="javascript:void(0)">Cameras</a>
                       <div class="wrap-popup column3">
                         <div class="popup">
                           <div class="row">
@@ -479,6 +484,18 @@
         var curURL = window.location.pathname;
         window.location.href = "/account/login?retUrl=" + curURL;
     });
+
+    setInterval(function(){
+      var $all_categories = $('#all-categories');
+      var $list_cameras = $('#list-cameras');
+      var $cameras = $('#cameras');
+      if ($all_categories.is(":hover") || $cameras.is(":hover")){
+        $list_cameras.css({"display": "block"});
+      }
+      else{
+        $list_cameras.css({"display": "none"});
+      }
+    }, 200);
 </script>
 
     {{{_sections.js}}}

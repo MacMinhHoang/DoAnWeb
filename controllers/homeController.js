@@ -18,7 +18,8 @@ router.get('/', (req, res) => {
 		 	newest: pRows1,
 		 	bestsell: pRows2,
 		 	mostview: pRows3,
-            manufacturers: pRows4
+            manufacturers: pRows4,
+            Login: req.session.user != null
         };
         res.render('home/index', vm);
 	});

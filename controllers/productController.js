@@ -226,7 +226,8 @@ router.get('/detail', (req, res) => {
 		var vm = {
 			singlePro: pRow1,
 			MoreFromThisBrand: pRow2,
-			MoreFromThisCategory: pRow3
+			MoreFromThisCategory: pRow3,
+            Login: req.session.user != null
 		};
 		res.render('product/detail', vm);
 	});
@@ -235,7 +236,8 @@ router.get('/detail', (req, res) => {
 router.get('/quickview', (req, res) => {
 	productRepo.single(req.query.id).then(result => {
 		var vm = {
-			quickview: result
+			quickview: result,
+            Login: req.session.user != null
 		};
 		res.render('product/quickview', vm);
 	});
@@ -288,7 +290,8 @@ router.get('/byBrand', (req, res) => {
             prev_page: prev > 0,
             prev_value: prev,
             next_page: nxt <= nPages,
-            next_value: nxt
+            next_value: nxt,
+            Login: req.session.user != null
         };
         res.render('product/byBrand', vm);
 	});
@@ -343,7 +346,8 @@ router.get('/byCat', (req, res) => {
             prev_page: prev > 0,
             prev_value: prev,
             next_page: nxt <= nPages,
-            next_value: nxt
+            next_value: nxt,
+            Login: req.session.user != null
         };
         res.render('product/byCat', vm);
     });

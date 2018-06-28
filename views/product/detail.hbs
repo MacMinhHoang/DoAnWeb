@@ -40,18 +40,6 @@
             }
             else
             {
-            	$('.mybtn').click(function(event){
-	                event.preventDefault();
-	                swal({
-	                  type: 'success',
-	                  title: 'Add Successfully',
-	                  showConfirmButton: false,
-	                  timer: 1500
-	                }).then((result) => {
-	                    $('.frmAddToCart').submit();
-	                });
-	            });
-
 	            $('.dec qtybutton').click(function(event) {
             		var val = $('#qty').val();
             		$('#qty').val(--val);
@@ -63,6 +51,40 @@
             }
         });
     </script>
+
+    {{#if Login}}
+        <script type="text/javascript">
+        if ($('#ProQuantity').val() != 0)
+        {
+          $('.mybtn').click(function(event){
+              event.preventDefault();
+              swal({
+                type: 'success',
+                title: 'Add Successfully',
+                showConfirmButton: false,
+                timer: 1500
+              }).then((result) => {
+                  $('.frmAddToCart').submit();
+              });
+          });
+      	}
+        </script>
+    {{else}}
+      <script type="text/javascript">
+      if ($('#ProQuantity').val() != 0)
+      {
+        $('.mybtn').click(function(event){
+              event.preventDefault();
+              swal({
+                type: 'error',
+                title: 'You have to login'
+              }).then((result) => {
+                  $('.frmAddToCart').submit();
+              });
+          });
+      }
+      </script>
+    {{/if}}
 {{/section}}
 
 {{#with singlePro}}

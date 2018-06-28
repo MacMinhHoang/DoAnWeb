@@ -8,6 +8,16 @@
 
 {{#section 'js'}}
 
+{{#if showError}}
+    <script type="text/javascript">
+      swal({
+        type: 'error',
+        title: 'Your cart is empty',
+        text: 'Please add at least one product!'
+      });
+    </script>
+{{/if}}
+
 <script type="text/javascript">
 
     $(function() {
@@ -122,6 +132,10 @@
           </div>
 
           <div class="order-detail-content">
+            {{#if isEmpty}}
+            <img src="/images/empty-cart.png" style="display: block; margin-left: auto; margin-right: auto;">
+            <br><br>
+            {{else}}
             <div class="table-responsive">
               <table class="table table-bordered cart_summary" id="list-cart">
                 <thead>
@@ -174,9 +188,10 @@
                 </tfoot>
               </table>
             </div>
+            {{/if}}
             <div class="cart_navigation"> 
               <a class="continue-btn" href="/home"><i class="fa fa-arrow-left"> </i>&nbsp; Continue shopping</a> 
-              <a class="checkout-btn button" id="btnCheckOut" role="button">
+              <a class="checkout-btn button" href="/cart/checkout" role="button">
                 <i class="fa fa-check"></i> Proceed to checkout
               </a> 
             </div>

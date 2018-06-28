@@ -1,5 +1,6 @@
 var categoryRepo = require('../repos/categoryRepo'),
-    manuRepo = require('../repos/manufacturerRepo');
+    manuRepo = require('../repos/manufacturerRepo'),
+    cartRepo = require('../repos/cartRepo');
 
 
 module.exports = (req, res, next) => {
@@ -9,8 +10,12 @@ module.exports = (req, res, next) => {
     }
 
     var userLogged = false;
+    var id = 99999999;
     if (req.session.user != null)
+    {
         userLogged = true;
+        id = req.session.user.ID;
+    }
 
     // if (req.session.admin === null || req.session.admin === undefined)
     {
@@ -18,9 +23,10 @@ module.exports = (req, res, next) => {
     	    p2 = categoryRepo.loadWithLimit(4, 2),
             p3 = manuRepo.loadWithLimit(3, 0),
             p4 = manuRepo.loadWithLimit(3, 3),
-            p5 = manuRepo.loadWithLimit(3, 6);
+            p5 = manuRepo.loadWithLimit(3, 6),
+            p6 = cartRepo.count(id);
         
-        Promise.all([p1, p2, p3, p4, p5]).then(([pRows1, pRows2, pRows3, pRows4, pRows5]) => {
+        Promise.all([p1, p2, p3, p4, p5, p6]).then(([pRows1, pRows2, pRows3, pRows4, pRows5, count]) => {
             res.locals.layoutVM = {
                 Cat1: pRows1,
                 Cat2: pRows2,
@@ -28,7 +34,8 @@ module.exports = (req, res, next) => {
                 Manu2: pRows4,
                 Manu3: pRows5,
                 isLogged: userLogged,
-                curUser: req.session.user
+                curUser: req.session.user,
+                cartCount: count
             };
             next();
         });
