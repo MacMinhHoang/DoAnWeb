@@ -9,30 +9,51 @@
 	<script type="text/javascript" src="/js/jquery.flexslider.js"></script> 
 	<!--cloud-zoom js --> 
 	<script type="text/javascript" src="/js/cloud-zoom.js"></script>
+	<script type='text/javascript'>
+        jQuery(document).ready(function(){
+        	$('#quick_view_popup-close').on('click', function(){
+		        window.history.back();
+		    });
 
-	<script type="text/javascript">
-		$('#quick_view_popup-close').on('click', function(){
-	        window.history.back();
-	    });
+            if ($('#ProQuantity').val() == 0)
+            {
+            	$('#proStock').html('Out of stock');
+            	$('#proStock').css('background-color', 'red');
+            	$('#qty').val(0);
+            	$('.dec qtybutton').click(function(event) {
+            		event.preventDefault();
+            	});
+            	$('.inc qtybutton').click(function(event) {
+            		event.preventDefault();
+            	});
+            	$('.mybtn').click(function(event){
+	                event.preventDefault();
+	                // swal({
+	                //   type: 'error',
+	                //   title: 'Error',
+	                //   text: 'Product is out of stock!'
+	                // });
+	            });
+            }
+            else
+            {
+	            $('.dec qtybutton').click(function(event) {
+            		var val = $('#qty').val();
+            		$('#qty').val(--val);
+            	});
+            	$('.inc qtybutton').click(function(event) {
+            		var val = $('#qty').val();
+            		$('#qty').val(++val);
+            	});
+            }
+        });
+    </script>
 
-	    // jQuery(document).ready(function(){
-     //        $('.pro-add-to-cart').click(function(event){
-     //            event.preventDefault();
-     //            swal({
-     //              type: 'success',
-     //              title: 'Add Successfully',
-     //              showConfirmButton: false,
-     //              timer: 1500
-     //            }).then((result) => {
-     //                $('.frmAddToCart').submit();
-     //            });
-     //        });
-     //    });
-	</script>
-
-	{{#if Login}}
+    {{#if Login}}
         <script type="text/javascript">
-          $('.pro-add-to-cart').click(function(event){
+        if ($('#ProQuantity').val() != 0)
+        {
+          $('.mybtn').click(function(event){
               event.preventDefault();
               swal({
                 type: 'success',
@@ -43,10 +64,13 @@
                   $('.frmAddToCart').submit();
               });
           });
+      	}
         </script>
     {{else}}
       <script type="text/javascript">
-        $('.pro-add-to-cart').click(function(event){
+      if ($('#ProQuantity').val() != 0)
+      {
+        $('.mybtn').click(function(event){
               event.preventDefault();
               swal({
                 type: 'error',
@@ -55,6 +79,7 @@
                   $('.frmAddToCart').submit();
               });
           });
+      }
       </script>
     {{/if}}
 {{/section}}
@@ -67,7 +92,6 @@
 			<div style="width:auto;height:auto;overflow: auto;position:relative;">
 				<div class="product-view-area">
 					<div class="product-big-image col-xs-12 col-sm-5 col-lg-5 col-md-5">
-						<div class="icon-sale-label sale-left">Sale</div>
 						<div class="large-image"> <a href="{{HinhAnh}}" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img class="zoom-img" src="{{HinhAnh}}"> </a> </div>
 						<div class="flexslider flexslider-thumb">
 							<ul class="previews-list slides">
@@ -90,7 +114,7 @@
 						</div>
 						<!-- end: more-images --> 
 					</div>
-
+					<input type="hidden" id="ProQuantity" value="{{SoLuongTon}}">
 					<div class="col-xs-12 col-sm-7 col-lg-7 col-md-7">
 						<div class="product-details-area">
 							<div class="product-name">
@@ -101,21 +125,24 @@
 							</div>
 							<div class="ratings">
 								<div class="rating">
-									<p class="availability in-stock pull-right">Availability: <span>In Stock</span></p>
+									<p class="availability in-stock pull-right">Availability: <span id="proStock">In Stock</span></p>
 								</div>
 							</div>
         				</div>
 				        <div class="product-variation">
 				        	<form action="/cart/add?id={{ID}}" method="post" class='frmAddToCart'>
 				        		<div class="cart-plus-minus">
-				        			<label for="qty">Quantity:</label>
-				        			<div class="numbers-row">
-				        				<div onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="dec qtybutton"><i class="fa fa-minus">&nbsp;</i></div>
-				        				<input type="text" class="qty" title="Qty" value="1" maxlength="12" id="qty" name="qty">
-				        				<div onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="inc qtybutton"><i class="fa fa-plus">&nbsp;</i></div>
-				        			</div>
-				        		</div>
-				        		<button class="button pro-add-to-cart" title="Add to Cart" type="submit"><span><i class="fa fa-shopping-basket"></i> Add to Cart</span></button>
+									<label for="qty">Quantity:</label>
+									<div class="numbers-row">
+										<div class="dec qtybutton"><i class="fa fa-minus">&nbsp;</i></div>
+										<input type="number" class="qty" title="Qty" value="1" min="1" max="10" 
+										id="qty" name="proQty">
+										<div class="inc qtybutton"><i class="fa fa-plus">&nbsp;</i></div>
+									</div>
+								</div>
+								<button class="mybtn button pro-add-to-cart" title="Add to Cart" type="submit">
+									<span><i class="fa fa-shopping-basket"></i> Add to Cart</span>
+								</button>
 				        	</form>
 				        </div>
 	    			</div>

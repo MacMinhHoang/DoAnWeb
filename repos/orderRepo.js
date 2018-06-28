@@ -61,9 +61,8 @@ exports.add = (c) => {
     return db.save(sql);
 }
 
-exports.addOrderProducts = (IDKH, IDDH) => {
+exports.addOrderProduct = (IDDH, SP, SL) => {
     var sql = `insert into sp_dh (DonHang, SanPham, SoLuong)
-                select ${IDDH}, IDSP, SoLuong from giohang
-                where IDKH = ${IDKH}`;
+                values (${IDDH}, ${SP}, ${SL})`;
     return db.save(sql);
 }

@@ -30,7 +30,7 @@ exports.update = (c) => {
     var sql;
     sql = `update sanpham set Ten = '${c.proName}', HinhAnh = '/images/products/${c.proPic}', 
     GiaBan = ${c.proPrice}, SoLuotXem = ${c.proViews}, SoLuongTon = ${c.proInStore}, SoLuongBan = ${c.proSold},
-    MoTa = '${c.proDes}', Loai = ${c.proCat}, NhaSanXuat = ${c.proSup}, NgayTiepNhan = ${c.proDate}
+    MoTa = '${c.proDes}', Loai = ${c.proCat}, NhaSanXuat = ${c.proSup}, NgayTiepNhan = '${c.proDate}'
     where ID = ${c.proID}`;
     return db.save(sql);
 }
@@ -38,8 +38,8 @@ exports.update = (c) => {
 exports.updateWithoutPic = (c) => {
     var sql;
     sql = `update sanpham set Ten = '${c.proName}', GiaBan = ${c.proPrice}, SoLuotXem = ${c.proViews}, 
-    SoLuongTon = ${c.proInStore}, SoLuongBan = ${c.proSold}, MoTa = '${c.proDes}', Loai = ${c.proCat}, NhaSanXuat = ${c.proSup}, NgayTiepNhan = ${c.proDate}
-    where ID = ${c.proID}`;
+    SoLuongTon = ${c.proInStore}, SoLuongBan = ${c.proSold}, MoTa = '${c.proDes}', Loai = ${c.proCat}, 
+    NhaSanXuat = ${c.proSup}, NgayTiepNhan = '${c.proDate}' where ID = ${c.proID}`;
     return db.save(sql);
 }
 
@@ -53,7 +53,7 @@ exports.add = (c) => {
     var sql = `insert into sanpham 
     (Ten, HinhAnh, GiaBan, SoLuotXem, SoLuongTon, SoLuongBan, MoTa, Loai, NhaSanXuat, NgayTiepNhan) values
     ('${c.proName}', '/images/products/${c.proPic}', ${c.proPrice}, ${c.proViews}, ${c.proInStore}, ${c.proSold}, 
-    '${c.proDes}', ${c.proCat}, ${c.proSup}, ${c.proDate})`;
+    '${c.proDes}', ${c.proCat}, ${c.proSup}, '${c.proDate}')`;
     return db.save(sql);
 }
 // san pham moi nhat (10 cai dau)

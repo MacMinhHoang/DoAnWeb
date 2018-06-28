@@ -91,20 +91,29 @@
         <script type="text/javascript">
           $('.add-to-cart').click(function(event){
               event.preventDefault();
-              swal({
-                type: 'success',
-                title: 'Add Successfully',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'View cart',
-                cancelButtonText: 'Continue shopping'
-              }).then((result) => {
-                  if (result.value)
-                    $(this).prevAll('input').val('1');
-                  
-                  $(this).parent('.frmAddToCart').submit();
-              });
+              if ($(this).nextAll('input').val() == 0)
+              {
+                swal({
+                  type: 'error',
+                  title: 'Product out of stock!'
+                });
+              }
+              else {
+                swal({
+                  type: 'success',
+                  title: 'Add Successfully',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'View cart',
+                  cancelButtonText: 'Continue shopping'
+                }).then((result) => {
+                    if (result.value)
+                      $(this).prevAll('input').val('1');
+                   
+                    $(this).parent('.frmAddToCart').submit();
+                });
+              }
           });
         </script>
     {{else}}
@@ -249,6 +258,7 @@
                                   <input value="1" name="proQty" type="hidden">
                                   <input value="0" name="viewCart" type="hidden">
                                   <button type="submit" class="add-to-cart"><span> Add to Cart</span> </button>
+                                  <input value="{{SoLuongTon}}" type="hidden">
                                 </form>
                             </div>
                         </div>
@@ -323,6 +333,7 @@
                                   <input value="1" name="proQty" type="hidden">
                                   <input value="0" name="viewCart" type="hidden">
                                   <button type="submit" class="add-to-cart"><span> Add to Cart</span> </button>
+                                  <input value="{{SoLuongTon}}" type="hidden">
                                 </form>
                             </div>
                         </div>
@@ -378,6 +389,7 @@
                                   <input value="1" name="proQty" type="hidden">
                                   <input value="0" name="viewCart" type="hidden">
                                   <button type="submit" class="add-to-cart"><span> Add to Cart</span> </button>
+                                  <input value="{{SoLuongTon}}" type="hidden">
                                 </form>
                             </div>
                         </div>

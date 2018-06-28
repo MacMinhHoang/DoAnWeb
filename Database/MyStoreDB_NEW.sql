@@ -17,7 +17,6 @@ DROP TABLE IF EXISTS `khachhang`;
 CREATE TABLE `khachhang` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `HoTen` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
-  --
   `NgaySinh` varchar(20) DEFAULT NULL,
   `DiaChi` varchar(200) CHARACTER SET utf8 DEFAULT NULL,
   `SDT` char(12) DEFAULT NULL,

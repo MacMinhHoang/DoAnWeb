@@ -2,7 +2,7 @@ var db = require('../fn/db');
 
 
 exports.add = (IDKH, IDSP, Soluong) => {
-    var sql = `insert into giohang values('${IDKH}', '${IDSP}', ${Soluong})`;
+    var sql = `insert into giohang values(${IDKH}, ${IDSP}, ${Soluong})`;
     return db.save(sql);
 }
 
@@ -27,8 +27,7 @@ exports.remove = (IDKH, IDSP) => {
 }
 
 exports.loadAll = (IDKH) => {
-	var sql = `select * from sanpham, giohang
-				where ID = IDSP and IDKH = ${IDKH}`;
+	var sql = `select *, GiaBan * SoLuong as Price from sanpham, giohang where ID = IDSP and IDKH = ${IDKH}`;
 	return db.load(sql);
 }
 

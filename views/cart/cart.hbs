@@ -21,8 +21,8 @@
 <script type="text/javascript">
 
     $(function() {
-      var $totalPrice = $('.myTotal');
-      var totalPrice = 0;
+      // var $totalPrice = $('.myTotal');
+      // var totalPrice = 0;
 
       // function numberFormat(number) {
       //   var strNumber = number.toString();
@@ -41,26 +41,26 @@
       // }
 
       // Tính tổng từng hàng => tổng giỏ hàng
-      $('.row-tb-cart').each(function () {
+      // $('.row-tb-cart').each(function () {
 
-        // var $proID = $(this).find('td:first');                // Cột ID sp
-        // var $proName = $(this).find('td:nth-child(2)');       // Cột Tên sp
-        var $proUnitPrice = $(this).find('td:nth-child(3)');  // Cột Giá 1 sp
-        var $proQty = $(this).find('td:nth-child(4)');        // Cột Số lượng sp
-        var $proTotal = $(this).find('td:nth-child(5)');      // Cột Tổng giá
-        var $proDel = $(this).find('td:nth-child(6)');        // Cột Xóa cart
+      //   // var $proID = $(this).find('td:first');                // Cột ID sp
+      //   // var $proName = $(this).find('td:nth-child(2)');       // Cột Tên sp
+      //   var $proUnitPrice = $(this).find('td:nth-child(3)');  // Cột Giá 1 sp
+      //   var $proQty = $(this).find('td:nth-child(4)');        // Cột Số lượng sp
+      //   var $proTotal = $(this).find('td:nth-child(5)');      // Cột Tổng giá
+      //   var $proDel = $(this).find('td:nth-child(6)');        // Cột Xóa cart
 
-        var proUnitPrice = $proUnitPrice.children(':input').val();  // Giá 1 sp
-        var proQty = $proQty.children().children(':input').val();   // Số lượng sp
-        var proTotal = proUnitPrice * proQty;                       // Tổng giá
-        $proTotal.children(':input').val(proTotal);
-        $proTotal.children('span').text(proTotal + ' VND');
+      //   var proUnitPrice = $proUnitPrice.children(':input').val();  // Giá 1 sp
+      //   var proQty = $proQty.children().children(':input').val();   // Số lượng sp
+      //   var proTotal = proUnitPrice * proQty;                       // Tổng giá
+      //   $proTotal.children(':input').val(proTotal);
+      //   $proTotal.children('span').text(proTotal + ' VND');
         
-        totalPrice += proTotal;
-      });
+      //   totalPrice += proTotal;
+      // });
 
-      $totalPrice.children(':input').val(totalPrice);
-      $totalPrice.children('span').text(totalPrice + ' VND');
+      // $totalPrice.children(':input').val(totalPrice);
+      // $totalPrice.children('span').text(totalPrice + ' VND');
 
       // Thay đổi số lượng của 1 sp nào đó
       $('.myQty').each(function() {
@@ -73,20 +73,20 @@
           $(this).val(proQty);
           $(this).parent().submit();
 
-          var $proUnitPrice = $(this).parents('td').prev();
-          var $proTotal = $(this).parents('td').next();
-          var proUnitPrice = $proUnitPrice.children(':input').val();
-          var old_proTotal = $proTotal.children(':input').val();
+          // var $proUnitPrice = $(this).parents('td').prev();
+          // var $proTotal = $(this).parents('td').next();
+          // var proUnitPrice = $proUnitPrice.children(':input').val();
+          // var old_proTotal = $proTotal.children(':input').val();
 
-          // Update Tổng giá của sp
-          var new_proTotal = proQty * proUnitPrice;
-          $proTotal.children(':input').val(new_proTotal);
-          $proTotal.children('span').text(new_proTotal + ' VND'); 
+          // // Update Tổng giá của sp
+          // var new_proTotal = proQty * proUnitPrice;
+          // $proTotal.children(':input').val(new_proTotal);
+          // $proTotal.children('span').text(new_proTotal + ' VND'); 
 
-          //Update Tổng giá của giỏ hàng
-          totalPrice += (new_proTotal - old_proTotal);
-          $totalPrice.children(':input').val(totalPrice);
-          $totalPrice.children('span').text(totalPrice + ' VND');
+          // //Update Tổng giá của giỏ hàng
+          // totalPrice += (new_proTotal - old_proTotal);
+          // $totalPrice.children(':input').val(totalPrice);
+          // $totalPrice.children('span').text(totalPrice + ' VND');
         });
       });
 
@@ -101,11 +101,11 @@
                   showConfirmButton: false,
                   timer: 1500
             }).then((result) => {
-                var $delItem = $this.parents('td').prev();        // Lấy cột Total
-                var delItem = $delItem.children(':input').val();  // Lấy giá trị cột Total
-                totalPrice -= delItem;
-                $totalPrice.children(':input').val(totalPrice);
-                $totalPrice.children('span').text(totalPrice + ' VND');
+                // var $delItem = $this.parents('td').prev();        // Lấy cột Total
+                // var delItem = $delItem.children(':input').val();  // Lấy giá trị cột Total
+                // totalPrice -= delItem;
+                // $totalPrice.children(':input').val(totalPrice);
+                // $totalPrice.children('span').text(totalPrice + ' VND');
 
                 $this.parent().submit();
                 $this.remove();
@@ -163,12 +163,13 @@
                     </td>
                     <td class="qty">
                       <form action="/cart/update?id={{ID}}" method="post" class="frmAddToCart">
-                        <input class="myQty form-control input-sm" type="number" min="1" max="10" value="{{SoLuong}}" name="proQty">
+                        <input class="myQty form-control input-sm" type="number" min="1" max="{{SoLuongTon}}" 
+                        value="{{SoLuong}}" name="proQty">
                       </form>
                     </td>
                     <td class="row-total">
                       <input type="hidden" value="0">
-                      <span></span>
+                      <span>{{number_format Price}} VND</span>
                     </td>
                     <td class="action">
                       <form action="/cart/remove?id={{ID}}" method="post" class="frmRemoveCart">
@@ -183,7 +184,12 @@
                 <tfoot>
                   <tr>
                     <td colspan="3"><strong>Total</strong></td>
-                    <td colspan="2" class="myTotal"><input type="hidden" value="0"><span></span></td>
+                    <td colspan="2" class="myTotal"><input type="hidden" value="0">
+                      <span>
+                      {{#each ToTalPrice}}
+                      {{number_format Tong}} VND
+                      {{/each}}
+                      </span></td>
                   </tr>
                 </tfoot>
               </table>

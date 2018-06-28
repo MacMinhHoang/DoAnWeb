@@ -21,13 +21,16 @@ router.get('/', restrict, (req, res) => {
 		}
 		else
 		{
-			cartRepo.loadAll(req.session.user.ID).then(rows => {
-				var vm = {
-					cart: rows,
-					isEmpty: false
-				};
-			    res.render('cart/cart', vm);
-			});
+			var p1 = cartRepo.loadAll(req.session.user.ID),
+				p2 = cartRepo.calculateTotal(req.session.user.ID);
+			Promise.all([p1, p2]).then(([rows, c]) => {
+		        var vm = {
+		            cart: rows,
+		            ToTalPrice: c,
+		            isEmpty: false
+		        };
+		        res.render('cart/cart', vm);
+		    });	
 		}
 	});
 });
@@ -43,16 +46,13 @@ router.post('/add', (req, res) => {
 	{
 		cartRepo.isExisted(req.session.user.ID, req.query.id).then(rows => {
 			if (rows.length > 0)
-				cartRepo.update(req.session.user.ID, req.query.id, req.body.proQty).then(result => {
-					res.redirect(req.headers.referer);
-				});
+				cartRepo.update(req.session.user.ID, req.query.id, req.body.proQty);
 			else	
-		    	cartRepo.add(req.session.user.ID, req.query.id, req.body.proQty).then(result => {
-					res.redirect(req.headers.referer);
-				});
+		    	cartRepo.add(req.session.user.ID, req.query.id, req.body.proQty);
 		});
 		if (req.body.viewCart == 1)
 			res.redirect('/cart');
+		else res.redirect(req.headers.referer);
 	}	
 });
 
@@ -97,22 +97,24 @@ router.get('/checkout', restrict, (req, res) => {
 });
 
 router.post('/checkout', (req, res) => {
-	orderRepo.add(req.body);
-	orderRepo.singleNewlyAdded().then(rows => {
-		var orderID = rows[0].ID;
-		orderRepo.addOrderProducts(req.session.user.ID, orderID);
-		cartRepo.loadAll(req.session.user.ID).then(pros => {
-			for (i = 0; i < pros.length; i++)
-			{
-				productRepo.updateAfterBought(pros[i].ID, pros[i].SoLuong);
-			}
+	orderRepo.add(req.body).then(a => {
+		orderRepo.singleNewlyAdded().then(rows => {
+			var orderID = rows[0].ID;
+			cartRepo.loadAll(req.session.user.ID).then(pros => {
+				for (i = 0; i < pros.length; i++)
+				{
+					productRepo.updateAfterBought(pros[i].ID, pros[i].SoLuong)
+					orderRepo.addOrderProduct(orderID, pros[i].ID, pros[i].SoLuong);
+				}
+			});
+			cartRepo.delete(req.session.user.ID).then(b => {
+				var vm = {
+					user: req.session.user.HoTen,
+					order: orderID
+				}
+				res.render('cart/order_success', vm);
+			});
 		});
-		cartRepo.delete(req.session.user.ID);
-		var vm = {
-			user: req.session.user.HoTen,
-			order: orderID
-		}
-		res.render('cart/order_success', vm);
 	});
 });
 

@@ -220,13 +220,17 @@ router.get('/detail', (req, res) => {
 	var p1 = productRepo.single(req.query.id);
 	var p2 = searchRepo.listSameBrand(req.query.id, 5);
 	var p3 = searchRepo.listSameCategory(req.query.id, 5);
+    var p4 = manuRepo.singleProID(req.query.id);
+    var p5 = catRepo.singleProID(req.query.id);
 	
 	productRepo.updateViews(req.query.id);
-	Promise.all([p1, p2, p3]).then(([pRow1, pRow2, pRow3]) => {
+	Promise.all([p1, p2, p3, p4, p5]).then(([pRow1, pRow2, pRow3, manu, cat]) => {
 		var vm = {
 			singlePro: pRow1,
 			MoreFromThisBrand: pRow2,
 			MoreFromThisCategory: pRow3,
+            Manu: manu.TenNSX,
+            Cat: cat.TenLoai,
             Login: req.session.user != null
 		};
 		res.render('product/detail', vm);
