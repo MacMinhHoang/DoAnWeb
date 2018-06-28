@@ -31,3 +31,22 @@ exports.loadAll = (IDKH) => {
 				where ID = IDSP and IDKH = ${IDKH}`;
 	return db.load(sql);
 }
+
+exports.count = (IDKH) => {
+    var sql = `select count(*) as SoLuong from sanpham, giohang
+                where ID = IDSP and IDKH = ${IDKH}`;
+    return db.load(sql);
+}
+
+exports.calculateTotal = (IDKH) => {
+    var sql = `select sum(price) as Tong from 
+                (select (GiaBan * Soluong) as price 
+                from sanpham, giohang
+                where ID = IDSP and IDKH = ${IDKH}) as x`;
+    return db.load(sql);
+}
+
+exports.delete = (IDKH) => {
+    var sql = `delete from giohang where IDKH = ${IDKH}`;
+    return db.save(sql);
+}

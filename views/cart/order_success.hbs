@@ -19,9 +19,9 @@
       </div>
       <div class="col-md-6">
         <h2>Thank you for your order!</h2>
-        <p>Hello John Cena! Thank you for purchasing from our store.</p><br>
+        <p>Hello {{user}}! Thank you for purchasing from our store.</p><br>
         <h4>Here's your order ID:</h4>
-        <a href="order_details.html" class="btn btn-success btn-lg" role="button">2556169</a>
+        <a href="/account/orders/detail?id={{order}}" class="btn btn-success btn-lg" role="button">{{order}}</a>
         <br><br>
         
       </div>

@@ -102,3 +102,9 @@ exports.countByBrand = (ID) => {
     var sql = `select count(*) as total from sanpham where NhaSanXuat = ${ID}`;
     return db.load(sql);
 }
+
+exports.updateAfterBought = (ID, SoLuong) => {
+    var sql = `update sanpham set SoLuongBan = SoLuongBan + ${SoLuong}, SoLuongTon = SoLuongTon - ${SoLuong}
+    where ID = ${ID}`;
+    return db.save(sql);
+}
